@@ -110,7 +110,7 @@ However, these values are not always reachable without generating a bug. They re
 
 No anlytical model of the physical constraints of the robot was found. Hence, a data-driven approach was adopted.
 
-In order to extract coherent values for the limits of the robot poses, a dataset have been created by hand. The dataset creation is available in the [`robot-space-limit-testing.py`](robot-space-limit-testing.py) script.
+In order to extract coherent values for the limits of the robot poses, a dataset have been created by hand. The dataset creation is available in the [`robot-space-limit-testing.py`](robot-config-space/robot-space-limit-testing.py) script.
 
 #### Methodology
 
@@ -118,19 +118,19 @@ The script generates a set of random poses for the robot. The evaluator has to l
 
 #### Results
 
-The final dataset can be found under the name [`pose_dataset_2.json`](pose_dataset_2.json).
+The final dataset can be found under the name [`pose_dataset_2.json`](robot-config-space/pose_dataset_2.json).
 
-**Note :** There is also a dataset named [`pose_dataset_1.json`](pose_dataset_1.json), but it is now obsolete due to structural change into the analysis scripts. However, it can be used. Only the analysis scripts need to be adapted.
+**Note :** There is also a dataset named [`pose_dataset_1.json`](robot-config-space/pose_dataset_1.json), but it is now obsolete due to structural change into the analysis scripts. However, it can be used. Only the analysis scripts need to be adapted.
 
 ### Statistical Analysis of Dependencies
 
-Some variables are highly correlated with others. For instance, when the robot has the head rather down, then it cannot really rotate it from backwards to forwards.
+Some variables are highly correlated with others, and knowing this will help defining limitation rules. For instance, when the robot has the head rather down, then it cannot really rotate it from backwards to forwards.
 
-To be able to see which variables are intrinsically correlated, a Principal Component Analysis (PCA)****. This can be done with the Python library `sklearn.decomposition`, from which the `PCA` module can be imported.
+To be able to see which variables are intrinsically correlated, a **Principal Component Analysis (PCA)**. This can be done with the Python library `sklearn.decomposition`, from which the `PCA` module can be imported.
 
 #### Variable Correlation Analysis
 
-The [`correlation-analysis.py`](correlation-analysis.py) script browse a given dataset to make a PCA on the data. It collects the **features** in a vector $X$ containing the following columns:
+The [`correlation-analysis.py`](robot-config-space/correlation-analysis.py) script browses a given dataset to make a PCA on the data. It collects the **features** in a vector $X$ containing the following columns:
 
 - x
 - y
@@ -159,7 +159,7 @@ The correlation circle obtained from the dataset is the following one:
 
 It can be observed that $pitch$ is highly correlated with $z$, $roll$ with $y$ and $x$ with $yaw$ and $body$ $yaw$.
 
-The antenas do not seem to be correlated with $z$, nor with $x$, due to the angle that is close to 90°. At least, $ant1$ with $x$, and $ant2$ with $yaw$, knowing that $x$ and $yaw$ are highly correlated. However, the do seem to be inversely correlated with $roll$.
+The antenas do not seem to be correlated with $z$, nor with $x$, due to the angle that is close to 90°. At least, $ant1$ with $x$, and $ant2$ with $yaw$, knowing that $x$ and $yaw$ are highly correlated. However, they do seem to be inversely correlated with $roll$. If we observe the impact of $roll$ which is correlated to $y$ on Reachy Mini, here is what we get:
 
 |                              Classic                              |                        Impact of $roll$                         |                       Impact of $y$                       |
 | :---------------------------------------------------------------: | :-------------------------------------------------------------: | :-------------------------------------------------------: |
@@ -171,7 +171,7 @@ In the future, for more precision, it will be possible to proceed to a **multipl
 
 ### Implementation of Rules in the Robot Configuration Space
 
-Based on the observed correlations, **linear dependency rules** were defined to restrict the robot configuration space to physically reachable poses.
+Based on the observed correlations, **linear dependency rules** are defined to restrict the robot configuration space to physically reachable poses.
 
 In order to define them, it is necessary to check which position is right, which one is wrong. As shown in the correlation analysis, $pitch$ is highly correlated with $z$, $roll$ with $y$ and $x$ with $yaw$ and $body$ $yaw$.
 
@@ -205,10 +205,10 @@ This form will allow to set coherent limitation rules to the robot poses.
 
 #### Limit Values Extraction Script
 
-The [`rules-extraction.py`](rules-extraction.py) script has been created in order to extract rules from a given dataset. If a pose is labelled as non-OK, then this position should not be reached. The script uses multiple linear regression to extract all the fitting values from the dataset, and thus proposes limit values.
+The [`rules-extraction.py`](robot-config-space/rules-extraction.py) script has been created in order to extract rules from a given dataset. If a pose is labelled as non-OK, then this position should not be reached. The script uses multiple linear regression to extract all the fitting values from the dataset, and thus proposes limit values.
 
 ##### Results
-The results of the limit values are available into the [`rules.json`](rules.json) file. They have been computed according to the [`pose_dataset_2.json`](pose_dataset_2.json) dataset, and propose $a$, $b$ and $sigma$ values for each one of the 3 rules.
+The results of the limit values are available into the [`rules.json`](robot-config-space/rules.json) file. They have been computed according to the [`pose_dataset_2.json`](robot-config-space/pose_dataset_2.json) dataset, and propose $a$, $b$ and $sigma$ values for each one of the 3 rules.
 
 #### Impact on the Final Pose
 
