@@ -6,13 +6,21 @@ from reachy_mini import ReachyMini
 from reachy_mini.utils import create_head_pose
 
 # ========= PARAMÈTRES =========
-N_SAMPLES = 1000          # nombre de tests à faire
+N_SAMPLES = 10         # nombre de tests à faire
 DURATION = 1.5            # durée de chaque mouvement
-OUTPUT_FILE = "pose_dataset_3.json"
+OUTPUT_FILE = "pose_datasets/pose_dataset_4.json"
 SEED = 42                 # pour reproductibilité
 # ==============================
 
 random.seed(SEED)
+
+# Chargement des regles
+with open("rules/rules_2.json") as f:
+    RULES = json.load(f)
+# Bruit pour l'ecart-type
+def noise(sigma, k=0.5):
+    """Bruit borné (± k * sigma)."""
+    return random.uniform(-k * sigma, k * sigma)
 
 def rint(a, b):
     """Entier uniforme inclusif."""
@@ -25,20 +33,50 @@ def rfloat_1(a, b):
 
 
 def sample_pose():
-    """Échantillonnage volontairement large (agressif)."""
+    # --- variables libres ---
+    x = rint(-40, 40)
+    y = rint(-60, 60)
+    z = rint(-60, 60)
+
+    # --- règles ---
+    pitch_rule = RULES["pitch_from_z"]
+    roll_rule = RULES["roll_from_y"]
+    yaw_rule = RULES["yaw_from_x"]
+
+    pitch = (
+        pitch_rule["a"] * z
+        + pitch_rule["b"]
+        + noise(pitch_rule["sigma"], k=0.01)
+    )
+
+    roll = (
+        roll_rule["a"] * y
+        + roll_rule["b"]
+        + noise(roll_rule["sigma"], k=0.01)
+    )
+
+    yaw = (
+        yaw_rule["a"] * x
+        + yaw_rule["b"]
+        + noise(yaw_rule["sigma"], k=0.01)
+    )
+
+    # --- hard safety clamps ---
+    pitch = int(max(-30, min(30, pitch)))
+    roll = int(max(-30, min(30, roll)))
+    yaw = int(max(-45, min(45, yaw)))
+
     return {
-        "x": rint(-40, 40),
-        "y": rint(-60, 60),
-        "z": rint(-60, 60),
-        "roll": rint(-50, 50),
-        "pitch": rint(-50, 50),
-        "yaw": rint(-65, 65),
-        "body_yaw": rint(-20, 20),
-        "antennas": [
-            rfloat_1(0.0, 3.16),
-            rfloat_1(0.0, 3.16),
-        ],
+        "x": x,
+        "y": y,
+        "z": z,
+        "roll": roll,
+        "pitch": pitch,
+        "yaw": yaw,
+        "body_yaw": 0,
+        "antennas": [0, 0],
     }
+
 
 
 def ask_user():
