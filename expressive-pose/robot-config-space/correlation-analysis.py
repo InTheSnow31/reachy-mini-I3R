@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 
 # ========= PARAMETERS =========
-DATA_FILE = "pose_dataset_2.json"
+DATA_FILE = "pose_datasets/pose_dataset_2.json"
 PCA_COMPONENTS = 2 
 # ==============================
 

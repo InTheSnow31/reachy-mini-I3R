@@ -26,7 +26,8 @@ The whole scripts are available on the following Github repo : [InTheSnow31/reac
         - [The standard deviation $sigma$ (tolerance)](#the-standard-deviation-sigma-tolerance)
       - [Limit Values Extraction Script](#limit-values-extraction-script)
         - [Results](#results-2)
-      - [Impact on the Final Pose](#impact-on-the-final-pose)
+      - [Discussion on Variables](#discussion-on-variables)
+    - [Final Pose](#final-pose)
   - [Emotional Space](#emotional-space)
   - [General Algorithm](#general-algorithm)
   - [Experiment Results Analysis](#experiment-results-analysis)
@@ -118,9 +119,9 @@ The script generates a set of random poses for the robot. The evaluator has to l
 
 #### Results
 
-The final dataset can be found under the name [`pose_dataset_2.json`](robot-config-space/pose_dataset_2.json).
+The final dataset can be found under the name [`pose_dataset_2.json`](robot-config-space/pose_datasets/pose_dataset_2.json).
 
-**Note :** There is also a dataset named [`pose_dataset_1.json`](robot-config-space/pose_dataset_1.json), but it is now obsolete due to structural change into the analysis scripts. However, it can be used. Only the analysis scripts need to be adapted.
+**Note :** There is also a dataset named [`pose_dataset_1.json`](robot-config-space/pose_datasets/pose_dataset_1.json), but it is now obsolete due to structural change into the analysis scripts. However, it can be used. Only the analysis scripts need to be adapted.
 
 ### Statistical Analysis of Dependencies
 
@@ -208,13 +209,50 @@ This form will allow to set coherent limitation rules to the robot poses.
 The [`rules-extraction.py`](robot-config-space/rules-extraction.py) script has been created in order to extract rules from a given dataset. If a pose is labelled as non-OK, then this position should not be reached. The script uses multiple linear regression to extract all the fitting values from the dataset, and thus proposes limit values.
 
 ##### Results
-The results of the limit values are available into the [`rules.json`](robot-config-space/rules.json) file. They have been computed according to the [`pose_dataset_2.json`](robot-config-space/pose_dataset_2.json) dataset, and propose $a$, $b$ and $sigma$ values for each one of the 3 rules.
+The results of the limit values are available into the [`rules_1.json`](robot-config-space/rules/rules_1.json) file. They have been computed according to the [`pose_dataset_2.json`](robot-config-space/pose_datasets/pose_dataset_2.json) dataset, and propose $a$, $b$ and $sigma$ values for each one of the 3 rules.
 
-#### Impact on the Final Pose
+A second iteration have been made, with these extracted rules taken into account to create poses. The corresponding dataset is [`pose_dataset_3.json`](robot-config-space/pose_datasets/pose_dataset_3.json). It has been combined to the previous one to extract new rules, available in the [`rules_2.json`](robot-config-space/rules/rules_2.json) file.
 
+#### Discussion on Variables
+
+During the tests, it has been realised that not all of the variables had an important impact on the final pose. Hence, for clarity reason, at this point of the experiment, new decisions have been made : 
+
+1. **Antennas** movement will be wider as the robot goes higher and forward.
+   
+2. The **`body_yaw`** parameter will not be taken into account into the rules.
+
+### Final Pose
+
+The final pose is materialised by a function which takes as input:
+
+1. ``head`` (4x4 matrice)
+2. ``antennas`` (1D vector)
+3. ``duration`` (float)
+4. ``method`` ("linear", "minjerk", "ease", "cartoon")
+5. ``body_yaw`` (float)
+
+For the head, depending on rules:
+1. ``roll``,  ``pitch``, ``yaw``
+2. ``x``, ``y``, ``z``
+
+Then:
+1.  ``antennas`` (1D vector)
+2.  ``body_yaw`` (float)
 
 
 ## Emotional Space
+
+The emotional space that is used for this experiment is the PAD model, of 3 dimensions:
+- Pleasure,
+- Arousal,
+- Dominance.
+
+A first version of the model has been created in the [`pad.json`](emotional-space/pad.json) file. Some elementary emotions have been placed indicatively, in a first place, such as joy, sadness or anger. Their coordinates will be adjusted with the experimentation.
+
+Each of these points correspond to parameters influencing the final robot pose. Each pose will be generated according to a random factor.
+
+$pose = \lambda a$
+
 
 ## General Algorithm
 

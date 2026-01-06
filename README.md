@@ -9,24 +9,29 @@
 
 2. Activate the virtual environment.
     ```
-    reachy_mini_env\Scripts\activate 
+    reachy_mini_env\Scripts\Activate 
     ```
 
-3. Install Reachy Mini's SDK.
+3. Install useful packages for analysis scripts.
+    ```
+    pip install scikit-learn pandas matplotlib
+    ```
+
+4. Install Reachy Mini's SDK.
     ```
     pip install "reachy-mini"    
     ```
 
     **Note:** if you need to upgrade pip, do it and then reinstall reachy-mini.
    
-4. Install MuJoCo.
+5. Install MuJoCo.
     ```
     pip install "reachy-mini[mujoco]"    
     ```
    
-5. Run the simulation.
+6. Run the simulation.
     ```
     reachy-mini-daemon --sim
     ```
 
-6. Open another terminal, and run the desired script (do not forget to check if you are in the right folder).
+7. Open **another terminal**, and run the desired script (do not forget to check if you are in the right folder).
