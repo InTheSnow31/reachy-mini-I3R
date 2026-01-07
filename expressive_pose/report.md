@@ -291,8 +291,47 @@ The pose is executed thanks to the `reachy.goto_target()` function, described in
 
 ## From Emotion to Pose
 
-Now that all of the frame is in place, the main focus of the experiment is to correclty transmit the emotional state into the robot poses. This part is ensured by the `generate_pose_from_pad(P, A, D)` function, defined in the [`pose_generation.py`](robot_config_space/pose_generation.py) file.
+Now that all of the frame is in place, the main focus of the experiment is to correctly transmit the emotional state into the robot poses. This part is ensured by the `generate_pose_from_pad(P, A, D)` function, defined in the [`pose_generation.py`](robot_config_space/pose_generation.py) file.
 
+To this aim, the function is divided in consecutive steps which allow the final parameters to be influenced by the emotional state.
 
+1. Prismatic centers are initialized to 0.
+   
+2. Prismatic positions of the head are computed according to a difference between the center and the maximum value influenced by either arousal for $x$ and $y$, either pleasure for $z$.
+   
+3. $roll$, $pitch$ and $yaw$ are defined according to their rule, taking the values from the [`rules_2.json`](robot_config_space/rules/rules_2.json) file. A rule has the following form: $r = ap + b \pm sigma$, with $r$ the rotoid parameter and $p$ the prismatic one, $a$ the gain, $b$ the offset and $sigma$ the standard deviation.
+   
+4. $roll$ and $yaw$ are influenced by the dominance factor.
+   
+5. The body $yaw$ is set according to the movement of the head $yaw$, and influenced by arousal.
+   
+6. Antennas take random values in a realistic range, and are influence by arousal and dominance. The higher their value, the lower their maximum value.
+  **Note:** this "maximal" value is a trap, as 0, the minimal one, is equivalent to 3.14. Antennas values are set according to a circle tour, 3.14 being the rouded value of $pi$.
+   
+7. Dominance influences head $yaw$ and body $yaw$: the higher it is, the smaller they will be. Additionnally, if dominance exceeds 0.5, antennas will have a symetrical behavior: the robot is "in control".
+  
+8. Safety clamps are set: maximal values should not be exceeded.
+   
+9.  Duration is computed according to arousal: the higher the arousal value, the shorter the duration value.
+    
+10. Method is set to ``minjerk`` by default.
 
 ## Experiment Results Analysis
+
+Here are some fatal conclusions that have been observed throughout the tests.
+
+1. The robot takes too much **time** between each pose. A sequence does not seem natural.
+   
+2. For some emotional states, such as when **dominance** is high, its movements should **depend** on the previous ones. Otherwise, they do not seem correlated.
+   
+3. **Sound** should be added, to enhance realism.
+   
+4. More **emotions** or emotional states should be added to the PAD model, to create diversity.
+   
+5. The `body_yaw` parameter seem to **reset** at 0 for each pose, taking the previous `body_yaw` value as the default value. Hence, a solution must be found if we want the robot to turn towards the user.
+   
+6. The **antennas** turn into the wrong sense: when they go down, for a weak dominance for instance, they turn towards the interior, and not the exterior. It does not seem natural. Additionnally, their movement should be reviewed, as the maximal value, 3.14, is equivalent to the minimal one, 0, where antenas are set to the top.
+   
+7. Only $roll$ and $yaw$ are influenced by the dominance factor. Should arousal and pleasure also influence them? Should $pitch$ be influenced by any factor?
+   
+8. The **method** used should also depend on emotional factors. 
