@@ -30,6 +30,11 @@ The whole scripts are available on the following Github repo : [InTheSnow31/reac
     - [Final Pose](#final-pose)
   - [Emotional Space](#emotional-space)
   - [General Algorithm](#general-algorithm)
+    - [User choice](#user-choice)
+    - [PAD correspondance](#pad-correspondance)
+    - [Pose generation from PAD](#pose-generation-from-pad)
+    - [Execution](#execution)
+  - [From Emotion to Pose](#from-emotion-to-pose)
   - [Experiment Results Analysis](#experiment-results-analysis)
 
 ## Objective Description
@@ -237,6 +242,10 @@ For the head, depending on rules:
 
 Each of these factors will have a part of randomness and of amplitude, defined by the emotional state.
 
+Two functions to generate it are defined in the [`pose_generation.py`](robot_config_space/pose_generation.py) file. The first one, `sample_pose()`, generates a random pose according to the defined rules, of a fixed duration.
+
+The second one, `generate_pose_from_pad(P, A, D)`, takes into account the influence of emotional parameters into the final pose, and also returns a duration accordint to it. It will be desicribed in the [From Emotion to Pose](#from-emotion-to-pose) part.
+
 ## Emotional Space
 
 The emotional space that is used for this experiment is the PAD model, of 3 dimensions:
@@ -249,5 +258,41 @@ A first version of the model has been created in the [`pad.json`](emotional_spac
 Each of these points correspond to parameters influencing the final robot pose. Each pose will be generated according to a random factor.
 
 ## General Algorithm
+
+The objective of the general algorithm is to ask the user to choose an emotional state and a minimal duration, so that the robot can execute an apropriate movement.
+
+The program associated is available in the [`main.py`](main.py) file. Its process will be described in the following paragraphs.
+
+### User choice
+
+At first, the program asks the user to enter:
+1. An emotional state. For the first version of this project, this state can only be one of the emotions to which coordinates exist in the [`pad.json`](emotional_space/pad.json) file.
+   
+2. A minimal duration. During this timing, the robot will execute a certain number of poses. This sequence creates an expressive movement.
+
+### PAD correspondance
+
+The program browses the [`pad.json`](emotional_space/pad.json) file to look for the emotion, and collects the associated values for P, A and D.
+
+While the minimum duration is not reached, the following steps are followed:
+
+1. Generate the pose from the PAD,
+2. Execute the pose on the robot.
+
+### Pose generation from PAD
+
+The program calls the `generate_pose_from_pad(P, A, D)` function, defined in the [`pose_generation.py`](robot_config_space/pose_generation.py) file. It allows to generate a pose fitting the emotional state. It is the core of the project, and will hence be described in the next part.
+
+### Execution
+
+The pose is executed thanks to the `reachy.goto_target()` function, described in the [Definition of Parameters](#definition-of-parameters) part. The head movement is created in a first place, thanks to previously computed pose parameters.
+
+**Note:** it can be remarked, during the tests, that the robot takes a certain time to concatenate the poses to create the movement. This point can be enhanced in future work.
+
+## From Emotion to Pose
+
+Now that all of the frame is in place, the main focus of the experiment is to correclty transmit the emotional state into the robot poses. This part is ensured by the `generate_pose_from_pad(P, A, D)` function, defined in the [`pose_generation.py`](robot_config_space/pose_generation.py) file.
+
+
 
 ## Experiment Results Analysis
