@@ -53,9 +53,10 @@ def main():
                 )
                 reachy.goto_target(
                     head=head,
-                    body_yaw=pose["body_yaw"],
                     antennas=pose["antennas"],
                     duration=pose["duration"],
+                    method=pose["method"],
+                    body_yaw=pose["body_yaw"]
                 )
 
 

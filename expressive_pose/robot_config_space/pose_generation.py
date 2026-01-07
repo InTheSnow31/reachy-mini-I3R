@@ -87,6 +87,9 @@ def generate_pose_from_pad(P, A, D):
     # Duration
     duration = D_MAX - A_mag * (D_MAX - D_MIN)
 
+    # Method
+    method = "minjerk"
+
     return {
         "x": x,
         "y": y,
@@ -94,7 +97,8 @@ def generate_pose_from_pad(P, A, D):
         "roll": roll,
         "pitch": pitch,
         "yaw": yaw,
-        "body_yaw": 0,
         "antennas": [round(ant0, 2), round(ant1, 2)],
         "duration": duration,
+        "method": method,
+        "body_yaw": 0
     }
