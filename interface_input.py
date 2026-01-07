@@ -5,6 +5,7 @@ import math
 import sounddevice as sd
 import soundfile as sf
 from emotion import polar_to_emotion
+import sys
 
 WINDOW_SIZE = 800
 CANVAS_SIZE = 700
@@ -16,6 +17,7 @@ class input:
     def __init__(self):    
         self.point = None
         self.selected_emotion = None
+        self.on_play()
 
     def on_play(self):
         try:
@@ -25,7 +27,7 @@ class input:
             #print(f"Lecture de {WAV_FILE}")
         except Exception as e:
             print(f"Erreur lors de la lecture du fichier : {e}")
-
+            
     def on_next(self):
         #print("Next")
         self.canvas.delete(self.point)
@@ -57,14 +59,22 @@ class input:
                 x+POINT_RADIUS, y+POINT_RADIUS,
                 fill="red", outline=""
             )
+
+        self.next_button.config(state="normal")
         self.selected_emotion = emotion_vals
     
+    def close_all(self):
+        self.root.destroy()
+        sd.stop()
+        sys.exit()
+
     def loop(self):
         self.root = tk.Tk()
         
         self.root.title("Interface musicale")
         self.root.geometry(f"{WINDOW_SIZE}x{WINDOW_SIZE}")
         self.root.resizable(False, False)
+        self.root.protocol("WM_DELETE_WINDOW", self.close_all)
 
         # Frame du haut
         top_frame = tk.Frame(self.root)
@@ -99,8 +109,9 @@ class input:
 
         play_button = tk.Button(bottom_frame, text="Play", width=30, height = 8, command=self.on_play, bg="#9BCEF8", font=self.button_font)
         play_button.pack(side="left")
-        next_button = tk.Button(bottom_frame, text="Next", width=30, height = 8, command=self.on_next, bg="#9BCEF8", font=self.button_font)
-        next_button.pack(side="right")
+        self.next_button = tk.Button(bottom_frame, text="Next", width=30, height = 8, command=self.on_next, bg="#9BCEF8", font=self.button_font)
+        self.next_button.pack(side="right")
+        self.next_button.config(state="disabled")
         
         self.root.mainloop()
         return self.selected_emotion

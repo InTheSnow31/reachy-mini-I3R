@@ -4,24 +4,25 @@ from SoundGenEnv import SoundGenEnv
 
 ###### PARAMETERS ######
 
-MAX_NOTES = 8
-INPUTS_PAR_SESSIONS = 5 
+MAX_NOTES = 5
+INPUTS_PAR_SESSIONS = 5
 
 ########################
 
 # Wrapper pour SB3 (obligatoire pour vectorized env)
-env = DummyVecEnv([lambda: SoundGenEnv(max_notes=8)])
+env = DummyVecEnv([lambda: SoundGenEnv(max_notes=MAX_NOTES)])
 
 # Créer l'agent PPO
 try :
     model = PPO.load("ppo_note_model", env=env)
     print("Modèle chargé depuis ppo_note_model.zip")
 except :
-    model = PPO("MlpPolicy", env, verbose=1)
+    model = PPO("MlpPolicy", env, verbose=1, n_steps=MAX_NOTES*INPUTS_PAR_SESSIONS)
 
 while True:
-    model.learn(total_timesteps= MAX_NOTES * INPUTS_PAR_SESSIONS, reset_num_timesteps=False)
+    model.learn(total_timesteps= 1, reset_num_timesteps=False)
     model.save("ppo_note_model")
+    print("Saved")
 
 # Sauvegarder
 
