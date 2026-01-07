@@ -322,7 +322,7 @@ Here are some fatal conclusions that have been observed throughout the tests.
 
 1. The robot takes too much **time** between each pose. A sequence does not seem natural.
    
-2. For some emotional states, such as when **dominance** is high, its movements should **depend** on the previous ones. Otherwise, they do not seem correlated.
+2. For some emotional states, such as when **dominance** is high, its movements should **depend** on the previous ones. Otherwise, they do not seem correlated. Moreover, for a given emotion, there are some case where movement should change more widely, while they do not. This may be linked to dependency on the previous pose.
    
 3. **Sound** should be added, to enhance realism.
    
@@ -334,4 +334,8 @@ Here are some fatal conclusions that have been observed throughout the tests.
    
 7. Only $roll$ and $yaw$ are influenced by the dominance factor. Should arousal and pleasure also influence them? Should $pitch$ be influenced by any factor?
    
-8. The **method** used should also depend on emotional factors. 
+8. The **method** used should also depend on emotional factors.
+   
+9. There are **only 3 rules**, but all of the prismatic factors have an inlfuence on all of the rotoid parameters, and inversely. This should be taken into accound, as the robot does still have strange poses.
+    
+10. **Antennas** should not go through the body. A **specific rule** have to be set for them.
