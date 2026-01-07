@@ -9,7 +9,7 @@ def main():
 
     while True:
 
-        # 1. Choix de l’émotion
+        # 1. Emotionnal state choice
         emotion = input("\nWhich emotion would you like to try? ").strip().lower()
         if emotion == "q":
             print("\nQuitting.\n")
@@ -17,7 +17,7 @@ def main():
 
         duration_min = float(input("Indicate a minimal duration (seconds): "))
 
-        # 2. Charger PAD
+        # 2. PAD loading
         with open("emotional_space/pad.json") as f:
             pad_data = json.load(f)
 
@@ -29,28 +29,34 @@ def main():
         A = pad_data["emotions"][emotion]["A"]
         D = pad_data["emotions"][emotion]["D"]
 
-        # 3. Générer la pose depuis PAD
-        pose = generate_pose_from_pad(P, A, D)
-        print(f"\nGenerated pose for {emotion}: {pose}")
+        # 3. Pose generation from PAD
+        duration = 0
 
-        # 4. Exécution sur Reachy
-        with ReachyMini() as reachy:
-            head = create_head_pose(
-                x=pose["x"],
-                y=pose["y"],
-                z=pose["z"],
-                roll=pose["roll"],
-                pitch=pose["pitch"],
-                yaw=pose["yaw"],
-                mm=True,
-                degrees=True,
-            )
-            reachy.goto_target(
-                head=head,
-                body_yaw=pose["body_yaw"],
-                antennas=pose["antennas"],
-                duration=duration_min,
-            )
+        while (duration <= duration_min):
+
+            pose = generate_pose_from_pad(P, A, D)
+            print(f"\nGenerated pose for {emotion}: {pose}")
+
+            duration+=pose["duration"]
+
+            # 4. Execution
+            with ReachyMini() as reachy:
+                head = create_head_pose(
+                    x=pose["x"],
+                    y=pose["y"],
+                    z=pose["z"],
+                    roll=pose["roll"],
+                    pitch=pose["pitch"],
+                    yaw=pose["yaw"],
+                    mm=True,
+                    degrees=True,
+                )
+                reachy.goto_target(
+                    head=head,
+                    body_yaw=pose["body_yaw"],
+                    antennas=pose["antennas"],
+                    duration=pose["duration"],
+                )
 
 
 if __name__ == "__main__":
