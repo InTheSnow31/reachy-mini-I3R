@@ -306,7 +306,7 @@ To this aim, the function is divided in consecutive steps which allow the final 
 5. The body $yaw$ is set according to the movement of the head $yaw$, and influenced by arousal.
    
 6. Antennas take random values in a realistic range, and are influence by arousal and dominance. The higher their value, the lower their maximum value.
-  **Note:** this "maximal" value is a trap, as 0, the minimal one, is equivalent to 3.14. Antennas values are set according to a circle tour, 3.14 being the rouded value of $pi$.
+  **Note:** this "maximal" value is a trap, as 0, the minimal one, is equivalent to 3.14. Antennas values are set according to a circle tour, 3.14 being the rouded value of $\pi$.
    
 7. Dominance influences head $yaw$ and body $yaw$: the higher it is, the smaller they will be. Additionnally, if dominance exceeds 0.5, antennas will have a symetrical behavior: the robot is "in control".
   

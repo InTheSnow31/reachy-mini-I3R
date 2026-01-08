@@ -5,42 +5,44 @@ from reachy_mini.utils import create_head_pose
 
 def main():
 
-    print("Hello! Try different emotions here.\nType 'q' and enter if you want to quit.")
+    with ReachyMini() as reachy:
 
-    while True:
+        print("Hello! Try different emotions here.\nType 'q' and enter if you want to quit.")
 
-        # 1. Emotionnal state choice
-        emotion = input("\nWhich emotion would you like to try? ").strip().lower()
-        if emotion == "q":
-            print("\nQuitting.\n")
-            break
+        while True:
 
-        duration_min = float(input("Indicate a minimal duration (seconds): "))
+            # 1. Emotionnal state choice
+            emotion = input("\nWhich emotion would you like to try? ").strip().lower()
+            if emotion == "q":
+                print("\nQuitting.\n")
+                break
 
-        # 2. PAD loading
-        with open("emotional_space/pad.json") as f:
-            pad_data = json.load(f)
+            duration_min = float(input("Indicate a minimum duration (seconds): "))
 
-        if emotion not in pad_data["emotions"]:
-            print(f"\nEmotion '{emotion}' unknown.")
-            return
+            # 2. PAD loading
+            with open("emotional_space/pad.json") as f:
+                pad_data = json.load(f)
 
-        P = pad_data["emotions"][emotion]["P"]
-        A = pad_data["emotions"][emotion]["A"]
-        D = pad_data["emotions"][emotion]["D"]
+            if emotion not in pad_data["emotions"]:
+                print(f"\nEmotion '{emotion}' unknown.")
+                return
 
-        # 3. Pose generation from PAD
-        duration = 0
+            P = pad_data["emotions"][emotion]["P"]
+            A = pad_data["emotions"][emotion]["A"]
+            D = pad_data["emotions"][emotion]["D"]
 
-        while (duration <= duration_min):
+            # 3. Pose generation from PAD
+            duration = 0
 
-            pose = generate_pose_from_pad(P, A, D)
-            print(f"\nGenerated pose for {emotion}: {pose}")
+            while (duration <= duration_min):
 
-            duration+=pose["duration"]
+                pose = generate_pose_from_pad(P, A, D)
+                print(f"\nGenerated pose for {emotion}: {pose}")
 
-            # 4. Execution
-            with ReachyMini() as reachy:
+                duration+=pose["duration"]
+
+                # 4. Execution
+                
                 head = create_head_pose(
                     x=pose["x"],
                     y=pose["y"],
@@ -58,6 +60,8 @@ def main():
                     method=pose["method"],
                     body_yaw=pose["body_yaw"]
                 )
+
+                print("The body yaw is of:" + str(pose["body_yaw"]))
 
 
 if __name__ == "__main__":
