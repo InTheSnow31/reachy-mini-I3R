@@ -9,12 +9,12 @@ import sys
 
 WINDOW_SIZE = 800
 CANVAS_SIZE = 700
-IMAGE_PATH = "wheel.png"
 POINT_RADIUS = 5
 WAV_FILE = "temp.wav"  # fichier à jouer
 
 class input:
-    def __init__(self):    
+    def __init__(self, EMOTION_MODEL):
+        self.EMOTION_MODEL = EMOTION_MODEL    
         self.point = None
         self.selected_emotion = None
         self.on_play()
@@ -22,14 +22,11 @@ class input:
     def on_play(self):
         try:
             data, samplerate = sf.read("temp.wav", dtype='float32')
-            play_obj = sd.play(data, samplerate)
-            # play_obj.wait_done()  # optionnel : bloquer jusqu'à la fin
-            #print(f"Lecture de {WAV_FILE}")
+            sd.play(data, samplerate)
         except Exception as e:
             print(f"Erreur lors de la lecture du fichier : {e}")
             
     def on_next(self):
-        #print("Next")
         self.canvas.delete(self.point)
         self.point = None
         sd.stop()
@@ -44,10 +41,10 @@ class input:
         theta = math.atan2(dy, dx)  # Angle en radians
         return r, theta
 
-    def on_click(self, event):
+    def on_click_wheel(self, event):
         x, y = event.x, event.y
         r, theta = self.convert_coordinates(x, y)
-        emotion_vals = polar_to_emotion(r, theta)   
+        emotion_vals = polar_to_emotion(self.EMOTION_MODEL, r, theta)   
         #print(f"Émotion sélectionnée : r={r:.2f}, θ={math.degrees(theta):.2f}° -> {emotion_vals.__dict__}")
     
         # Si le point est dans la zone
@@ -68,6 +65,67 @@ class input:
         sd.stop()
         sys.exit()
 
+    def initialise_wheel(self):
+        # Canvas
+        canvas_frame = tk.Frame(self.root)
+        canvas_frame.pack()
+        self.canvas = tk.Canvas(canvas_frame, width=CANVAS_SIZE, height=CANVAS_SIZE)
+        self.canvas.pack()
+
+        # Charger l'image et l'adapter automatiquement au Canvas
+        img = Image.open(self.EMOTION_MODEL["wheel_path"])
+
+        img_resized = img.resize((CANVAS_SIZE, CANVAS_SIZE), Image.Resampling.LANCZOS)
+        self.bg_image = ImageTk.PhotoImage(img_resized)
+
+        # Centrer l'image sur le Canvas
+        self.canvas.create_image(CANVAS_SIZE//2, CANVAS_SIZE//2, image=self.bg_image)
+        self.canvas.bind("<Button-1>", self.on_click_wheel)
+    
+    def initialise_bars(self):
+        self.sliders = []
+
+        bars_frame = tk.Frame(self.root)
+        bars_frame.pack(pady=20)
+
+        emotion_axes = self.EMOTION_MODEL["emotion_names"]
+
+        for left_label, right_label in emotion_axes:
+            col = tk.Frame(bars_frame)
+            col.pack(side="left", padx=15)
+
+            var = tk.DoubleVar(value=0.5)
+
+            slider = tk.Scale(
+                col,
+                variable=var,
+                from_=1.0,
+                to=0.0,
+                resolution=0.01,
+                orient="vertical",
+                length=500,
+                width=22
+            )
+            slider.pack()
+
+            label_top = tk.Label(
+                col,
+                text=right_label,
+                font=("Helvetica", 11, "bold")
+            )
+            label_top.pack(pady=(5, 0))
+
+            label_bottom = tk.Label(
+                col,
+                text=left_label,
+                font=("Helvetica", 11, "bold")
+            )
+            label_bottom.pack(pady=(0, 5))
+
+            self.sliders.append(var)
+
+
+
     def loop(self):
         self.root = tk.Tk()
         
@@ -79,23 +137,11 @@ class input:
         # Frame du haut
         top_frame = tk.Frame(self.root)
         top_frame.pack(fill="x", padx=10, pady=5)
+        if self.EMOTION_MODEL["system"] == "wheel":
+            self.initialise_wheel()
+        elif self.EMOTION_MODEL["system"] == "bars":
+            self.initialise_bars()
 
-        # Canvas
-        canvas_frame = tk.Frame(self.root)
-        canvas_frame.pack()
-        self.canvas = tk.Canvas(canvas_frame, width=CANVAS_SIZE, height=CANVAS_SIZE)
-        self.canvas.pack()
-
-        # Charger l'image et l'adapter automatiquement au Canvas
-        img = Image.open(IMAGE_PATH)
-
-        img_resized = img.resize((CANVAS_SIZE, CANVAS_SIZE), Image.Resampling.LANCZOS)
-        bg_image = ImageTk.PhotoImage(img_resized)
-
-        # Centrer l'image sur le Canvas
-        self.canvas.create_image(CANVAS_SIZE//2, CANVAS_SIZE//2, image=bg_image)
-
-        self.canvas.bind("<Button-1>", self.on_click)
 
         # Frame du bas
         bottom_frame = tk.Frame(self.root, width=CANVAS_SIZE)

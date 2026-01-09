@@ -4,13 +4,27 @@ from SoundGenEnv import SoundGenEnv
 
 ###### PARAMETERS ######
 
-MAX_NOTES = 5
+MAX_NOTES = 4
 INPUTS_PAR_SESSIONS = 5
+
+SEVEN_EMOTION_MODEL = {
+    "system" : "wheel",
+    "wheel_path" : "models/7_emotions_wheel.png",
+    "number_of_emotions" : 7,
+    "emotion_names" : ['happiness', 'sadness', 'anger', 'fear', 'love','disgust','surprise'],
+    "wheel_offset" : -90
+}
+
+SIMPLE_BAR_MODEL = {
+    "system" : "bars",
+    "number_of_emotions" : 2,
+    "emotion_names" : [('Negatvie', 'Positive'), ('Calme','Surpris')]
+}
 
 ########################
 
 # Wrapper pour SB3 (obligatoire pour vectorized env)
-env = DummyVecEnv([lambda: SoundGenEnv(max_notes=MAX_NOTES)])
+env = DummyVecEnv([lambda: SoundGenEnv(emotion_model = SIMPLE_BAR_MODEL, max_notes=MAX_NOTES)])
 
 # Créer l'agent PPO
 try :
