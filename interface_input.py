@@ -14,8 +14,7 @@ WAV_FILE = "temp.wav"  # fichier à jouer
 
 class input:
     def __init__(self, EMOTION_MODEL):
-        self.EMOTION_MODEL = EMOTION_MODEL    
-        self.point = None
+        self.EMOTION_MODEL = EMOTION_MODEL
         self.selected_emotion = None
         self.on_play()
 
@@ -27,27 +26,25 @@ class input:
             print(f"Erreur lors de la lecture du fichier : {e}")
             
     def on_next(self):
-        self.canvas.delete(self.point)
-        self.point = None
+        if self.EMOTION_MODEL["system"] == "wheel":
+            self.selected_emotion = [var.get() for var in self.sliders]
+            self.canvas.delete(self.point)
         sd.stop()
         self.root.destroy()
 
     def convert_coordinates(self, x, y):
-        center_x = CANVAS_SIZE / 2
-        center_y = CANVAS_SIZE / 2
-        dx = x - center_x
-        dy = center_y - y  # Inverser l'axe y pour un angle correct
-        r = math.sqrt(dx**2 + dy**2) / (CANVAS_SIZE / 2)  # Normalisé entre 0 et 1
-        theta = math.atan2(dy, dx)  # Angle en radians
+        center_x, center_y = CANVAS_SIZE / 2, CANVAS_SIZE / 2
+        dx, dy = x - center_x, center_y - y
+        r = math.sqrt(dx**2 + dy**2) / (CANVAS_SIZE / 2)  
+        theta = math.atan2(dy, dx)  
         return r, theta
 
     def on_click_wheel(self, event):
         x, y = event.x, event.y
         r, theta = self.convert_coordinates(x, y)
-        emotion_vals = polar_to_emotion(self.EMOTION_MODEL, r, theta)   
-        #print(f"Émotion sélectionnée : r={r:.2f}, θ={math.degrees(theta):.2f}° -> {emotion_vals.__dict__}")
+        emotion_vals = polar_to_emotion(self.EMOTION_MODEL, r, theta)
     
-        # Si le point est dans la zone
+        # check if the point is inside the wheel
         if r < 1 :
             if self.point is not None:
                 self.canvas.delete(self.point)
@@ -57,6 +54,7 @@ class input:
                 fill="red", outline=""
             )
 
+        # Enable "next" validation button
         self.next_button.config(state="normal")
         self.selected_emotion = emotion_vals
     
@@ -66,6 +64,9 @@ class input:
         sys.exit()
 
     def initialise_wheel(self):
+        # Variables
+        self.point = None
+
         # Canvas
         canvas_frame = tk.Frame(self.root)
         canvas_frame.pack()
@@ -147,26 +148,22 @@ class input:
         bottom_frame = tk.Frame(self.root, width=CANVAS_SIZE)
         bottom_frame.pack(pady=20)
 
-        self.button_font = tkfont.Font(
-            family="Helvetica",
-            size=14,
-            weight="bold"
-        )
+        self.button_font = tkfont.Font(family="Helvetica", size=14, weight="bold")
 
         play_button = tk.Button(bottom_frame, text="Play", width=30, height = 8, command=self.on_play, bg="#9BCEF8", font=self.button_font)
         play_button.pack(side="left")
         self.next_button = tk.Button(bottom_frame, text="Next", width=30, height = 8, command=self.on_next, bg="#9BCEF8", font=self.button_font)
         self.next_button.pack(side="right")
-        self.next_button.config(state="disabled")
+
+        # Protection to None emotion
+        if self.EMOTION_MODEL["system"] == "wheel":
+            self.next_button.config(state="disabled")
+        else :
+            self.selected_emotion = [var.get() for var in self.sliders]
         
         self.root.mainloop()
+
         return self.selected_emotion
-    
-"""
-a = input()
-selected_emotion = a.loop()
-print(f"selected_emotion: ({selected_emotion})")
-"""
 
     
 

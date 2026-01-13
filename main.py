@@ -21,32 +21,41 @@ SIMPLE_BAR_MODEL = {
     "emotion_names" : [('Negatvie', 'Positive'), ('Calme','Surpris')]
 }
 
-########################
 
-# Wrapper pour SB3 (obligatoire pour vectorized env)
-env = DummyVecEnv([lambda: SoundGenEnv(emotion_model = SIMPLE_BAR_MODEL, max_notes=MAX_NOTES)])
+###### TRAINING AND TESTING ######
 
-# Créer l'agent PPO
-try :
-    model = PPO.load("ppo_note_model", env=env)
-    print("Modèle chargé depuis ppo_note_model.zip")
-except :
-    model = PPO("MlpPolicy", env, verbose=1, n_steps=MAX_NOTES*INPUTS_PAR_SESSIONS)
+def train(model_name="ppo_note_model"):
+    # Wrapper for vectorized environment
+    env = DummyVecEnv([lambda: SoundGenEnv(emotion_model = SIMPLE_BAR_MODEL, max_notes=MAX_NOTES)])
 
-while True:
-    model.learn(total_timesteps= 1, reset_num_timesteps=False)
-    model.save("ppo_note_model")
-    print("Saved")
+    # Load existing model or create one
+    try :
+        model = PPO.load(model_name, env=env)
+        print(f"Loading model {model_name}.zip")
+    except :
+        model = PPO("MlpPolicy", env, verbose=1, n_steps=MAX_NOTES*INPUTS_PAR_SESSIONS)
 
-# Sauvegarder
+    while True:
+        model.learn(total_timesteps= 1, reset_num_timesteps=False)
+        model.save(model_name)
+        print("Saved")
 
-# Reprendre plus tard
 
-"""model = PPO.load("ppo_note_model", env=env)
+def test(model_name="ppo_note_model"):
+    env = DummyVecEnv([lambda: SoundGenEnv(emotion_model = SIMPLE_BAR_MODEL, max_notes=MAX_NOTES)])
+    model = PPO.load(model_name, env=env)
+    print(f"Loaded model {model_name}.zip")
+    obs = env.reset()
+    done = False
+    # Generating notes till done
+    while not done:
+        action, _states = model.predict(obs, deterministic=False)
+        obs, reward, done, info = env.step(action)
+        print(info[0]["note"])
 
-obs = env.reset()
-done = False
-while not done:
-    action, _states = model.predict(obs, deterministic=False)
-    obs, reward, done, info = env.step(action)
-    print(info[0]["note"])  # info est une liste car DummyVecEnv"""
+
+###### MAIN ######
+
+if __name__ == "__main__":
+    train()
+    #test()
