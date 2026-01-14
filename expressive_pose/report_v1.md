@@ -318,6 +318,8 @@ To this aim, the function is divided in consecutive steps which allow the final 
 
 ## Experiment Results Analysis
 
+Version concerned: [Commit of January 7, 2026, at 7:37](https://github.com/InTheSnow31/reachy-mini-I3R/tree/426d4fb785445e5e70f292aeb9dbc7f2e78c7c40).
+
 Here are some fatal conclusions that have been observed throughout the tests.
 
 1. The robot takes too much **time** between each pose. A sequence does not seem natural.

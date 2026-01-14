@@ -69,19 +69,19 @@ def moving_antennas(P, A, D, t=None):
     amp = A * (math.pi / 6)
     freq = 0.2 + 1.5 * A
     phase = 2 * math.pi * freq * t
-    osc = amp * math.sin(phase)
+    osc = amp * math.sin(phase) # change here
 
     # --- Non-symmetry condition ---
     # Weak dominance and a bit of arousal means confusion => non-symmetry
     non_symmetric = D < 0.6 and A > 0.3
 
     # --- Base movement ---
-    ant0 = base_angle + osc
+    ant0 = base_angle + osc # change here : pourquoi on ajoute un truc déterministe ici ?
     ant1 = ant0 if non_symmetric else - (ant0 - ANT_TOP)
 
     # --- Slow random drift (arousal and dominance-dependent) ---
-    drift_step = 1 + 0.5 * (A + D)
-    drift_limit = (A + D)
+    drift_step = 1 + 0.5 * A * (1/D)
+    drift_limit = 2 * drift_step
 
     for i in (0, 1):
         _ant_noise[i] += random.uniform(-drift_step, drift_step)
@@ -143,17 +143,17 @@ def generate_pose_from_pad(P, A, D):
     pitch = pitch_r["a"] * z + pitch_r["b"] + noise(pitch_r["sigma"], 0.5)
     yaw   = yaw_r["a"]   * x + yaw_r["b"]   + noise(yaw_r["sigma"], 0.5)
 
-    # --- Orientation according to Aroussal ---
+    # --- Orientation amplified with Aroussal ---
     roll *= A
     yaw  *= A
 
-    # If dominance is weak, the pitch goes high; if dominance is high, pitch goes lower
-    pitch += (2 * P - 1) * rint(MIN_PITCH, MAX_PITCH)
+    # If pleasure is weak, the pitch goes high; if pleasure is high, pitch goes lower
+    pitch += (2 * P - 1) * rint(MIN_PITCH, MAX_PITCH) # Change here? Why adding randomness?
     pitch *= A # Someone crazy makes wide movements, while a weak arousal makes narrow ones
 
     # --- Body yaw (softer movement, influenced by Arousal) ---
     body_center = 0
-    body_amp = 0.05 * A * yaw
+    body_amp = A * yaw # Here = factor changed
     body_yaw = rint(int(body_center - body_amp), int(body_center + body_amp))
 
     # --- Dominance influence ---
