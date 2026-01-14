@@ -46,7 +46,7 @@ def rint(a, b):
 
 
 def wrap_angle(theta):
-    """Keep angle in [0, 2pi)."""
+    """Keep angle in [0, 2pi]."""
     return theta % (2 * math.pi)
 
 
@@ -63,24 +63,21 @@ def moving_antennas(P, A, D, t=None):
 
     # --- Base direction ---
     # Higher pleasure => antennas go up
-    base_angle = ANT_BOTTOM - P * (ANT_BOTTOM - ANT_TOP)
-
-    # --- Arousal controls base movement ---
-    amp = A * (math.pi / 6)
-    freq = 0.2 + 1.5 * A
-    phase = 2 * math.pi * freq * t
-    osc = amp * math.sin(phase) # change here
+    base_angle = ANT_BOTTOM - 1.1 * P * (ANT_BOTTOM - ANT_TOP)
+    print("\nbase = ", base_angle)
 
     # --- Non-symmetry condition ---
     # Weak dominance and a bit of arousal means confusion => non-symmetry
     non_symmetric = D < 0.6 and A > 0.3
 
     # --- Base movement ---
-    ant0 = base_angle + osc # change here : pourquoi on ajoute un truc déterministe ici ?
+    ant0 = base_angle + 0.2 * random.uniform(-A * math.pi, A * math.pi) 
+    print("base + osc = ", ant0)
+    print(" ")
     ant1 = ant0 if non_symmetric else - (ant0 - ANT_TOP)
 
     # --- Slow random drift (arousal and dominance-dependent) ---
-    drift_step = 1 + 0.5 * A * (1/D)
+    drift_step = 0.1 * A * (1/D)
     drift_limit = 2 * drift_step
 
     for i in (0, 1):
@@ -131,7 +128,7 @@ def generate_pose_from_pad(P, A, D):
 
     # --- Position (x, y, z) according to Arousal and Dominance ---
     x = rint(int(x_c - abs(MIN_X)*(A)), int(x_c + MAX_X*A)) # The more arousal, the wider movements
-    y = rint(int(y_c - MAX_Y*(A**2)), int(y_c + MAX_Y*A**2))
+    y = rint(int(y_c - MAX_Y*A), int(y_c + MAX_Y*A))
     z = D * rint(int(z_c - MAX_Z*(1 - D)), int(z_c + MAX_Z*D)) # The more dominance, the higher the head
 
     # --- Apply existing rules for head orientation ---
@@ -148,13 +145,13 @@ def generate_pose_from_pad(P, A, D):
     yaw  *= A
 
     # If pleasure is weak, the pitch goes high; if pleasure is high, pitch goes lower
-    pitch += (2 * P - 1) * rint(MIN_PITCH, MAX_PITCH) # Change here? Why adding randomness?
+    pitch -= 1.5 * (2 * P - 1) * abs(rint(MIN_PITCH, -MIN_PITCH))
     pitch *= A # Someone crazy makes wide movements, while a weak arousal makes narrow ones
 
     # --- Body yaw (softer movement, influenced by Arousal) ---
     body_center = 0
-    body_amp = A * yaw # Here = factor changed
-    body_yaw = rint(int(body_center - body_amp), int(body_center + body_amp))
+    body_amp = 0.2 * A * yaw # Here = factor changed
+    body_yaw = rint(int(body_center - abs(body_amp)), int(body_center + abs(body_amp)))
 
     # --- Dominance influence ---
     body_yaw *= 1/D # confident robot looks more forward
