@@ -32,21 +32,22 @@ def main():
             A = pad_data["emotions"][emotion]["A"]
             D = pad_data["emotions"][emotion]["D"]
 
-            # 3. Pose generation from PAD
+            # 3. Pose and sound preparation
             duration = 0
+            reachy.media.start_playing()
 
             while (duration <= duration_min):
 
+                # 4. Pose and sound generation
                 pose = generate_pose_from_pad(P, A, D)
                 print(f"\nGenerated pose for {emotion}: {pose}")
                 sound = generated_sound_from_pad(P, A, D, pose["duration"])
 
-                reachy.media.start_playing()
                 reachy.media.push_audio_sample(sound)
 
                 duration+=pose["duration"]
 
-                # 4. Execution
+                # 5. Execution
                 
                 head = create_head_pose(
                     x=pose["x"],
