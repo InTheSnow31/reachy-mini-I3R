@@ -1,5 +1,5 @@
-from robot_config_space.pose_generation import generate_pose_from_pad
-from sound.sound_generation import generated_sound_from_pad
+from robot_config_space.pose_generation import generate_pose
+from sound.sound_generation import generate_sound
 import json
 from reachy_mini import ReachyMini
 from reachy_mini.utils import create_head_pose
@@ -39,9 +39,9 @@ def main():
             while (duration <= duration_min):
 
                 # 4. Pose and sound generation
-                pose = generate_pose_from_pad(P, A, D)
+                pose = generate_pose(P, A, D)
                 print(f"\nGenerated pose for {emotion}: {pose}")
-                sound = generated_sound_from_pad(P, A, D, pose["duration"])
+                sound = generate_sound(P, A, D, pose["duration"])
 
                 reachy.media.push_audio_sample(sound)
 

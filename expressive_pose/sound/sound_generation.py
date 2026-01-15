@@ -4,14 +4,15 @@ from scipy.interpolate import make_interp_spline
 
 SAMPLE_RATE = 44100
 PITCH_RANGE = 1.0  # en octaves
+MAX_END = 2
 
 
 def pitch_curve(P, A, D, t, duration):
     """
     Courbe de pitch modulée par PAD avec beta-spline et probabilité selon Pleasure.
-    P : Pleasure ∈ [0,1]
-    A : Arousal ∈ [0,1]
-    D : Dominance ∈ [0,1]
+    P : Pleasure [0,1]
+    A : Arousal [0,1]
+    D : Dominance [0,1]
     t : temps
     duration : durée totale
     """
@@ -22,15 +23,15 @@ def pitch_curve(P, A, D, t, duration):
     
     # --- Middle : arousal + un peu de hasard
     # Plus A élevé → le milieu s'écarte du start
-    middle_shift = A * rd.uniform(0.2, 1.0) if rd.random() < P else A * rd.uniform(-0.8, 0.2)
-    middle = start + middle_shift
+    middle_shift = A * rd.uniform(0.2, 1.2) if rd.random() < P else A * rd.uniform(-0.9, 0.2)
+    middle = start + 2 * middle_shift
 
     # --- End : se rapproche de start selon dominance et pleasure
-    # Plus D élevé → fin proche du début
-    # Plus P élevé → fin plus aigu, sinon plus grave
-    gravity_factor = 10 * (1 - D) * (1 - P)  # 0 = fin proche start, 1 = fin très éloignée
-    end_shift = gravity_factor * rd.uniform(-0.5, 0.5)
-    end = start + end_shift
+    # plus D est faible et P est faible, plus ça descend
+    gravity = (1 - D) * (1 - P)
+    end_sign = 1 if P > 0.5 else -1
+
+    end = end_sign * gravity * MAX_END * (0.5 + rd.random())
     
     # --- Position relative dans le temps ---
     key_times = np.array([0.0, 0.5, 1.0]) * duration
@@ -41,7 +42,7 @@ def pitch_curve(P, A, D, t, duration):
     curve = spline(t)
     
     # --- Vibrato ---
-    vib_freq = 2 + rd.uniform(-8*A, 8*A)
+    vib_freq = 2 + rd.uniform(-20*A, 20*A)
     vib_amp = 0.15 * A * (1 - D)
     vibrato = vib_amp * np.sin(2 * np.pi * vib_freq * t)
     
@@ -49,8 +50,7 @@ def pitch_curve(P, A, D, t, duration):
 
 
 
-
-def generated_sound_from_pad(P, A, D, duration):
+def generate_sound(P, A, D, duration):
     sr = SAMPLE_RATE
     n = int(sr * duration)
     t = np.linspace(0, duration, n, endpoint=False)
@@ -67,14 +67,14 @@ def generated_sound_from_pad(P, A, D, duration):
 
     # oscillateurs
     signal = np.sin(phase)
-    num_harmonics = int(1 + 10 * A)
+    num_harmonics = int(2 + 10 * A)
 
     for k in range(2, 2 + num_harmonics):
         amp = 1 / k
         # écart entre harmoniques pour un timbre plus naturel
         # P proche de 1 → ratios stables (plaisir)
         # P faible → ratios légèrement décalés (mineur / sombre)
-        base_ratio = k if P > 0.5 else k * rd.uniform(-0.5, 0.8)
+        base_ratio = k if P > 0.5 else k * rd.uniform(-0.3, 0.3)
         
         # Arousal → ajouter un petit random pour rendre la voix moins robotique
         freq_ratio = base_ratio + rd.uniform(-0.07, 0.07) * A

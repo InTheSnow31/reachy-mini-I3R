@@ -118,7 +118,7 @@ def sample_pose():
     }
 
 
-def generate_pose_from_pad(P, A, D):
+def generate_pose(P, A, D):
     """Convert PAD coordinates (from 0 to 1) into a robot pose."""
 
     # --- PAD center (neutral) ---
