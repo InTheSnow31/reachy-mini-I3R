@@ -27,8 +27,9 @@ class input:
             
     def on_next(self):
         if self.EMOTION_MODEL["system"] == "wheel":
-            self.selected_emotion = [var.get() for var in self.sliders]
             self.canvas.delete(self.point)
+        else :
+            self.selected_emotion = [var.get() for var in self.sliders]
         sd.stop()
         self.root.destroy()
 
