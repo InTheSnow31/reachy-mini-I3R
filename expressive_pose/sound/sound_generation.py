@@ -7,46 +7,52 @@ PITCH_RANGE = 1.0  # en octaves
 MAX_END = 2
 
 
+import numpy as np
+import random as rd
+from scipy.interpolate import make_interp_spline
+
+MAX_END = 1.0  # juste pour que ça marche, adapte si besoin
+
 def pitch_curve(P, A, D, t, duration):
-    """
-    Courbe de pitch modulée par PAD avec beta-spline et probabilité selon Pleasure.
-    P : Pleasure [0,1]
-    A : Arousal [0,1]
-    D : Dominance [0,1]
-    t : temps
-    duration : durée totale
-    """
-    n = len(t)
-    
-    # --- Points clés ---
     start = 0.0
     
-    # --- Middle : arousal + un peu de hasard
-    # Plus A élevé → le milieu s'écarte du start
-    middle_shift = A * rd.uniform(0.2, 1.2) if rd.random() < P else A * rd.uniform(-0.9, 0.2)
-    middle = start + 2 * middle_shift
-
-    # --- End : se rapproche de start selon dominance et pleasure
-    # plus D est faible et P est faible, plus ça descend
+    # --- nombre de segments intermédiaires selon D ---
+    n_mid = rd.randint(1, max(1, int(10 * A)))
+    mid_points = [start]
+    sign = 1  # la première pente va vers le haut
+    for i in range(n_mid):
+        # force de la pente dépend de A
+        strength = A * rd.uniform(0.5, 1.0)
+        # on flip le signe à chaque segment
+        sign *= -1
+        mid_val = mid_points[-1] + sign * strength
+        mid_points.append(mid_val)
+    
+    # --- end point ---
     gravity = (1 - D) * (1 - P)
     end_sign = 1 if P > 0.5 else -1
-
     end = end_sign * gravity * MAX_END * (0.5 + rd.random())
+    mid_points.append(end)
     
-    # --- Position relative dans le temps ---
-    key_times = np.array([0.0, 0.5, 1.0]) * duration
-    key_values = np.array([start, middle, end])
+    # --- temps clé avec durées aléatoires ---
+    durations = np.random.rand(len(mid_points)-1)  # génère des valeurs aléatoires pour chaque segment
+    durations = durations / durations.sum() * duration  # normalise pour que la somme = duration totale
+    key_times = np.cumsum([0] + list(durations))  # cumul pour avoir les temps de chaque point
     
-    # --- Beta-spline pour interpolation lisse ---
+    key_values = np.array(mid_points)
+    
+    # --- beta-spline ---
     spline = make_interp_spline(key_times, key_values, k=2)
     curve = spline(t)
     
-    # --- Vibrato ---
-    vib_freq = 2 + rd.uniform(-20*A, 20*A)
+    # --- vibrato ---
+    vib_freq = 3 + (1-D) * 10
+    vib_freq *= (0.7 + 0.6 * (1 - D))
     vib_amp = 0.15 * A * (1 - D)
     vibrato = vib_amp * np.sin(2 * np.pi * vib_freq * t)
     
     return curve + vibrato
+
 
 
 
@@ -74,10 +80,13 @@ def generate_sound(P, A, D, duration):
         # écart entre harmoniques pour un timbre plus naturel
         # P proche de 1 → ratios stables (plaisir)
         # P faible → ratios légèrement décalés (mineur / sombre)
-        base_ratio = k if P > 0.5 else k * rd.uniform(-0.3, 0.3)
+        # base_ratio = k if P > 0.5 else k * rd.uniform(-0.3, 0.3)
+        inharm = (1 - P) * rd.uniform(-0.15, 0.15)
+        freq_ratio = k * (1 + inharm)
+
         
         # Arousal → ajouter un petit random pour rendre la voix moins robotique
-        freq_ratio = base_ratio + rd.uniform(-0.07, 0.07) * A
+        freq_ratio = freq_ratio + rd.uniform(-0.07, 0.07) * A
 
         signal += amp * np.sin(k * freq_ratio * phase)
 
@@ -99,6 +108,8 @@ def generate_sound(P, A, D, duration):
 
     # Sustain
     env[attack_n:] = 1.0
+    sustain_level = 0.6 + 0.4 * D
+    env *= sustain_level
 
     # montée progressive sur toute la durée
     env *= np.linspace(0.2, 1.0, n)
