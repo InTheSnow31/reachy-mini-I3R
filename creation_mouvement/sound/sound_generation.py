@@ -5,13 +5,63 @@ from scipy.interpolate import make_interp_spline
 SAMPLE_RATE = 44100
 PITCH_RANGE = 1.0  # en octaves
 MAX_END = 2
+CONSONANT = np.array([1, 6/5, 5/4, 4/3, 3/2, 5/3, 2])
+DISSONANT = np.array([1, 16/15, 9/8, 7/5, 10/7, 11/8, 13/9])
 
 
-import numpy as np
-import random as rd
-from scipy.interpolate import make_interp_spline
+def note_curve(P, A, D, t, duration):
+    # nombre de notes
+    n = len(t)
+    n_notes = int(2 + 10 * A * (1-D))
+    
+    # durées
+    if D > 0.5:
+        durations = np.ones(n_notes)
+    else:
+        durations = np.random.rand(n_notes)
+    durations = durations / durations.sum() * duration
 
-MAX_END = 1.0  # juste pour que ça marche, adapte si besoin
+    # hauteurs
+    ratios = CONSONANT if P > 0.5 else DISSONANT
+    notes = []
+    current = 0.0
+
+    for _ in range(n_notes):
+        r = rd.choice(ratios)
+        jitter = rd.uniform(-0.03, 0.03) * (1 - D)
+        current += np.log2(r) + jitter
+        notes.append(current)
+
+    curve = np.zeros(n)
+    idx = 0
+
+    # durée du glide (en samples)
+    glide_time = (1 - D) * 0.05 + 0.002   # 2ms → 50ms
+    glide_n = int(glide_time * SAMPLE_RATE)
+
+    prev = notes[0]
+
+    for dur, val in zip(durations, notes):
+        seg_n = int(dur / duration * n)
+        seg_n = max(seg_n, glide_n + 1)
+
+        # partie stable
+        curve[idx:idx+seg_n] = val
+
+        # transition depuis la note précédente
+        if idx > 0 and glide_n > 1:
+            g = np.linspace(0, 1, glide_n)
+            # interpolation non linéaire (plus nerveux)
+            g = g**1.5
+            curve[idx:idx+glide_n] = prev + g * (val - prev)
+
+        prev = val
+        idx += seg_n
+
+    curve[idx:] = prev
+    return curve
+
+
 
 def pitch_curve(P, A, D, t, duration):
     start = 0.0
@@ -54,16 +104,18 @@ def pitch_curve(P, A, D, t, duration):
     return curve + vibrato
 
 
-
-
 def generate_sound(P, A, D, duration):
     sr = SAMPLE_RATE
     n = int(sr * duration)
     t = np.linspace(0, duration, n, endpoint=False)
 
-    f0 = 220 + 500 * A * rd.uniform(0, A)  # base pitch
+    f0 = 220 + 440 * A * rd.uniform(0, A)  # base pitch
 
-    C = pitch_curve(P, A, D, t, duration)
+    C_cont = pitch_curve(P, A, D, t, duration)
+    C_note = note_curve(P, A, D, t, duration)
+
+    # dominance = morph
+    C = (1 - D) * C_cont + D * C_note
 
     # fréquence instantanée
     f = f0 * (2 ** C)
