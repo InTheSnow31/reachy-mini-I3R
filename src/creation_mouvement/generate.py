@@ -1,6 +1,8 @@
-from robot_config_space.pose_generation import generate_pose
-from sound.sound_generation import generate_sound
+from creation_mouvement.robot_config_space.pose_generation import generate_pose
+from creation_mouvement.sound.sound_generation import generate_sound
+
 import json
+import os
 from reachy_mini import ReachyMini
 from reachy_mini.utils import create_head_pose
 
@@ -21,7 +23,10 @@ def main():
             duration_min = float(input("Indicate a minimum duration (seconds): "))
 
             # 2. PAD loading
-            with open("emotional_space/pad.json") as f:
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            json_path = os.path.join(current_dir, "emotional_space", "pad.json")
+
+            with open(json_path) as f:
                 pad_data = json.load(f)
 
             if emotion not in pad_data["emotions"]:
