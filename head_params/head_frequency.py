@@ -1,6 +1,7 @@
 import numpy as np
+from normalsiation_PAD.norm import positive_norm, signed_norm
 
-def mov_frequency(A_t, pleasure, arousal, A_max=0.3):
+def head_frequency(A_t, pleasure, arousal, A_max=0.3):
     """
     Calcul de la fréquence de mouvement en Hz
     A_t : amplitude actuelle (radians)
@@ -8,11 +9,8 @@ def mov_frequency(A_t, pleasure, arousal, A_max=0.3):
     arousal : [-1, 1] -> modifie vitesse
     A_max : amplitude max possible (radians)
     """
-    pleasure_clipped = np.clip(pleasure, -0.8, 0.8)
-    pleasure_norm = pleasure_clipped / 0.8  # → [-1, 1]
-
-    arousal_clipped = np.clip(arousal, -0.7, 0.7)
-    arousal_norm = (arousal_clipped + 0.7) / 1.4 # → [0, 1]
+    pleasure_norm = signed_norm("Pleasure", pleasure)  # → [-1, 1]
+    arousal_norm = positive_norm("Arousal", arousal)  # → [0, 1]
 
     # Base frequency
     f_min_base = 0.5

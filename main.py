@@ -3,31 +3,40 @@ import numpy as np
 from scipy.spatial.transform import Rotation as R
 
 from reachy_mini import ReachyMini
-# from main_movement import oscillate_reachy
 from reachy_mini.utils import create_head_pose
 
-from prompt_emotion_PAD import get_emotion_PAD
-from prompt_duration import get_duration
+from prompts.prompt_emotion_PAD import get_emotion_PAD
+from prompts.prompt_duration import get_duration
 
-from timestep import main as timestep
+from timestep import timestep
 
-from antennas_params.ant_angles import antennas_angles
-from antennas_params.ant_center import antennas_center
-from antennas_params.ant_frequency import frequency_from_pleasure
-from antennas_params.ant_amplitude import ant_amplitude
+from antennas_params.ant_main import main as antennas_main
+from antennas_params.ant_angles import ant_angles
+from antennas_params.ant_center import ant_center
 
-from mov_params.mov_s_center import mov_s_center
-from mov_params.mov_amplitude import main as mov_amplitude
-from mov_params.mov_frequency import mov_frequency
-from mov_params.amp_max_mov import amp_max_yes
+from head_params.head_s_center import head_s_center
+from head_params.head_amplitude import head_amplitude
+from head_params.head_frequency import head_frequency
+from head_params.head_amp_max import amp_max_yes
 
+# --- SELECTION DES PARAMETRES EMOTIONNELS ET DUREE ---
 pleasure, arousal, dominance = get_emotion_PAD()
 duration = get_duration()
+
+# --- TEST ANTENNES ISOLEES
+# antennas_main(
+#     pleasure=pleasure, 
+#     arousal=arousal, 
+#     dominance=dominance, 
+#     duration=duration
+# )
+
+# --- CHOIX DU MOUVEMENT (YES / NO / ...) ---
 # yes==True # choix du mouvement YES / NO
 
 # --- CENTRES DU MOUVEMENT ---
-x_center, z_center, pitch_center, yaw_center, z_norm = mov_s_center(pleasure, arousal, dominance)
-base_antennas = antennas_center(pleasure)
+x_center, z_center, pitch_center, yaw_center, z_norm = head_s_center(pleasure, arousal, dominance)
+base_antennas = ant_center(pleasure)
 
 amp_max = amp_max_yes(
     arousal=arousal,
@@ -55,8 +64,8 @@ with ReachyMini(media_backend="no_media") as mini:
         while True:
             
             # --- OSCILLATION PITCH AUTOUR DU CENTRE ---
-            amplitude = mov_amplitude(t, arousal, dominance, amp_max, duration)     # radians
-            frequency = mov_frequency(amplitude, pleasure, amp_max)      # Hertz
+            amplitude = head_amplitude(t, arousal, dominance, amp_max, duration)     # radians
+            frequency = head_frequency(amplitude, pleasure, amp_max)      # Hertz
             print(f"t={t:.2f} s - amp={amplitude:.3f} rad ({np.degrees(amplitude):.1f}°) - freq={frequency:.3f} Hz")
 
             angle = amplitude * np.sin(2 * np.pi * frequency * t)
@@ -74,7 +83,7 @@ with ReachyMini(media_backend="no_media") as mini:
             pose[:3, :3] = R_total.as_matrix()
             
             # --- MOUVEMENTS ANTENNES ---
-            ant_angles = antennas_angles(
+            antennas_angles = ant_angles(
                 center=base_antennas,
                 pleasure=pleasure,
                 dominance=dominance,
@@ -83,67 +92,15 @@ with ReachyMini(media_backend="no_media") as mini:
 
             mini.set_target(
                 head=pose,
-                antennas=ant_angles
+                antennas=antennas_angles
                 )
             time.sleep(dt)
             t += dt  # incrément strict
 
     except KeyboardInterrupt:
-        print("✊ Interruption prolétarienne détectée")
+        print("¡¡ Interruption détectée !!")
         mini.goto_target(
             np.eye(4),
             antennas=[0.0, 0.0], 
             duration=0.5
         )
-
-
-# Exemple d'utilisation de la fonction oscillate_reachy
-
-# Crée l’instance du robot
-# with ReachyMini() as mini:
-#     # Appelle la fonction avec l'instance et éventuellement tes paramètres
-#     oscillate_reachy(
-#         mini,
-#         duration=15.0,   # temps total du mouvement en secondes
-#         amplitude=0.1,   # amplitude du va-et-vient en m
-#         speed=2,         # nombre d'alternances par seconde
-#         smoothness=0.5   # fluidité du mouvement (fraction du temps de transition)
-#     )
-
-# with ReachyMini() as mini:
-#     # Look up and tilt head
-#     mini.goto_target(
-#         head=create_head_pose(z=10, roll=15, degrees=True, mm=True),
-#         duration=1.0
-#     )
-
-# yes.main(pleasure, arousal, dominance)
-
-
-    # mini.goto_target(antennas=[0.0, 0.0], duration=1.0)
-    # mini.goto_target(antennas=[1.0, -1.0], duration=1.0)
-    # mini.goto_target(antennas=[3.0, -3.0], duration=1.0)
-    # mini.goto_target(antennas=[2.8, -2.8], duration=1.0)
-    # mini.goto_target(antennas=[0.0, 0.0], duration=1.0)
-
-    # mini.goto_target(antennas=[-1.0, 1.0], duration=1.0)
-    # mini.goto_target(antennas=[-2.8, 2.8], duration=1.0)
-    # mini.goto_target(antennas=[-3.0, 3.0], duration=1.0)
-    # mini.goto_target(antennas=[-2.8, 2.8], duration=1.0)
-    # mini.goto_target(antennas=[0.0, 0.0], duration=1.0)
-
-# antennas_according_to_PAD(
-#     pleasure=pleasure,
-#     arousal=arousal,
-#     dominance=dominance,
-#     t=t0
-# )
-
-
-# with ReachyMini(media_backend="no_media") as reachy_mini:
-#     reachy_mini.goto_target(
-#             create_head_pose(x=0, y=0,z=30, roll=0, pitch=0,yaw=-40, degrees=True, mm=True), 
-#             antennas=[0.0, 0.0], 
-#             duration=1.0)
-
-#emotive_yes_no.main()

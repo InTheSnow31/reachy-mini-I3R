@@ -1,18 +1,15 @@
 import numpy as np
+from normalsiation_PAD.norm import positive_norm
 
-def frequency_from_pleasure(pleasure: float, t: float) -> float:
+def ant_frequency(pleasure: float, t: float) -> float:
     """
     Retourne une fréquence instantanée (Hz) dépendant uniquement du pleasure.
     Combine :
     - fréquence moyenne
     - légère modulation de fluidité (micro-irrégularités)
     """
-
-    # Clamp réaliste
-    pleasure_clipped = np.clip(pleasure, -0.8, 0.8)
-
-    # Normalisation [-0.8,0.8] → [0,1]
-    p = (pleasure_clipped + 0.8) / 1.6
+    # Normalisation
+    p = positive_norm("Pleasure", pleasure)
 
     # --- fréquence moyenne (sûre) ---
     f_min = 0.05   # lent

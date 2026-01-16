@@ -1,6 +1,6 @@
 import numpy as np
 
-def main(pleasure: float, arousal: float) -> float:
+def timestep(pleasure: float, arousal: float) -> float:
     """
     - arousal bas → mouvement lent
     - arousal haut → mouvement rapide

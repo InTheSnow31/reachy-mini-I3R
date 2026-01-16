@@ -1,6 +1,7 @@
 import numpy as np
+from normalsiation_PAD.norm import positive_norm, signed_norm
 
-def main(t, arousal, dominance, A_phys_max, duration):
+def head_amplitude(t, arousal, dominance, A_phys_max, duration):
     """
     - dominance > 0 → crescendo (grande amplitude à la fin)
     - dominance < 0 → decrescendo (s’éteint)
@@ -9,20 +10,17 @@ def main(t, arousal, dominance, A_phys_max, duration):
     Tout est en radians
     """
     # --- CALCUL TEMPS DE CROISSANCE ---
-    # Clamp arousal
-    arousal_clipped = np.clip(arousal, -0.7, 0.7)
+    arousal_norm = positive_norm("Arousal", arousal)
     min_ratio=0.1
     max_ratio=0.5
     
-    # Mapping [-0.7,0.7] -> [max_ratio, min_ratio]
     # Plus arousal est élevé -> growth_time plus court
-    growth_ratio = max_ratio - (arousal_clipped + 0.7)/1.4 * (max_ratio - min_ratio)
+    growth_ratio = max_ratio - arousal_norm * (max_ratio - min_ratio)
     
     # Growth_time effectif
     growth_time = duration * growth_ratio
-    
-    dominance_clipped = np.clip(dominance, -0.5, 0.5)
-    dom_norm = dominance_clipped / 0.5 # → [-1, 1]
+
+    dom_norm = signed_norm("Dominance", dominance)  # → [-1, 1]
 
     # Amplitude max modulée par dominance (évite 0 ou x2 débiles)
     factor = 0.6 + 0.4 * (dom_norm + 1) / 2  # ∈ [0.6, 1.0]

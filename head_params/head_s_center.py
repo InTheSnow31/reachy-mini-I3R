@@ -1,23 +1,19 @@
 import numpy as np
+from normalsiation_PAD.norm import positive_norm, signed_norm
 
-def mov_s_center(pleasure: float, arousal: float, dominance: float) -> tuple[float, float, float, float, float]:
+def head_s_center(pleasure: float, arousal: float, dominance: float) -> tuple[float, float, float, float, float]:
     """
     Détermine le centre du mouvement 
-    Le pleasure influence le pitch_center (tête vers le haut/bas)
-    La dominance influence le z_center (tente sortie/rentrée), le x_center (tête avant /arrière), et le yaw_center (tête légèrement tournée)
-    L'arousal sert de facteur pour savoir à quel point le mouvement est loin du centre neutre.
+
+    - Le pleasure influence le pitch_center (tête vers le haut/bas)
+    - La dominance influence le z_center (tente sortie/rentrée), le x_center (tête avant /arrière), et le yaw_center (tête légèrement tournée)
+    - L'arousal sert de facteur pour savoir à quel point le mouvement est loin du centre neutre.
     """
     # NORMALISATION DES VALEURS
-        # dom_norm et pleasure_norm sont signés
-    dominance_clipped = np.clip(dominance, -0.5, 0.5)
-    dom_norm = abs(dominance_clipped) / 0.5 # → [0, 1]
-
-    pleasure_clipped = np.clip(pleasure, -0.8, 0.8)
-    pleasure_norm = pleasure_clipped / 0.8  # → [-1, 1]
-
-        # arousal_norm est une intensité
-    arousal_clipped = np.clip(arousal, -0.7, 0.7)
-    arousal_norm = (arousal_clipped + 0.7) / 1.4 # → [0, 1]
+    pleasure_norm = signed_norm("Pleasure", pleasure)  # → [-1, 1]
+        # arousal_norm et dom_norm sont des intensités
+    arousal_norm = positive_norm("Arousal", arousal)  # → [0, 1]
+    dom_norm = positive_norm("Dominance", dominance)  # → [0, 1]
 
     # On commence par le z_center car ses valeurs max/min ne dépendent pas des autres axes (valeurs en m)
     # A partir de -0.025 les mouvements sont très limités

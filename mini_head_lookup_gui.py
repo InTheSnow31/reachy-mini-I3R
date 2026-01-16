@@ -1,4 +1,6 @@
-"""Reachy Mini Head Position GUI Example."""
+"""Reachy Mini Head Position GUI Example.
+    Viens de la librairie reachy_mini. M'a beaucoup servi pour faire des tests.
+"""
 
 import time
 import tkinter as tk
