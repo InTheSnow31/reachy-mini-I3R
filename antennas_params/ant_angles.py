@@ -1,0 +1,40 @@
+import numpy as np
+from ant_amplitude import amplitude_antennes
+from ant_frequency import frequency_from_pleasure
+
+def antennas_angles_according_to_PAD(  center: float = 0.0,
+                              pleasure: float = 0.0,
+                              dominance: float = 0.0,
+                              t: float = 0.0) -> list[float]:
+    """
+    Retourne les angles des antennes selon PAD à un instant t.
+
+    Args:
+        base_angles: position neutre des antennes [right, left] en rad
+        pleasure: [-1,1], influence la vitesse
+        arousal: [-1,1], influence la fluidité/saccade
+        dominance: [-1,1], influence l'amplitude
+        t: temps écoulé (s)
+
+    Returns:
+        angles des antennes [right, left] en rad
+    """
+     
+
+    # --- paramètres mouvement ---
+    A_max = amplitude_antennes(dominance, center) 
+    f_t = frequency_from_pleasure(pleasure, t)
+
+    # --- calcul angles ---
+    angle = A_max * np.sin(2 * np.pi * f_t * t)
+
+    # antennes symétriques selon dominance : 
+    if dominance >= 0:
+        right_angle = - center - angle
+        left_angle  = center + angle
+    if dominance < 0:
+        right_angle = center + angle
+        left_angle  = - center - angle
+    # En plus de l'amplitude, la dominance a un impact sur le coté tourné vers l'extérieur/intérieur du mouvement
+
+    return [right_angle, left_angle]

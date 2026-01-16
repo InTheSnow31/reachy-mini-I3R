@@ -5,7 +5,7 @@ from scipy.spatial.transform import Rotation as R
 
 from reachy_mini import ReachyMini
 from reachy_mini.utils import create_head_pose
-from mov_s_center import mov_s_center
+from mov_params.mov_s_center import mov_s_center
 
 def main(pleasure: float, arousal: float, dominance: float) -> None:
     print("YES movement adapted with PAD values")

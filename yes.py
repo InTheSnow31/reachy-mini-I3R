@@ -8,8 +8,8 @@ from scipy.spatial.transform import Rotation as R
 
 from reachy_mini import ReachyMini
 from reachy_mini.utils import create_head_pose
-from mov_amplitude import main as mov_amplitude
-from mov_frequency import main as mov_frequency
+from mov_params.mov_amplitude import main as mov_amplitude
+from mov_params.mov_frequency import main as mov_frequency
 
 
 def main(pleasure: float, arousal: float, dominance: float, duration: float) -> None:

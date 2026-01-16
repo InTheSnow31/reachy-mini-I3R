@@ -10,11 +10,12 @@ from prompt_emotion_PAD import get_emotion_PAD
 from prompt_duration import get_duration
 
 from timestep import main as timestep
-from antennas_according_to_pad import antennas_angles_according_to_PAD, antennas_center_from_pleasure
-from mov_s_center import mov_s_center
-from mov_amplitude import main as mov_amplitude
-from mov_frequency import mov_frequency
-from amp_max_mov import amp_max_yes
+
+from antennas_params import ant_angles, ant_center
+from mov_params.mov_s_center import mov_s_center
+from mov_params.mov_amplitude import main as mov_amplitude
+from mov_params.mov_frequency import mov_frequency
+from mov_params.amp_max_mov import amp_max_yes
 
 pleasure, arousal, dominance = get_emotion_PAD()
 duration = get_duration()
@@ -22,7 +23,7 @@ duration = get_duration()
 
 # --- CENTRES DU MOUVEMENT ---
 x_center, z_center, pitch_center, yaw_center, z_norm = mov_s_center(pleasure, arousal, dominance)
-base_antennas = antennas_center_from_pleasure(pleasure)
+base_antennas = ant_center.antennas_center_from_pleasure(pleasure)
 
 amp_max = amp_max_yes(
     arousal=arousal,
@@ -69,7 +70,7 @@ with ReachyMini(media_backend="no_media") as mini:
             pose[:3, :3] = R_total.as_matrix()
             
             # --- MOUVEMENTS ANTENNES ---
-            antennas_angles = antennas_angles_according_to_PAD(
+            antennas_angles = ant_angles.antennas_angles_according_to_PAD(
                 center=base_antennas,
                 pleasure=pleasure,
                 dominance=dominance,
