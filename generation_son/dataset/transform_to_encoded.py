@@ -6,9 +6,9 @@ import numpy as np
 import scipy.io.wavfile as wav
 import matplotlib.pyplot as plt
 
-def extraire_fondamentales_et_intensite_depuis_wav(
+def extract_f0s(
     fichier_wav: str,
-    duree_fenetre: float = 0.05,
+    duree_fenetre: float = 0.03,
     fmin: float = 50.0,
     fmax: float = 1000.0,
     tolerance_hz: float = 2.0,
@@ -46,21 +46,16 @@ def extraire_fondamentales_et_intensite_depuis_wav(
             continue
 
         frame *= np.hanning(len(frame))
-        f0 = _estimer_f0_autocorr(frame, fs, fmin, fmax)
+        f0 = estimate_f0(frame, fs, fmin, fmax)
         f0_par_fenetre.append(f0)
 
     # --- Regroupement ---
-    evenements = _regrouper_f0_et_intensite(
-        f0_par_fenetre,
-        rms_par_fenetre,
-        duree_fenetre,
-        tolerance_hz
-    )
+    evenements = group_f0s_intensities(f0_par_fenetre, rms_par_fenetre, duree_fenetre, tolerance_hz)
 
     return evenements
 
 
-def _estimer_f0_autocorr(frame, fs, fmin, fmax):
+def estimate_f0(frame, fs, fmin, fmax):
     corr = np.correlate(frame, frame, mode="full")
     corr = corr[len(corr)//2:]
     corr[0] = 0
@@ -74,7 +69,7 @@ def _estimer_f0_autocorr(frame, fs, fmin, fmax):
     lag = np.argmax(corr[lag_min:lag_max]) + lag_min
     return fs / lag
 
-def _regrouper_f0_et_intensite(
+def group_f0s_intensities(
     f0s,
     rms,
     duree_fenetre,
@@ -92,12 +87,7 @@ def _regrouper_f0_et_intensite(
 
         if f0 is None:
             if freq_courante is not None:
-                evenements.append((
-                    debut,
-                    nb * duree_fenetre,
-                    freq_courante,
-                    float(np.mean(intensites))
-                ))
+                evenements.append((debut, nb * duree_fenetre, freq_courante, float(np.mean(intensites))))
                 freq_courante = None
                 nb = 0
                 intensites = []
@@ -124,21 +114,12 @@ def _regrouper_f0_et_intensite(
             intensites = [r]
 
     if freq_courante is not None:
-        evenements.append((
-            debut,
-            nb * duree_fenetre,
-            freq_courante,
-            float(np.mean(intensites))
-        ))
+        evenements.append((debut, nb * duree_fenetre, freq_courante, float(np.mean(intensites))))
 
     return evenements
 
 
-def afficher_fondamentales(
-    evenements,
-    afficher_intensite: bool = True,
-    cmap: str = "viridis"
-):
+def display_f0s(evenements, afficher_intensite: bool = True, cmap: str = "viridis"):
     """
     Affiche les événements de fondamentales avec intensité.
     """
@@ -189,8 +170,8 @@ def afficher_fondamentales(
     plt.show()
 
 
-evenements = extraire_fondamentales_et_intensite_depuis_wav("dataset/labeled/sounds/VO_02_018.dspadpcm.wav")
+evenements = extract_f0s("dataset/labeled/sounds/VO_02_018.dspadpcm.wav")
 for t, d, f, i in evenements:
     print(f"t={t:.2f}s | d={d:.2f}s | f0={f:.1f} Hz | I={i:.3f}")
 
-afficher_fondamentales(evenements, afficher_intensite=True)
+display_f0s(evenements, afficher_intensite=True)
