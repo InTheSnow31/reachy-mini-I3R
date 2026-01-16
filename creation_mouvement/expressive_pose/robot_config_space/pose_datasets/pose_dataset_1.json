@@ -1,0 +1,3402 @@
+[
+  {
+    "pose": {
+      "x": -26,
+      "y": -57,
+      "z": 34,
+      "roll": -15,
+      "pitch": -19,
+      "yaw": -8,
+      "body_yaw": -12,
+      "antennas": [
+        2.3,
+        2.1
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140592.3844101
+  },
+  {
+    "pose": {
+      "x": 29,
+      "y": -49,
+      "z": 15,
+      "roll": 4,
+      "pitch": -46,
+      "yaw": -58,
+      "body_yaw": -15,
+      "antennas": [
+        0.7,
+        1.6
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140594.9708824
+  },
+  {
+    "pose": {
+      "x": -37,
+      "y": 11,
+      "z": -35,
+      "roll": 41,
+      "pitch": 33,
+      "yaw": 42,
+      "body_yaw": -6,
+      "antennas": [
+        1.4,
+        0.9
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140597.0622222
+  },
+  {
+    "pose": {
+      "x": -40,
+      "y": 37,
+      "z": 43,
+      "roll": -30,
+      "pitch": 39,
+      "yaw": 43,
+      "body_yaw": 1,
+      "antennas": [
+        0.9,
+        0.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140599.8626847
+  },
+  {
+    "pose": {
+      "x": 3,
+      "y": -47,
+      "z": -49,
+      "roll": -2,
+      "pitch": -38,
+      "yaw": 26,
+      "body_yaw": 2,
+      "antennas": [
+        1.9,
+        2.6
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140602.2680933
+  },
+  {
+    "pose": {
+      "x": 18,
+      "y": 8,
+      "z": -45,
+      "roll": -2,
+      "pitch": -40,
+      "yaw": 10,
+      "body_yaw": 20,
+      "antennas": [
+        2.0,
+        2.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140605.3104496
+  },
+  {
+    "pose": {
+      "x": 33,
+      "y": -36,
+      "z": 30,
+      "roll": -42,
+      "pitch": -45,
+      "yaw": -7,
+      "body_yaw": -2,
+      "antennas": [
+        3.1,
+        2.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140612.092549
+  },
+  {
+    "pose": {
+      "x": -28,
+      "y": -12,
+      "z": -25,
+      "roll": 8,
+      "pitch": 31,
+      "yaw": 28,
+      "body_yaw": -10,
+      "antennas": [
+        1.2,
+        0.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140619.8941905
+  },
+  {
+    "pose": {
+      "x": -6,
+      "y": 29,
+      "z": 59,
+      "roll": 37,
+      "pitch": 32,
+      "yaw": -47,
+      "body_yaw": 18,
+      "antennas": [
+        2.0,
+        1.7
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140623.076458
+  },
+  {
+    "pose": {
+      "x": -9,
+      "y": -40,
+      "z": -1,
+      "roll": -2,
+      "pitch": -16,
+      "yaw": -9,
+      "body_yaw": 0,
+      "antennas": [
+        2.7,
+        2.5
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140631.1518838
+  },
+  {
+    "pose": {
+      "x": -11,
+      "y": 45,
+      "z": -56,
+      "roll": -10,
+      "pitch": 1,
+      "yaw": 3,
+      "body_yaw": -16,
+      "antennas": [
+        0.7,
+        3.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140634.2262435
+  },
+  {
+    "pose": {
+      "x": 0,
+      "y": -33,
+      "z": 23,
+      "roll": 13,
+      "pitch": 0,
+      "yaw": 52,
+      "body_yaw": -11,
+      "antennas": [
+        0.8,
+        0.8
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140644.1265137
+  },
+  {
+    "pose": {
+      "x": 31,
+      "y": 8,
+      "z": -27,
+      "roll": 45,
+      "pitch": 24,
+      "yaw": 44,
+      "body_yaw": 17,
+      "antennas": [
+        1.3,
+        0.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140654.7127447
+  },
+  {
+    "pose": {
+      "x": -23,
+      "y": 5,
+      "z": 3,
+      "roll": -39,
+      "pitch": 46,
+      "yaw": -53,
+      "body_yaw": -13,
+      "antennas": [
+        0.5,
+        0.5
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140662.0008914
+  },
+  {
+    "pose": {
+      "x": 14,
+      "y": 16,
+      "z": -52,
+      "roll": -1,
+      "pitch": -2,
+      "yaw": 54,
+      "body_yaw": 13,
+      "antennas": [
+        0.8,
+        1.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140664.4371772
+  },
+  {
+    "pose": {
+      "x": -39,
+      "y": 27,
+      "z": 32,
+      "roll": -36,
+      "pitch": 37,
+      "yaw": 3,
+      "body_yaw": 1,
+      "antennas": [
+        0.4,
+        1.4
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140670.6103063
+  },
+  {
+    "pose": {
+      "x": 18,
+      "y": -60,
+      "z": 32,
+      "roll": 42,
+      "pitch": -17,
+      "yaw": 63,
+      "body_yaw": -9,
+      "antennas": [
+        1.6,
+        0.3
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140673.4644034
+  },
+  {
+    "pose": {
+      "x": 40,
+      "y": -22,
+      "z": 47,
+      "roll": 31,
+      "pitch": 14,
+      "yaw": -15,
+      "body_yaw": -11,
+      "antennas": [
+        1.2,
+        0.5
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140675.8650422
+  },
+  {
+    "pose": {
+      "x": 27,
+      "y": 57,
+      "z": -60,
+      "roll": 26,
+      "pitch": -9,
+      "yaw": 60,
+      "body_yaw": -19,
+      "antennas": [
+        0.4,
+        1.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140679.1561408
+  },
+  {
+    "pose": {
+      "x": -1,
+      "y": -30,
+      "z": -53,
+      "roll": -20,
+      "pitch": 22,
+      "yaw": -45,
+      "body_yaw": -15,
+      "antennas": [
+        2.3,
+        2.6
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140681.7366319
+  },
+  {
+    "pose": {
+      "x": 28,
+      "y": 38,
+      "z": -44,
+      "roll": -34,
+      "pitch": 34,
+      "yaw": 56,
+      "body_yaw": 15,
+      "antennas": [
+        0.5,
+        1.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140685.3667874
+  },
+  {
+    "pose": {
+      "x": 37,
+      "y": -6,
+      "z": -33,
+      "roll": 19,
+      "pitch": 46,
+      "yaw": -14,
+      "body_yaw": -1,
+      "antennas": [
+        1.3,
+        2.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140693.6028001
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": -4,
+      "z": 55,
+      "roll": 16,
+      "pitch": 7,
+      "yaw": -35,
+      "body_yaw": -5,
+      "antennas": [
+        0.7,
+        1.1
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140696.0692863
+  },
+  {
+    "pose": {
+      "x": 35,
+      "y": 10,
+      "z": -31,
+      "roll": 25,
+      "pitch": -22,
+      "yaw": -64,
+      "body_yaw": -16,
+      "antennas": [
+        2.2,
+        0.2
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140699.4100282
+  },
+  {
+    "pose": {
+      "x": -32,
+      "y": 55,
+      "z": -56,
+      "roll": -8,
+      "pitch": -41,
+      "yaw": -5,
+      "body_yaw": -3,
+      "antennas": [
+        2.1,
+        0.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140701.7824676
+  },
+  {
+    "pose": {
+      "x": -24,
+      "y": 32,
+      "z": 59,
+      "roll": 23,
+      "pitch": 23,
+      "yaw": 56,
+      "body_yaw": -5,
+      "antennas": [
+        2.5,
+        2.6
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140710.0599787
+  },
+  {
+    "pose": {
+      "x": -16,
+      "y": -48,
+      "z": -48,
+      "roll": 34,
+      "pitch": 5,
+      "yaw": 25,
+      "body_yaw": 7,
+      "antennas": [
+        1.3,
+        2.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140713.2682664
+  },
+  {
+    "pose": {
+      "x": -34,
+      "y": 26,
+      "z": 23,
+      "roll": 32,
+      "pitch": -38,
+      "yaw": -50,
+      "body_yaw": 5,
+      "antennas": [
+        2.3,
+        2.5
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140724.6398916
+  },
+  {
+    "pose": {
+      "x": -27,
+      "y": -29,
+      "z": -36,
+      "roll": -26,
+      "pitch": 18,
+      "yaw": 49,
+      "body_yaw": -12,
+      "antennas": [
+        1.3,
+        0.9
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140728.7885504
+  },
+  {
+    "pose": {
+      "x": -9,
+      "y": 51,
+      "z": 58,
+      "roll": -41,
+      "pitch": 6,
+      "yaw": -40,
+      "body_yaw": -17,
+      "antennas": [
+        2.1,
+        1.7
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140731.2636251
+  },
+  {
+    "pose": {
+      "x": -39,
+      "y": -49,
+      "z": 58,
+      "roll": 46,
+      "pitch": -20,
+      "yaw": -23,
+      "body_yaw": 6,
+      "antennas": [
+        1.5,
+        0.7
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140733.1740053
+  },
+  {
+    "pose": {
+      "x": 11,
+      "y": 55,
+      "z": -53,
+      "roll": -29,
+      "pitch": -2,
+      "yaw": -65,
+      "body_yaw": 4,
+      "antennas": [
+        0.8,
+        2.5
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140735.6379647
+  },
+  {
+    "pose": {
+      "x": 18,
+      "y": -24,
+      "z": -6,
+      "roll": 39,
+      "pitch": 43,
+      "yaw": 59,
+      "body_yaw": -11,
+      "antennas": [
+        0.6,
+        0.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140738.3373456
+  },
+  {
+    "pose": {
+      "x": -33,
+      "y": 14,
+      "z": 34,
+      "roll": 19,
+      "pitch": -43,
+      "yaw": 15,
+      "body_yaw": -17,
+      "antennas": [
+        0.2,
+        1.5
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140742.6920233
+  },
+  {
+    "pose": {
+      "x": 27,
+      "y": -40,
+      "z": -53,
+      "roll": 15,
+      "pitch": -40,
+      "yaw": -18,
+      "body_yaw": -16,
+      "antennas": [
+        1.9,
+        2.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140749.9530127
+  },
+  {
+    "pose": {
+      "x": -10,
+      "y": -9,
+      "z": -45,
+      "roll": 22,
+      "pitch": -19,
+      "yaw": -55,
+      "body_yaw": 19,
+      "antennas": [
+        0.3,
+        2.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140751.832601
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": 6,
+      "z": -20,
+      "roll": -17,
+      "pitch": -24,
+      "yaw": 15,
+      "body_yaw": -5,
+      "antennas": [
+        0.8,
+        0.4
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140760.5695796
+  },
+  {
+    "pose": {
+      "x": -2,
+      "y": -2,
+      "z": -20,
+      "roll": 46,
+      "pitch": -41,
+      "yaw": -63,
+      "body_yaw": 9,
+      "antennas": [
+        2.0,
+        1.8
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140768.3198884
+  },
+  {
+    "pose": {
+      "x": -28,
+      "y": -51,
+      "z": 8,
+      "roll": -23,
+      "pitch": 14,
+      "yaw": 2,
+      "body_yaw": -12,
+      "antennas": [
+        2.9,
+        2.8
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140783.288495
+  },
+  {
+    "pose": {
+      "x": -9,
+      "y": -13,
+      "z": -24,
+      "roll": -30,
+      "pitch": 6,
+      "yaw": 12,
+      "body_yaw": 19,
+      "antennas": [
+        3.1,
+        2.6
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140789.1688824
+  },
+  {
+    "pose": {
+      "x": 27,
+      "y": -59,
+      "z": 25,
+      "roll": 20,
+      "pitch": -12,
+      "yaw": -39,
+      "body_yaw": -12,
+      "antennas": [
+        0.8,
+        2.8
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140792.0091357
+  },
+  {
+    "pose": {
+      "x": 30,
+      "y": -41,
+      "z": -26,
+      "roll": -14,
+      "pitch": 27,
+      "yaw": -12,
+      "body_yaw": 1,
+      "antennas": [
+        0.6,
+        2.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140796.8014984
+  },
+  {
+    "pose": {
+      "x": -7,
+      "y": 4,
+      "z": 2,
+      "roll": -18,
+      "pitch": -44,
+      "yaw": -42,
+      "body_yaw": 20,
+      "antennas": [
+        1.3,
+        0.9
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140818.9481902
+  },
+  {
+    "pose": {
+      "x": -40,
+      "y": -18,
+      "z": 38,
+      "roll": -34,
+      "pitch": 31,
+      "yaw": 2,
+      "body_yaw": -10,
+      "antennas": [
+        2.3,
+        1.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140828.942201
+  },
+  {
+    "pose": {
+      "x": 14,
+      "y": 11,
+      "z": -59,
+      "roll": -36,
+      "pitch": -41,
+      "yaw": -27,
+      "body_yaw": 14,
+      "antennas": [
+        0.1,
+        1.2
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140831.0452037
+  },
+  {
+    "pose": {
+      "x": 30,
+      "y": -42,
+      "z": -5,
+      "roll": -34,
+      "pitch": -45,
+      "yaw": 13,
+      "body_yaw": 3,
+      "antennas": [
+        2.8,
+        2.5
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140834.0743446
+  },
+  {
+    "pose": {
+      "x": -35,
+      "y": 55,
+      "z": -15,
+      "roll": -24,
+      "pitch": 37,
+      "yaw": -2,
+      "body_yaw": -14,
+      "antennas": [
+        1.1,
+        1.8
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140836.9575543
+  },
+  {
+    "pose": {
+      "x": 12,
+      "y": 19,
+      "z": 35,
+      "roll": -31,
+      "pitch": -20,
+      "yaw": -24,
+      "body_yaw": -9,
+      "antennas": [
+        2.8,
+        0.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140838.9108002
+  },
+  {
+    "pose": {
+      "x": 2,
+      "y": 40,
+      "z": 59,
+      "roll": 2,
+      "pitch": 35,
+      "yaw": -2,
+      "body_yaw": -3,
+      "antennas": [
+        0.5,
+        2.2
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140843.793514
+  },
+  {
+    "pose": {
+      "x": 8,
+      "y": 51,
+      "z": -56,
+      "roll": 10,
+      "pitch": -22,
+      "yaw": -14,
+      "body_yaw": 9,
+      "antennas": [
+        1.1,
+        2.6
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140846.5943491
+  },
+  {
+    "pose": {
+      "x": -11,
+      "y": -32,
+      "z": -57,
+      "roll": 34,
+      "pitch": -26,
+      "yaw": 37,
+      "body_yaw": 1,
+      "antennas": [
+        0.9,
+        0.2
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140856.585276
+  },
+  {
+    "pose": {
+      "x": -5,
+      "y": -16,
+      "z": 22,
+      "roll": 15,
+      "pitch": 1,
+      "yaw": 19,
+      "body_yaw": -19,
+      "antennas": [
+        0.4,
+        3.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140864.9490974
+  },
+  {
+    "pose": {
+      "x": -18,
+      "y": 14,
+      "z": -27,
+      "roll": -46,
+      "pitch": -37,
+      "yaw": 46,
+      "body_yaw": 2,
+      "antennas": [
+        2.3,
+        1.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140874.928988
+  },
+  {
+    "pose": {
+      "x": 37,
+      "y": 5,
+      "z": -46,
+      "roll": -1,
+      "pitch": 23,
+      "yaw": -17,
+      "body_yaw": -4,
+      "antennas": [
+        0.1,
+        1.4
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140880.9893432
+  },
+  {
+    "pose": {
+      "x": 26,
+      "y": 58,
+      "z": 43,
+      "roll": 18,
+      "pitch": 37,
+      "yaw": -15,
+      "body_yaw": 3,
+      "antennas": [
+        1.4,
+        3.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140883.3575675
+  },
+  {
+    "pose": {
+      "x": 2,
+      "y": 19,
+      "z": -20,
+      "roll": 34,
+      "pitch": -35,
+      "yaw": 11,
+      "body_yaw": 12,
+      "antennas": [
+        1.0,
+        1.3
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140886.0037007
+  },
+  {
+    "pose": {
+      "x": 11,
+      "y": 29,
+      "z": -23,
+      "roll": 20,
+      "pitch": -34,
+      "yaw": -16,
+      "body_yaw": 6,
+      "antennas": [
+        2.1,
+        1.2
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140891.44977
+  },
+  {
+    "pose": {
+      "x": -18,
+      "y": 18,
+      "z": 12,
+      "roll": -12,
+      "pitch": 1,
+      "yaw": -65,
+      "body_yaw": -1,
+      "antennas": [
+        0.9,
+        1.4
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140894.0796492
+  },
+  {
+    "pose": {
+      "x": 34,
+      "y": 17,
+      "z": 23,
+      "roll": -9,
+      "pitch": 9,
+      "yaw": 48,
+      "body_yaw": 8,
+      "antennas": [
+        2.1,
+        1.6
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140896.5083275
+  },
+  {
+    "pose": {
+      "x": -19,
+      "y": 24,
+      "z": -50,
+      "roll": -14,
+      "pitch": 15,
+      "yaw": 20,
+      "body_yaw": -15,
+      "antennas": [
+        2.6,
+        2.4
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140899.20522
+  },
+  {
+    "pose": {
+      "x": -1,
+      "y": -32,
+      "z": 43,
+      "roll": -25,
+      "pitch": -32,
+      "yaw": -59,
+      "body_yaw": -18,
+      "antennas": [
+        0.8,
+        1.5
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140907.1250696
+  },
+  {
+    "pose": {
+      "x": -31,
+      "y": -2,
+      "z": -7,
+      "roll": 30,
+      "pitch": 23,
+      "yaw": -16,
+      "body_yaw": 4,
+      "antennas": [
+        1.6,
+        0.8
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140922.4899945
+  },
+  {
+    "pose": {
+      "x": -40,
+      "y": 54,
+      "z": 36,
+      "roll": 48,
+      "pitch": -37,
+      "yaw": 43,
+      "body_yaw": -6,
+      "antennas": [
+        0.6,
+        3.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140924.48832
+  },
+  {
+    "pose": {
+      "x": 26,
+      "y": -1,
+      "z": -54,
+      "roll": 21,
+      "pitch": -19,
+      "yaw": -34,
+      "body_yaw": 9,
+      "antennas": [
+        0.4,
+        1.5
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140926.9239068
+  },
+  {
+    "pose": {
+      "x": 27,
+      "y": 11,
+      "z": 16,
+      "roll": -10,
+      "pitch": 46,
+      "yaw": 48,
+      "body_yaw": 19,
+      "antennas": [
+        2.6,
+        2.8
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140935.1982262
+  },
+  {
+    "pose": {
+      "x": 14,
+      "y": 46,
+      "z": 56,
+      "roll": 20,
+      "pitch": 7,
+      "yaw": -25,
+      "body_yaw": 10,
+      "antennas": [
+        1.4,
+        2.4
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140937.7538931
+  },
+  {
+    "pose": {
+      "x": -5,
+      "y": 38,
+      "z": 39,
+      "roll": 16,
+      "pitch": 12,
+      "yaw": -4,
+      "body_yaw": -3,
+      "antennas": [
+        1.4,
+        2.3
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140941.7540596
+  },
+  {
+    "pose": {
+      "x": -10,
+      "y": -26,
+      "z": -18,
+      "roll": -10,
+      "pitch": 19,
+      "yaw": -45,
+      "body_yaw": -12,
+      "antennas": [
+        0.5,
+        1.2
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140951.3397777
+  },
+  {
+    "pose": {
+      "x": -21,
+      "y": 30,
+      "z": -33,
+      "roll": -42,
+      "pitch": 3,
+      "yaw": 39,
+      "body_yaw": 1,
+      "antennas": [
+        1.7,
+        1.3
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140958.434135
+  },
+  {
+    "pose": {
+      "x": -14,
+      "y": 46,
+      "z": -7,
+      "roll": -1,
+      "pitch": 48,
+      "yaw": -60,
+      "body_yaw": 16,
+      "antennas": [
+        1.2,
+        0.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140964.9413626
+  },
+  {
+    "pose": {
+      "x": 5,
+      "y": -22,
+      "z": 36,
+      "roll": -1,
+      "pitch": 3,
+      "yaw": -9,
+      "body_yaw": 11,
+      "antennas": [
+        0.7,
+        1.4
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140967.3957627
+  },
+  {
+    "pose": {
+      "x": -37,
+      "y": -11,
+      "z": -17,
+      "roll": 35,
+      "pitch": 36,
+      "yaw": 38,
+      "body_yaw": -10,
+      "antennas": [
+        2.7,
+        2.9
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140970.6534307
+  },
+  {
+    "pose": {
+      "x": 39,
+      "y": 8,
+      "z": -57,
+      "roll": 0,
+      "pitch": 25,
+      "yaw": -59,
+      "body_yaw": -15,
+      "antennas": [
+        2.0,
+        0.4
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140973.2930956
+  },
+  {
+    "pose": {
+      "x": 19,
+      "y": -37,
+      "z": -54,
+      "roll": -17,
+      "pitch": -2,
+      "yaw": 18,
+      "body_yaw": -7,
+      "antennas": [
+        1.4,
+        1.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140976.8150532
+  },
+  {
+    "pose": {
+      "x": 8,
+      "y": -25,
+      "z": 36,
+      "roll": 3,
+      "pitch": -18,
+      "yaw": -45,
+      "body_yaw": 10,
+      "antennas": [
+        0.1,
+        1.7
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140987.734229
+  },
+  {
+    "pose": {
+      "x": 4,
+      "y": -32,
+      "z": 23,
+      "roll": -42,
+      "pitch": 49,
+      "yaw": -55,
+      "body_yaw": -19,
+      "antennas": [
+        3.0,
+        0.6
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766140993.4022698
+  },
+  {
+    "pose": {
+      "x": -38,
+      "y": 19,
+      "z": -41,
+      "roll": -20,
+      "pitch": -34,
+      "yaw": 56,
+      "body_yaw": -13,
+      "antennas": [
+        1.8,
+        0.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140995.8246198
+  },
+  {
+    "pose": {
+      "x": -8,
+      "y": 38,
+      "z": -13,
+      "roll": -29,
+      "pitch": 27,
+      "yaw": -36,
+      "body_yaw": -10,
+      "antennas": [
+        3.0,
+        0.3
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766140998.2281957
+  },
+  {
+    "pose": {
+      "x": -37,
+      "y": 58,
+      "z": -21,
+      "roll": 23,
+      "pitch": 36,
+      "yaw": 31,
+      "body_yaw": 5,
+      "antennas": [
+        3.0,
+        0.6
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141004.73742
+  },
+  {
+    "pose": {
+      "x": 35,
+      "y": 28,
+      "z": 46,
+      "roll": 30,
+      "pitch": -19,
+      "yaw": -39,
+      "body_yaw": -1,
+      "antennas": [
+        2.7,
+        1.9
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141006.9327486
+  },
+  {
+    "pose": {
+      "x": -25,
+      "y": 41,
+      "z": 12,
+      "roll": 50,
+      "pitch": -45,
+      "yaw": 23,
+      "body_yaw": 14,
+      "antennas": [
+        1.4,
+        1.2
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141008.6058123
+  },
+  {
+    "pose": {
+      "x": 24,
+      "y": 22,
+      "z": -17,
+      "roll": -49,
+      "pitch": 3,
+      "yaw": 60,
+      "body_yaw": -14,
+      "antennas": [
+        1.4,
+        1.1
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141010.142709
+  },
+  {
+    "pose": {
+      "x": 18,
+      "y": 30,
+      "z": -41,
+      "roll": 5,
+      "pitch": -28,
+      "yaw": 4,
+      "body_yaw": 19,
+      "antennas": [
+        2.6,
+        1.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141012.1772199
+  },
+  {
+    "pose": {
+      "x": 21,
+      "y": -1,
+      "z": -5,
+      "roll": 43,
+      "pitch": 25,
+      "yaw": 3,
+      "body_yaw": 0,
+      "antennas": [
+        2.7,
+        2.6
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141014.6097884
+  },
+  {
+    "pose": {
+      "x": -29,
+      "y": -25,
+      "z": 52,
+      "roll": 7,
+      "pitch": -19,
+      "yaw": 53,
+      "body_yaw": 16,
+      "antennas": [
+        1.9,
+        1.2
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141020.2621336
+  },
+  {
+    "pose": {
+      "x": -37,
+      "y": 3,
+      "z": 48,
+      "roll": -9,
+      "pitch": -27,
+      "yaw": 59,
+      "body_yaw": -7,
+      "antennas": [
+        1.1,
+        0.8
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141022.1804433
+  },
+  {
+    "pose": {
+      "x": -5,
+      "y": 52,
+      "z": 16,
+      "roll": 39,
+      "pitch": -15,
+      "yaw": -63,
+      "body_yaw": 13,
+      "antennas": [
+        3.0,
+        0.3
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141029.1617985
+  },
+  {
+    "pose": {
+      "x": 12,
+      "y": 2,
+      "z": 11,
+      "roll": 47,
+      "pitch": -20,
+      "yaw": 56,
+      "body_yaw": 11,
+      "antennas": [
+        1.4,
+        0.1
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141035.1161318
+  },
+  {
+    "pose": {
+      "x": -3,
+      "y": -32,
+      "z": -9,
+      "roll": 38,
+      "pitch": -19,
+      "yaw": 13,
+      "body_yaw": 17,
+      "antennas": [
+        1.2,
+        1.7
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141046.801444
+  },
+  {
+    "pose": {
+      "x": 4,
+      "y": -6,
+      "z": 35,
+      "roll": 20,
+      "pitch": -8,
+      "yaw": 25,
+      "body_yaw": 9,
+      "antennas": [
+        0.9,
+        0.8
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141049.1567929
+  },
+  {
+    "pose": {
+      "x": -25,
+      "y": 32,
+      "z": -36,
+      "roll": -10,
+      "pitch": -35,
+      "yaw": -18,
+      "body_yaw": -8,
+      "antennas": [
+        0.7,
+        1.5
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141054.9368947
+  },
+  {
+    "pose": {
+      "x": 35,
+      "y": 37,
+      "z": 7,
+      "roll": 26,
+      "pitch": -14,
+      "yaw": -40,
+      "body_yaw": -8,
+      "antennas": [
+        0.9,
+        1.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141060.9388497
+  },
+  {
+    "pose": {
+      "x": -2,
+      "y": -59,
+      "z": 30,
+      "roll": 18,
+      "pitch": -34,
+      "yaw": 5,
+      "body_yaw": -18,
+      "antennas": [
+        3.1,
+        1.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141062.645319
+  },
+  {
+    "pose": {
+      "x": -24,
+      "y": 21,
+      "z": 51,
+      "roll": 46,
+      "pitch": 12,
+      "yaw": -39,
+      "body_yaw": -20,
+      "antennas": [
+        1.8,
+        1.5
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141064.2055428
+  },
+  {
+    "pose": {
+      "x": 16,
+      "y": -17,
+      "z": -37,
+      "roll": -44,
+      "pitch": -18,
+      "yaw": 57,
+      "body_yaw": -13,
+      "antennas": [
+        2.6,
+        1.3
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141066.9871023
+  },
+  {
+    "pose": {
+      "x": -31,
+      "y": 13,
+      "z": 20,
+      "roll": 37,
+      "pitch": -44,
+      "yaw": -27,
+      "body_yaw": -11,
+      "antennas": [
+        2.6,
+        3.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141069.8042216
+  },
+  {
+    "pose": {
+      "x": -30,
+      "y": -29,
+      "z": -45,
+      "roll": 21,
+      "pitch": 47,
+      "yaw": 41,
+      "body_yaw": 18,
+      "antennas": [
+        1.9,
+        2.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141072.4208493
+  },
+  {
+    "pose": {
+      "x": 26,
+      "y": -12,
+      "z": -3,
+      "roll": 6,
+      "pitch": -12,
+      "yaw": 44,
+      "body_yaw": -1,
+      "antennas": [
+        1.8,
+        0.2
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141082.4748895
+  },
+  {
+    "pose": {
+      "x": -28,
+      "y": 37,
+      "z": -34,
+      "roll": 30,
+      "pitch": -23,
+      "yaw": 2,
+      "body_yaw": -15,
+      "antennas": [
+        0.5,
+        0.5
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141091.1713068
+  },
+  {
+    "pose": {
+      "x": -31,
+      "y": -40,
+      "z": -60,
+      "roll": 2,
+      "pitch": 7,
+      "yaw": 55,
+      "body_yaw": -2,
+      "antennas": [
+        0.1,
+        0.9
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141096.0849667
+  },
+  {
+    "pose": {
+      "x": -4,
+      "y": 29,
+      "z": 50,
+      "roll": 8,
+      "pitch": -41,
+      "yaw": -6,
+      "body_yaw": -4,
+      "antennas": [
+        2.5,
+        2.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141101.7325783
+  },
+  {
+    "pose": {
+      "x": -15,
+      "y": -6,
+      "z": -46,
+      "roll": 19,
+      "pitch": -22,
+      "yaw": -27,
+      "body_yaw": -3,
+      "antennas": [
+        2.6,
+        0.2
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141104.571817
+  },
+  {
+    "pose": {
+      "x": -19,
+      "y": 41,
+      "z": -21,
+      "roll": 26,
+      "pitch": 45,
+      "yaw": 8,
+      "body_yaw": 8,
+      "antennas": [
+        0.4,
+        2.2
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141107.0575473
+  },
+  {
+    "pose": {
+      "x": 11,
+      "y": 60,
+      "z": -26,
+      "roll": 14,
+      "pitch": 19,
+      "yaw": 61,
+      "body_yaw": 8,
+      "antennas": [
+        0.3,
+        0.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141111.932758
+  },
+  {
+    "pose": {
+      "x": 15,
+      "y": 34,
+      "z": -19,
+      "roll": 27,
+      "pitch": -18,
+      "yaw": -59,
+      "body_yaw": -15,
+      "antennas": [
+        0.7,
+        2.1
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141125.3286698
+  },
+  {
+    "pose": {
+      "x": 33,
+      "y": 15,
+      "z": -58,
+      "roll": 47,
+      "pitch": 36,
+      "yaw": 3,
+      "body_yaw": 16,
+      "antennas": [
+        0.1,
+        2.4
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141127.458639
+  },
+  {
+    "pose": {
+      "x": 20,
+      "y": 6,
+      "z": 23,
+      "roll": 6,
+      "pitch": -15,
+      "yaw": -19,
+      "body_yaw": 17,
+      "antennas": [
+        1.4,
+        2.6
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141133.9356604
+  },
+  {
+    "pose": {
+      "x": -29,
+      "y": 0,
+      "z": -16,
+      "roll": 2,
+      "pitch": -8,
+      "yaw": 17,
+      "body_yaw": -14,
+      "antennas": [
+        2.7,
+        1.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141139.8334818
+  },
+  {
+    "pose": {
+      "x": 23,
+      "y": -24,
+      "z": 24,
+      "roll": 1,
+      "pitch": 47,
+      "yaw": -56,
+      "body_yaw": 9,
+      "antennas": [
+        0.3,
+        0.8
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141142.9617083
+  },
+  {
+    "pose": {
+      "x": -26,
+      "y": 38,
+      "z": -9,
+      "roll": 15,
+      "pitch": -50,
+      "yaw": 53,
+      "body_yaw": 6,
+      "antennas": [
+        0.2,
+        1.6
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141145.608835
+  },
+  {
+    "pose": {
+      "x": 39,
+      "y": 36,
+      "z": 3,
+      "roll": 30,
+      "pitch": 6,
+      "yaw": -52,
+      "body_yaw": -7,
+      "antennas": [
+        0.8,
+        0.4
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141147.9497826
+  },
+  {
+    "pose": {
+      "x": -4,
+      "y": -4,
+      "z": 52,
+      "roll": 39,
+      "pitch": 12,
+      "yaw": -34,
+      "body_yaw": -19,
+      "antennas": [
+        3.1,
+        1.9
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141150.6188807
+  },
+  {
+    "pose": {
+      "x": -10,
+      "y": 30,
+      "z": -40,
+      "roll": -11,
+      "pitch": 20,
+      "yaw": -62,
+      "body_yaw": 15,
+      "antennas": [
+        1.3,
+        0.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141158.73457
+  },
+  {
+    "pose": {
+      "x": -26,
+      "y": -1,
+      "z": -45,
+      "roll": 32,
+      "pitch": -31,
+      "yaw": 62,
+      "body_yaw": -2,
+      "antennas": [
+        1.6,
+        0.9
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141163.999214
+  },
+  {
+    "pose": {
+      "x": 21,
+      "y": 0,
+      "z": -29,
+      "roll": 8,
+      "pitch": 20,
+      "yaw": -28,
+      "body_yaw": 4,
+      "antennas": [
+        0.6,
+        1.9
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141168.864389
+  },
+  {
+    "pose": {
+      "x": -23,
+      "y": 50,
+      "z": -52,
+      "roll": -15,
+      "pitch": 48,
+      "yaw": 41,
+      "body_yaw": 1,
+      "antennas": [
+        3.0,
+        1.6
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141171.0153244
+  },
+  {
+    "pose": {
+      "x": -40,
+      "y": -24,
+      "z": 32,
+      "roll": -12,
+      "pitch": 25,
+      "yaw": 60,
+      "body_yaw": -11,
+      "antennas": [
+        1.4,
+        1.5
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141176.4323835
+  },
+  {
+    "pose": {
+      "x": 2,
+      "y": 10,
+      "z": 37,
+      "roll": 19,
+      "pitch": -2,
+      "yaw": 51,
+      "body_yaw": 0,
+      "antennas": [
+        2.7,
+        3.1
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141179.9843626
+  },
+  {
+    "pose": {
+      "x": -10,
+      "y": 13,
+      "z": -11,
+      "roll": -21,
+      "pitch": 49,
+      "yaw": 40,
+      "body_yaw": -18,
+      "antennas": [
+        1.0,
+        1.5
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141186.9131038
+  },
+  {
+    "pose": {
+      "x": 8,
+      "y": -11,
+      "z": 24,
+      "roll": 33,
+      "pitch": -31,
+      "yaw": 61,
+      "body_yaw": -18,
+      "antennas": [
+        0.4,
+        3.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141189.3730884
+  },
+  {
+    "pose": {
+      "x": 2,
+      "y": 51,
+      "z": -48,
+      "roll": 6,
+      "pitch": -38,
+      "yaw": 51,
+      "body_yaw": -20,
+      "antennas": [
+        2.3,
+        1.3
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141191.6309466
+  },
+  {
+    "pose": {
+      "x": -21,
+      "y": -51,
+      "z": 0,
+      "roll": 50,
+      "pitch": -17,
+      "yaw": 21,
+      "body_yaw": 19,
+      "antennas": [
+        2.2,
+        2.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141200.7648754
+  },
+  {
+    "pose": {
+      "x": 2,
+      "y": 49,
+      "z": 26,
+      "roll": 18,
+      "pitch": -2,
+      "yaw": 16,
+      "body_yaw": 20,
+      "antennas": [
+        2.3,
+        2.4
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141202.8616395
+  },
+  {
+    "pose": {
+      "x": 29,
+      "y": -56,
+      "z": 19,
+      "roll": -42,
+      "pitch": -20,
+      "yaw": 8,
+      "body_yaw": -6,
+      "antennas": [
+        2.4,
+        1.4
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141204.7580273
+  },
+  {
+    "pose": {
+      "x": -28,
+      "y": 37,
+      "z": 21,
+      "roll": 40,
+      "pitch": -38,
+      "yaw": 48,
+      "body_yaw": -10,
+      "antennas": [
+        2.2,
+        2.9
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141206.9405446
+  },
+  {
+    "pose": {
+      "x": -35,
+      "y": -19,
+      "z": 41,
+      "roll": -43,
+      "pitch": -13,
+      "yaw": 26,
+      "body_yaw": 3,
+      "antennas": [
+        1.4,
+        0.8
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141209.0637574
+  },
+  {
+    "pose": {
+      "x": 12,
+      "y": 12,
+      "z": 27,
+      "roll": -27,
+      "pitch": -29,
+      "yaw": -21,
+      "body_yaw": -15,
+      "antennas": [
+        1.9,
+        1.2
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141211.6221166
+  },
+  {
+    "pose": {
+      "x": -10,
+      "y": 3,
+      "z": 56,
+      "roll": 24,
+      "pitch": -32,
+      "yaw": -6,
+      "body_yaw": 9,
+      "antennas": [
+        2.0,
+        1.5
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141213.6357028
+  },
+  {
+    "pose": {
+      "x": -39,
+      "y": 55,
+      "z": 42,
+      "roll": 9,
+      "pitch": -14,
+      "yaw": -25,
+      "body_yaw": -16,
+      "antennas": [
+        1.4,
+        1.1
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141215.8477955
+  },
+  {
+    "pose": {
+      "x": 35,
+      "y": -22,
+      "z": 21,
+      "roll": 4,
+      "pitch": 38,
+      "yaw": -1,
+      "body_yaw": 9,
+      "antennas": [
+        2.7,
+        0.6
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141218.0522702
+  },
+  {
+    "pose": {
+      "x": 9,
+      "y": 49,
+      "z": 1,
+      "roll": -37,
+      "pitch": -20,
+      "yaw": 32,
+      "body_yaw": 16,
+      "antennas": [
+        1.1,
+        0.9
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141223.4843717
+  },
+  {
+    "pose": {
+      "x": -3,
+      "y": -58,
+      "z": 46,
+      "roll": 34,
+      "pitch": 0,
+      "yaw": 5,
+      "body_yaw": -20,
+      "antennas": [
+        1.8,
+        2.2
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141225.220854
+  },
+  {
+    "pose": {
+      "x": -34,
+      "y": 56,
+      "z": 17,
+      "roll": 45,
+      "pitch": 13,
+      "yaw": 8,
+      "body_yaw": -6,
+      "antennas": [
+        1.9,
+        1.1
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141227.1844509
+  },
+  {
+    "pose": {
+      "x": -16,
+      "y": 19,
+      "z": -28,
+      "roll": 36,
+      "pitch": 46,
+      "yaw": -30,
+      "body_yaw": 20,
+      "antennas": [
+        0.3,
+        2.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141229.919803
+  },
+  {
+    "pose": {
+      "x": -35,
+      "y": -21,
+      "z": 40,
+      "roll": 6,
+      "pitch": -46,
+      "yaw": 28,
+      "body_yaw": -12,
+      "antennas": [
+        0.3,
+        0.9
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141234.4755807
+  },
+  {
+    "pose": {
+      "x": 13,
+      "y": -38,
+      "z": -35,
+      "roll": -34,
+      "pitch": 50,
+      "yaw": 28,
+      "body_yaw": 13,
+      "antennas": [
+        1.6,
+        0.9
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141236.976685
+  },
+  {
+    "pose": {
+      "x": -19,
+      "y": -28,
+      "z": 56,
+      "roll": 11,
+      "pitch": -13,
+      "yaw": 21,
+      "body_yaw": -13,
+      "antennas": [
+        1.5,
+        0.2
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141242.7835572
+  },
+  {
+    "pose": {
+      "x": -12,
+      "y": 50,
+      "z": 26,
+      "roll": 42,
+      "pitch": 36,
+      "yaw": 36,
+      "body_yaw": 15,
+      "antennas": [
+        1.2,
+        2.5
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141246.9086258
+  },
+  {
+    "pose": {
+      "x": -39,
+      "y": -27,
+      "z": 8,
+      "roll": -35,
+      "pitch": 8,
+      "yaw": 29,
+      "body_yaw": -4,
+      "antennas": [
+        1.8,
+        2.6
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141248.9102201
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": -47,
+      "z": 26,
+      "roll": -21,
+      "pitch": 10,
+      "yaw": -59,
+      "body_yaw": 19,
+      "antennas": [
+        2.8,
+        1.8
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141251.1952991
+  },
+  {
+    "pose": {
+      "x": 38,
+      "y": -32,
+      "z": 22,
+      "roll": -42,
+      "pitch": 31,
+      "yaw": 53,
+      "body_yaw": -1,
+      "antennas": [
+        2.1,
+        0.4
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141253.2872667
+  },
+  {
+    "pose": {
+      "x": -35,
+      "y": -56,
+      "z": -22,
+      "roll": 13,
+      "pitch": -36,
+      "yaw": -41,
+      "body_yaw": -5,
+      "antennas": [
+        2.8,
+        0.4
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141255.8481495
+  },
+  {
+    "pose": {
+      "x": 18,
+      "y": -13,
+      "z": 25,
+      "roll": 45,
+      "pitch": 39,
+      "yaw": 42,
+      "body_yaw": 17,
+      "antennas": [
+        2.3,
+        0.5
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141257.6687105
+  },
+  {
+    "pose": {
+      "x": 13,
+      "y": 23,
+      "z": -48,
+      "roll": 12,
+      "pitch": 28,
+      "yaw": 39,
+      "body_yaw": -3,
+      "antennas": [
+        0.1,
+        1.2
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141260.1022272
+  },
+  {
+    "pose": {
+      "x": 16,
+      "y": -4,
+      "z": -30,
+      "roll": -4,
+      "pitch": -38,
+      "yaw": 29,
+      "body_yaw": 14,
+      "antennas": [
+        2.8,
+        2.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141262.4001217
+  },
+  {
+    "pose": {
+      "x": -33,
+      "y": -10,
+      "z": -25,
+      "roll": -26,
+      "pitch": -35,
+      "yaw": 51,
+      "body_yaw": -15,
+      "antennas": [
+        2.1,
+        2.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141268.835889
+  },
+  {
+    "pose": {
+      "x": 36,
+      "y": -58,
+      "z": -54,
+      "roll": 50,
+      "pitch": -8,
+      "yaw": -3,
+      "body_yaw": -12,
+      "antennas": [
+        2.5,
+        0.6
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141276.6069257
+  },
+  {
+    "pose": {
+      "x": 30,
+      "y": -34,
+      "z": 15,
+      "roll": -23,
+      "pitch": -21,
+      "yaw": 19,
+      "body_yaw": -11,
+      "antennas": [
+        2.5,
+        1.9
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141283.1514673
+  },
+  {
+    "pose": {
+      "x": -5,
+      "y": 49,
+      "z": -42,
+      "roll": -34,
+      "pitch": 19,
+      "yaw": -1,
+      "body_yaw": -9,
+      "antennas": [
+        0.3,
+        2.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141285.9879286
+  },
+  {
+    "pose": {
+      "x": -24,
+      "y": -59,
+      "z": -15,
+      "roll": 50,
+      "pitch": -20,
+      "yaw": 17,
+      "body_yaw": -19,
+      "antennas": [
+        0.6,
+        0.2
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141288.581727
+  },
+  {
+    "pose": {
+      "x": 13,
+      "y": 7,
+      "z": -46,
+      "roll": 45,
+      "pitch": -42,
+      "yaw": 56,
+      "body_yaw": 8,
+      "antennas": [
+        2.5,
+        1.6
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141291.3751678
+  },
+  {
+    "pose": {
+      "x": -27,
+      "y": -3,
+      "z": 4,
+      "roll": -22,
+      "pitch": 28,
+      "yaw": -54,
+      "body_yaw": 13,
+      "antennas": [
+        1.0,
+        2.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141294.2400413
+  },
+  {
+    "pose": {
+      "x": -37,
+      "y": -53,
+      "z": 1,
+      "roll": 1,
+      "pitch": 4,
+      "yaw": -38,
+      "body_yaw": 11,
+      "antennas": [
+        2.3,
+        1.4
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141296.645914
+  },
+  {
+    "pose": {
+      "x": -30,
+      "y": -19,
+      "z": 17,
+      "roll": -32,
+      "pitch": -42,
+      "yaw": -33,
+      "body_yaw": -3,
+      "antennas": [
+        2.0,
+        1.8
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141299.9190588
+  },
+  {
+    "pose": {
+      "x": 1,
+      "y": -12,
+      "z": 16,
+      "roll": 17,
+      "pitch": -13,
+      "yaw": 51,
+      "body_yaw": 12,
+      "antennas": [
+        1.9,
+        0.3
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141302.0754244
+  },
+  {
+    "pose": {
+      "x": -26,
+      "y": 49,
+      "z": 23,
+      "roll": 33,
+      "pitch": 48,
+      "yaw": -10,
+      "body_yaw": 7,
+      "antennas": [
+        1.4,
+        0.7
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141304.78915
+  },
+  {
+    "pose": {
+      "x": 3,
+      "y": 45,
+      "z": -2,
+      "roll": 1,
+      "pitch": 3,
+      "yaw": -41,
+      "body_yaw": 0,
+      "antennas": [
+        1.3,
+        2.1
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141312.392189
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": -41,
+      "z": 27,
+      "roll": 10,
+      "pitch": -42,
+      "yaw": -42,
+      "body_yaw": -15,
+      "antennas": [
+        0.3,
+        0.3
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141318.696577
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": 43,
+      "z": -44,
+      "roll": 21,
+      "pitch": -43,
+      "yaw": 19,
+      "body_yaw": -13,
+      "antennas": [
+        1.3,
+        2.8
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141321.6450665
+  },
+  {
+    "pose": {
+      "x": 14,
+      "y": 51,
+      "z": 57,
+      "roll": 42,
+      "pitch": -44,
+      "yaw": 8,
+      "body_yaw": 18,
+      "antennas": [
+        1.0,
+        0.3
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141323.8187306
+  },
+  {
+    "pose": {
+      "x": 24,
+      "y": -33,
+      "z": -41,
+      "roll": 34,
+      "pitch": 11,
+      "yaw": -8,
+      "body_yaw": -14,
+      "antennas": [
+        1.1,
+        1.8
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141326.1934426
+  },
+  {
+    "pose": {
+      "x": -26,
+      "y": 37,
+      "z": -25,
+      "roll": 23,
+      "pitch": -22,
+      "yaw": 44,
+      "body_yaw": 15,
+      "antennas": [
+        3.1,
+        2.6
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141328.6925764
+  },
+  {
+    "pose": {
+      "x": 38,
+      "y": 26,
+      "z": 22,
+      "roll": 21,
+      "pitch": -47,
+      "yaw": 3,
+      "body_yaw": -19,
+      "antennas": [
+        0.6,
+        2.2
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141330.6572523
+  },
+  {
+    "pose": {
+      "x": -1,
+      "y": 57,
+      "z": -17,
+      "roll": -6,
+      "pitch": -50,
+      "yaw": -19,
+      "body_yaw": -11,
+      "antennas": [
+        1.8,
+        1.3
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141333.4215043
+  },
+  {
+    "pose": {
+      "x": -22,
+      "y": 34,
+      "z": 21,
+      "roll": -47,
+      "pitch": -39,
+      "yaw": -10,
+      "body_yaw": 4,
+      "antennas": [
+        1.3,
+        1.1
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141334.940238
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": -21,
+      "z": 32,
+      "roll": -9,
+      "pitch": 49,
+      "yaw": -44,
+      "body_yaw": -17,
+      "antennas": [
+        0.5,
+        2.4
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141336.4562283
+  },
+  {
+    "pose": {
+      "x": -34,
+      "y": 26,
+      "z": -50,
+      "roll": -16,
+      "pitch": 6,
+      "yaw": 43,
+      "body_yaw": 11,
+      "antennas": [
+        1.9,
+        1.3
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141339.278798
+  },
+  {
+    "pose": {
+      "x": -13,
+      "y": 36,
+      "z": 5,
+      "roll": -36,
+      "pitch": -6,
+      "yaw": 45,
+      "body_yaw": -13,
+      "antennas": [
+        0.9,
+        2.1
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141342.1061552
+  },
+  {
+    "pose": {
+      "x": 22,
+      "y": 7,
+      "z": 25,
+      "roll": -11,
+      "pitch": -45,
+      "yaw": -9,
+      "body_yaw": 5,
+      "antennas": [
+        3.1,
+        0.2
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141344.3567586
+  },
+  {
+    "pose": {
+      "x": -14,
+      "y": -22,
+      "z": -33,
+      "roll": 48,
+      "pitch": -33,
+      "yaw": 0,
+      "body_yaw": -2,
+      "antennas": [
+        1.0,
+        0.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141348.8627925
+  },
+  {
+    "pose": {
+      "x": 15,
+      "y": -38,
+      "z": -44,
+      "roll": -2,
+      "pitch": 18,
+      "yaw": -7,
+      "body_yaw": 12,
+      "antennas": [
+        1.8,
+        2.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141353.8573763
+  },
+  {
+    "pose": {
+      "x": 5,
+      "y": -51,
+      "z": -10,
+      "roll": 44,
+      "pitch": -45,
+      "yaw": 46,
+      "body_yaw": -19,
+      "antennas": [
+        1.5,
+        0.2
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141360.2249827
+  },
+  {
+    "pose": {
+      "x": 0,
+      "y": 13,
+      "z": -6,
+      "roll": 23,
+      "pitch": 1,
+      "yaw": 41,
+      "body_yaw": -2,
+      "antennas": [
+        0.4,
+        0.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141362.612567
+  },
+  {
+    "pose": {
+      "x": 1,
+      "y": -39,
+      "z": 42,
+      "roll": 29,
+      "pitch": 8,
+      "yaw": 27,
+      "body_yaw": -15,
+      "antennas": [
+        1.4,
+        0.3
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141364.5972476
+  },
+  {
+    "pose": {
+      "x": 15,
+      "y": 15,
+      "z": -9,
+      "roll": 17,
+      "pitch": -40,
+      "yaw": 36,
+      "body_yaw": -1,
+      "antennas": [
+        2.4,
+        0.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141367.6163294
+  },
+  {
+    "pose": {
+      "x": -19,
+      "y": -51,
+      "z": 5,
+      "roll": 31,
+      "pitch": -36,
+      "yaw": 65,
+      "body_yaw": -8,
+      "antennas": [
+        2.9,
+        1.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141405.5838447
+  },
+  {
+    "pose": {
+      "x": -22,
+      "y": -30,
+      "z": -47,
+      "roll": -32,
+      "pitch": -18,
+      "yaw": -15,
+      "body_yaw": -9,
+      "antennas": [
+        1.9,
+        2.4
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141408.4018564
+  },
+  {
+    "pose": {
+      "x": -31,
+      "y": -38,
+      "z": 38,
+      "roll": 30,
+      "pitch": 13,
+      "yaw": 53,
+      "body_yaw": 16,
+      "antennas": [
+        2.4,
+        1.4
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141413.322775
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": 22,
+      "z": 21,
+      "roll": 29,
+      "pitch": -9,
+      "yaw": 15,
+      "body_yaw": -11,
+      "antennas": [
+        1.4,
+        1.5
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141418.8654327
+  },
+  {
+    "pose": {
+      "x": 40,
+      "y": -22,
+      "z": 41,
+      "roll": -15,
+      "pitch": 25,
+      "yaw": -51,
+      "body_yaw": 2,
+      "antennas": [
+        1.6,
+        1.0
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141420.6193812
+  },
+  {
+    "pose": {
+      "x": 17,
+      "y": -56,
+      "z": -53,
+      "roll": -3,
+      "pitch": -14,
+      "yaw": -46,
+      "body_yaw": -15,
+      "antennas": [
+        1.9,
+        1.6
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141423.487249
+  },
+  {
+    "pose": {
+      "x": 19,
+      "y": 14,
+      "z": 10,
+      "roll": 44,
+      "pitch": -45,
+      "yaw": 50,
+      "body_yaw": 16,
+      "antennas": [
+        2.1,
+        1.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141428.4678154
+  },
+  {
+    "pose": {
+      "x": 20,
+      "y": 4,
+      "z": -41,
+      "roll": -43,
+      "pitch": 7,
+      "yaw": -39,
+      "body_yaw": 1,
+      "antennas": [
+        3.1,
+        0.3
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141433.7532005
+  },
+  {
+    "pose": {
+      "x": -18,
+      "y": -55,
+      "z": -29,
+      "roll": 40,
+      "pitch": 6,
+      "yaw": 47,
+      "body_yaw": 13,
+      "antennas": [
+        1.7,
+        0.5
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141436.5288284
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": 57,
+      "z": -24,
+      "roll": -1,
+      "pitch": 2,
+      "yaw": 21,
+      "body_yaw": 18,
+      "antennas": [
+        0.2,
+        2.0
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141443.0186272
+  },
+  {
+    "pose": {
+      "x": 2,
+      "y": -52,
+      "z": -18,
+      "roll": -38,
+      "pitch": 21,
+      "yaw": 33,
+      "body_yaw": -2,
+      "antennas": [
+        0.8,
+        2.7
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141445.5443895
+  },
+  {
+    "pose": {
+      "x": 37,
+      "y": 51,
+      "z": -41,
+      "roll": -8,
+      "pitch": -40,
+      "yaw": -29,
+      "body_yaw": 2,
+      "antennas": [
+        1.0,
+        2.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141447.864464
+  },
+  {
+    "pose": {
+      "x": 10,
+      "y": -44,
+      "z": 16,
+      "roll": 40,
+      "pitch": -40,
+      "yaw": 14,
+      "body_yaw": 15,
+      "antennas": [
+        1.2,
+        2.5
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141453.1601086
+  },
+  {
+    "pose": {
+      "x": -24,
+      "y": 25,
+      "z": 29,
+      "roll": 44,
+      "pitch": 37,
+      "yaw": -42,
+      "body_yaw": 7,
+      "antennas": [
+        1.6,
+        0.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141454.8716617
+  },
+  {
+    "pose": {
+      "x": -1,
+      "y": -37,
+      "z": -33,
+      "roll": -7,
+      "pitch": 48,
+      "yaw": 59,
+      "body_yaw": -8,
+      "antennas": [
+        0.7,
+        0.4
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141456.8388226
+  },
+  {
+    "pose": {
+      "x": -31,
+      "y": -23,
+      "z": 48,
+      "roll": 50,
+      "pitch": -38,
+      "yaw": 64,
+      "body_yaw": 14,
+      "antennas": [
+        2.6,
+        2.8
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141459.0715566
+  },
+  {
+    "pose": {
+      "x": -36,
+      "y": 24,
+      "z": -17,
+      "roll": 48,
+      "pitch": 29,
+      "yaw": -32,
+      "body_yaw": 18,
+      "antennas": [
+        1.2,
+        0.5
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141462.036285
+  },
+  {
+    "pose": {
+      "x": 39,
+      "y": 43,
+      "z": 55,
+      "roll": -29,
+      "pitch": 42,
+      "yaw": 47,
+      "body_yaw": -18,
+      "antennas": [
+        1.3,
+        2.1
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141463.825446
+  },
+  {
+    "pose": {
+      "x": -10,
+      "y": -4,
+      "z": 18,
+      "roll": -14,
+      "pitch": 46,
+      "yaw": 49,
+      "body_yaw": -6,
+      "antennas": [
+        1.7,
+        1.0
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141465.4060688
+  },
+  {
+    "pose": {
+      "x": 20,
+      "y": 55,
+      "z": 46,
+      "roll": -26,
+      "pitch": -3,
+      "yaw": 47,
+      "body_yaw": 9,
+      "antennas": [
+        2.4,
+        2.5
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141466.9265685
+  },
+  {
+    "pose": {
+      "x": 24,
+      "y": 7,
+      "z": -7,
+      "roll": -30,
+      "pitch": -25,
+      "yaw": -30,
+      "body_yaw": -4,
+      "antennas": [
+        0.2,
+        1.5
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141468.8307474
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": 10,
+      "z": 59,
+      "roll": -37,
+      "pitch": 41,
+      "yaw": -34,
+      "body_yaw": -2,
+      "antennas": [
+        0.3,
+        0.5
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141472.761535
+  },
+  {
+    "pose": {
+      "x": 17,
+      "y": 55,
+      "z": 5,
+      "roll": -32,
+      "pitch": 5,
+      "yaw": -42,
+      "body_yaw": -6,
+      "antennas": [
+        2.6,
+        2.8
+      ]
+    },
+    "label": 1,
+    "timestamp": 1766141502.7581625
+  },
+  {
+    "pose": {
+      "x": -37,
+      "y": -7,
+      "z": -54,
+      "roll": 0,
+      "pitch": 14,
+      "yaw": 30,
+      "body_yaw": -5,
+      "antennas": [
+        1.2,
+        0.3
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141505.5954738
+  },
+  {
+    "pose": {
+      "x": -12,
+      "y": -57,
+      "z": -20,
+      "roll": -38,
+      "pitch": 41,
+      "yaw": 20,
+      "body_yaw": -11,
+      "antennas": [
+        0.4,
+        0.9
+      ]
+    },
+    "label": 0,
+    "timestamp": 1766141512.695839
+  }
+]
