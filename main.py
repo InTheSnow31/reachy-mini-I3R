@@ -11,7 +11,11 @@ from prompt_duration import get_duration
 
 from timestep import main as timestep
 
-from antennas_params import ant_angles, ant_center
+from antennas_params.ant_angles import antennas_angles
+from antennas_params.ant_center import antennas_center
+from antennas_params.ant_frequency import frequency_from_pleasure
+from antennas_params.ant_amplitude import ant_amplitude
+
 from mov_params.mov_s_center import mov_s_center
 from mov_params.mov_amplitude import main as mov_amplitude
 from mov_params.mov_frequency import mov_frequency
@@ -23,7 +27,7 @@ duration = get_duration()
 
 # --- CENTRES DU MOUVEMENT ---
 x_center, z_center, pitch_center, yaw_center, z_norm = mov_s_center(pleasure, arousal, dominance)
-base_antennas = ant_center.antennas_center_from_pleasure(pleasure)
+base_antennas = antennas_center(pleasure)
 
 amp_max = amp_max_yes(
     arousal=arousal,
@@ -70,7 +74,7 @@ with ReachyMini(media_backend="no_media") as mini:
             pose[:3, :3] = R_total.as_matrix()
             
             # --- MOUVEMENTS ANTENNES ---
-            antennas_angles = ant_angles.antennas_angles_according_to_PAD(
+            ant_angles = antennas_angles(
                 center=base_antennas,
                 pleasure=pleasure,
                 dominance=dominance,
@@ -79,7 +83,7 @@ with ReachyMini(media_backend="no_media") as mini:
 
             mini.set_target(
                 head=pose,
-                antennas=antennas_angles
+                antennas=ant_angles
                 )
             time.sleep(dt)
             t += dt  # incrément strict

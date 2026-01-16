@@ -1,6 +1,6 @@
 import numpy as np
 
-def amplitude_antennes(dominance: float, center: float) -> float:
+def ant_amplitude(dominance: float, center: float) -> float:
     """
     Calcule l'amplitude maximale des antennes en fonction de la dominance
     et du centre (décalé par la valence), en respectant la limite [0, 3.16].

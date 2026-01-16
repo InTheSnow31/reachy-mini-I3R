@@ -1,8 +1,8 @@
 import numpy as np
-from ant_amplitude import amplitude_antennes
-from ant_frequency import frequency_from_pleasure
+from .ant_amplitude import ant_amplitude
+from .ant_frequency import frequency_from_pleasure
 
-def antennas_angles_according_to_PAD(  center: float = 0.0,
+def antennas_angles(  center: float = 0.0,
                               pleasure: float = 0.0,
                               dominance: float = 0.0,
                               t: float = 0.0) -> list[float]:
@@ -22,7 +22,7 @@ def antennas_angles_according_to_PAD(  center: float = 0.0,
      
 
     # --- paramètres mouvement ---
-    A_max = amplitude_antennes(dominance, center) 
+    A_max = ant_amplitude(dominance, center) 
     f_t = frequency_from_pleasure(pleasure, t)
 
     # --- calcul angles ---

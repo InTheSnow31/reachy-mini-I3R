@@ -1,6 +1,6 @@
 import numpy as np
 
-def antennas_center_from_pleasure(pleasure: float, min_angle=0.0, max_angle=3.16) -> float:
+def antennas_center(pleasure: float, min_angle=0.0, max_angle=3.16) -> float:
     """
     Déplace le centre du mouvement des antennes selon la valence (pleasure)
     max_offset : décalage max possible en rad
