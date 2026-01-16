@@ -5,132 +5,192 @@ A pour objectif de transformer les sons d'une base de données en encodage souha
 import numpy as np
 import scipy.io.wavfile as wav
 import matplotlib.pyplot as plt
-import sounddevice as sd
 
-def synthetiser_fondamentales(
-    fondamentales: list,
-    duree_fenetre: float,
-    fs: int = 44100,
-    amplitude: float = 0.8,
-    sortie_wav: str | None = "fondamentales.wav",
-    jouer: bool = True
-):
-    """
-    Génère un signal audio ne contenant que les fondamentales.
-    """
-
-    signal_total = []
-    phase = 0.0
-
-    for f0 in fondamentales:
-        nb_samples = int(duree_fenetre * fs)
-
-        if f0 is None or f0 <= 0:
-            frame = np.zeros(nb_samples)
-        else:
-            t = np.arange(nb_samples) / fs
-            frame = amplitude * np.sin(2 * np.pi * f0 * t + phase)
-
-            # Continuité de phase
-            phase += 2 * np.pi * f0 * duree_fenetre
-            phase = phase % (2 * np.pi)
-
-        signal_total.append(frame)
-
-    signal = np.concatenate(signal_total)
-
-    # Normalisation
-    signal /= np.max(np.abs(signal)) + 1e-12
-
-    # Sauvegarde WAV
-    if sortie_wav is not None:
-        wav.write(
-            sortie_wav,
-            fs,
-            (signal * 32767).astype(np.int16)
-        )
-
-    # Lecture audio
-    if jouer:
-        sd.play(signal, fs)
-        sd.wait()
-
-    return signal
-
-
-
-def fondamentale_par_fenetre(
+def extraire_fondamentales_et_intensite_depuis_wav(
     fichier_wav: str,
     duree_fenetre: float = 0.05,
     fmin: float = 50.0,
     fmax: float = 1000.0,
-    afficher: bool = True
+    tolerance_hz: float = 2.0,
+    seuil_energie: float = 0.01
 ):
+    """
+    WAV → événements (début, durée, fréquence, intensité)
+    """
 
-    # Lecture WAV
-    fs, signal = wav.read(fichier_wav)     #fs : fréquence d'échantillonnage
-    if signal.ndim > 1: # Conversion mono
+    fs, signal = wav.read(fichier_wav)
+
+    if signal.ndim > 1:
         signal = signal.mean(axis=1)
 
     signal = signal.astype(np.float64)
-    signal /= np.max(np.abs(signal)) #Normalisation
+    signal /= np.max(np.abs(signal)) + 1e-12
 
     taille_fenetre = int(duree_fenetre * fs)
     nb_fenetres = len(signal) // taille_fenetre
 
-    fondamentales = []
+    f0_par_fenetre = []
+    rms_par_fenetre = []
 
+    # --- Analyse par fenêtres ---
     for i in range(nb_fenetres):
         debut = i * taille_fenetre
         fin = debut + taille_fenetre
         frame = signal[debut:fin]
 
-        frame *= np.hanning(len(frame)) # Fenêtre de Hann
+        rms = np.sqrt(np.mean(frame ** 2))
+        rms_par_fenetre.append(rms)
 
-        fondamentales.append(estimer_fondamentale_autocorrelation(frame, fs, fmin, fmax))
+        if rms < seuil_energie:
+            f0_par_fenetre.append(None)
+            continue
 
-    if afficher:
-        temps = np.arange(nb_fenetres) * duree_fenetre
-        plt.figure(figsize=(10, 4))
-        plt.plot(temps, fondamentales, marker='o')
-        plt.xlabel("Temps (s)")
-        plt.ylabel("Fréquence fondamentale (Hz)")
-        plt.title("Évolution temporelle de la fondamentale")
-        plt.grid(True)
-        plt.tight_layout()
-        plt.show()
+        frame *= np.hanning(len(frame))
+        f0 = _estimer_f0_autocorr(frame, fs, fmin, fmax)
+        f0_par_fenetre.append(f0)
 
-    return fs, fondamentales
+    # --- Regroupement ---
+    evenements = _regrouper_f0_et_intensite(
+        f0_par_fenetre,
+        rms_par_fenetre,
+        duree_fenetre,
+        tolerance_hz
+    )
 
-def estimer_fondamentale_autocorrelation(
-    frame: np.ndarray,
-    fs: int,
-    fmin: float,
-    fmax: float
-) -> float | None:
-    """
-    Estime la fréquence fondamentale d'une trame
-    par autocorrélation.
-    """
+    return evenements
 
-    # Autocorrélation
-    corr = np.correlate(frame, frame, mode='full')
+
+def _estimer_f0_autocorr(frame, fs, fmin, fmax):
+    corr = np.correlate(frame, frame, mode="full")
     corr = corr[len(corr)//2:]
-
-    # Suppression du pic à zéro
     corr[0] = 0
 
-    # Bornes de recherche (lags)
-    lag_min, lag_max = int(fs / fmax), int(fs / fmin)
+    lag_min = int(fs / fmax)
+    lag_max = int(fs / fmin)
 
     if lag_max >= len(corr):
         return None
 
     lag = np.argmax(corr[lag_min:lag_max]) + lag_min
+    return fs / lag
 
-    f0 = fs / lag
+def _regrouper_f0_et_intensite(
+    f0s,
+    rms,
+    duree_fenetre,
+    tolerance_hz
+):
+    evenements = []
 
-    return f0
+    freq_courante = None
+    debut = None
+    nb = 0
+    intensites = []
 
-fs_source, fonds = fondamentale_par_fenetre("dataset/labeled/sounds/VO_02_018.dspadpcm.wav")
-synthetiser_fondamentales(fonds, duree_fenetre=0.05, sortie_wav=None, jouer=True, fs=fs_source)
+    for i, (f0, r) in enumerate(zip(f0s, rms)):
+        t = i * duree_fenetre
+
+        if f0 is None:
+            if freq_courante is not None:
+                evenements.append((
+                    debut,
+                    nb * duree_fenetre,
+                    freq_courante,
+                    float(np.mean(intensites))
+                ))
+                freq_courante = None
+                nb = 0
+                intensites = []
+            continue
+
+        if freq_courante is None:
+            freq_courante = f0
+            debut = t
+            nb = 1
+            intensites = [r]
+        elif abs(f0 - freq_courante) <= tolerance_hz:
+            nb += 1
+            intensites.append(r)
+        else:
+            evenements.append((
+                debut,
+                nb * duree_fenetre,
+                freq_courante,
+                float(np.mean(intensites))
+            ))
+            freq_courante = f0
+            debut = t
+            nb = 1
+            intensites = [r]
+
+    if freq_courante is not None:
+        evenements.append((
+            debut,
+            nb * duree_fenetre,
+            freq_courante,
+            float(np.mean(intensites))
+        ))
+
+    return evenements
+
+
+def afficher_fondamentales(
+    evenements,
+    afficher_intensite: bool = True,
+    cmap: str = "viridis"
+):
+    """
+    Affiche les événements de fondamentales avec intensité.
+    """
+
+    if not evenements:
+        print("Aucun événement à afficher.")
+        return
+
+    fig, ax = plt.subplots(figsize=(10, 4))
+
+    intensites = [e[3] for e in evenements] if afficher_intensite else None
+    vmin = min(intensites) if afficher_intensite else None
+    vmax = max(intensites) if afficher_intensite else None
+
+    for debut, duree, freq, intensite in evenements:
+        if afficher_intensite:
+            couleur = plt.cm.get_cmap(cmap)(
+                (intensite - vmin) / (vmax - vmin + 1e-12)
+            )
+            epaisseur = 2 + 6 * (intensite - vmin) / (vmax - vmin + 1e-12)
+        else:
+            couleur = "blue"
+            epaisseur = 2
+
+        ax.hlines(
+            y=freq,
+            xmin=debut,
+            xmax=debut + duree,
+            linewidth=epaisseur,
+            color=couleur
+        )
+
+    ax.set_xlabel("Temps (s)")
+    ax.set_ylabel("Fréquence fondamentale (Hz)")
+    ax.set_title("Évolution temporelle des fondamentales")
+    ax.grid(True, alpha=0.3)
+
+    # --- Colorbar correctement attachée ---
+    if afficher_intensite:
+        sm = plt.cm.ScalarMappable(
+            cmap=cmap,
+            norm=plt.Normalize(vmin=vmin, vmax=vmax)
+        )
+        sm.set_array([])
+        fig.colorbar(sm, ax=ax, label="Intensité (RMS)")
+
+    plt.tight_layout()
+    plt.show()
+
+
+evenements = extraire_fondamentales_et_intensite_depuis_wav("dataset/labeled/sounds/VO_02_018.dspadpcm.wav")
+for t, d, f, i in evenements:
+    print(f"t={t:.2f}s | d={d:.2f}s | f0={f:.1f} Hz | I={i:.3f}")
+
+afficher_fondamentales(evenements, afficher_intensite=True)
