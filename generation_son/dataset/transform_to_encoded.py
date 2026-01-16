@@ -5,26 +5,28 @@ A pour objectif de transformer les sons d'une base de données en encodage souha
 import numpy as np
 import scipy.io.wavfile as wav
 import matplotlib.pyplot as plt
+import json
+from pathlib import Path
 
 def extract_f0s(
     fichier_wav: str,
-    duree_fenetre: float = 0.03,
-    fmin: float = 50.0,
+    duree_fenetre: float = 0.02,
+    fmin: float = 100.0,
     fmax: float = 1000.0,
     tolerance_hz: float = 2.0,
-    seuil_energie: float = 0.01
+    seuil_energie: float = 0.10
 ):
     """
-    WAV → événements (début, durée, fréquence, intensité)
+    WAV → fondamentales (début, durée, fréquence, intensité)
     """
 
-    fs, signal = wav.read(fichier_wav)
+    fs, signal = wav.read(fichier_wav) #fs = fréquence échantillonage
 
-    if signal.ndim > 1:
+    if signal.ndim > 1: #Son stéréo --> mono
         signal = signal.mean(axis=1)
 
-    signal = signal.astype(np.float64)
-    signal /= np.max(np.abs(signal)) + 1e-12
+    signal = np.abs(signal.astype(np.float64))
+    signal /= np.max(signal) + 1e-12 #Normalisation
 
     taille_fenetre = int(duree_fenetre * fs)
     nb_fenetres = len(signal) // taille_fenetre
@@ -32,24 +34,24 @@ def extract_f0s(
     f0_par_fenetre = []
     rms_par_fenetre = []
 
-    # --- Analyse par fenêtres ---
+    # Analyse par fenêtres
     for i in range(nb_fenetres):
-        debut = i * taille_fenetre
-        fin = debut + taille_fenetre
-        frame = signal[debut:fin]
+        frame = signal[(i * taille_fenetre): ((i+1) * taille_fenetre)]
 
+        # Intensité moyenne
         rms = np.sqrt(np.mean(frame ** 2))
         rms_par_fenetre.append(rms)
 
+        # Supression des silences
         if rms < seuil_energie:
             f0_par_fenetre.append(None)
             continue
 
-        frame *= np.hanning(len(frame))
-        f0 = estimate_f0(frame, fs, fmin, fmax)
+        frame *= np.hanning(len(frame)) # Réduit effets de bords
+        f0 = estimate_f0(frame, fs, fmin, fmax) # Auto-corrélation
         f0_par_fenetre.append(f0)
 
-    # --- Regroupement ---
+    # Regroupement 
     evenements = group_f0s_intensities(f0_par_fenetre, rms_par_fenetre, duree_fenetre, tolerance_hz)
 
     return evenements
@@ -169,9 +171,136 @@ def display_f0s(evenements, afficher_intensite: bool = True, cmap: str = "viridi
     plt.tight_layout()
     plt.show()
 
+def synthesize_f0_events(
+    evenements,
+    fs: int = 44100,
+    gain: float = 0.9,
+    attaque: float = 0.01,
+    relache: float = 0.02,
+    fichier_sortie: str = "synthese.wav"
+):
+    """
+    Synthétise un WAV à partir d'événements (t, d, f0, intensité).
 
-evenements = extract_f0s("dataset/labeled/sounds/VO_02_018.dspadpcm.wav")
-for t, d, f, i in evenements:
-    print(f"t={t:.2f}s | d={d:.2f}s | f0={f:.1f} Hz | I={i:.3f}")
+    evenements : liste de tuples (debut, duree, freq, intensite)
+    fs         : fréquence d'échantillonnage
+    gain       : gain global
+    attaque    : temps d'attaque (s)
+    relache    : temps de relâche (s)
+    """
+
+    # --- Durée totale ---
+    duree_totale = max(t + d for t, d, _, _ in evenements)
+    n_samples = int(duree_totale * fs) + 1
+    signal = np.zeros(n_samples)
+
+    for debut, duree, freq, intensite in evenements:
+        if freq <= 0 or duree <= 0:
+            continue
+
+        n = int(duree * fs)
+        t = np.arange(n) / fs
+
+        # --- Oscillateur ---
+        osc = np.sin(2 * np.pi * freq * t)
+
+        # --- Enveloppe ADSR simplifiée ---
+        n_att = int(attaque * fs)
+        n_rel = int(relache * fs)
+
+        env = np.ones(n)
+        if n_att > 0:
+            env[:n_att] = np.linspace(0, 1, n_att)
+        if n_rel > 0:
+            env[-n_rel:] = np.linspace(1, 0, n_rel)
+
+        # --- Signal événement ---
+        evt = osc * env * intensite
+
+        # --- Insertion temporelle ---
+        i0 = int(debut * fs)
+        signal[i0:i0+n] += evt
+
+    # --- Normalisation ---
+    max_val = np.max(np.abs(signal)) + 1e-12
+    signal = gain * signal / max_val
+
+    # --- Conversion int16 ---
+    signal_int16 = np.int16(signal * 32767)
+
+    wav.write("tests/"+fichier_sortie, fs, signal_int16)
+
+    print(f"WAV généré : {fichier_sortie}")
+
+
+def detecte_sliding(evenements, tolerance_derivative = 2):
+    times = [evenement[0] for evenement in evenements]
+    fondamentales = [evenement[2] for evenement in evenements]
+    intensities = [evenement[3] for evenement in evenements]
+    current_sliding = []
+    final_values = []
+    for i in range(len(fondamentales)):
+        if len(current_sliding) <= 1 :
+            current_sliding.append([times[i],fondamentales[i], intensities[i]])
+        else :
+            previous_dy = (fondamentales[i-1] - fondamentales[i-2])/(times[i-1]-times[i-2])
+            current_dy = (fondamentales[i] - fondamentales[i-1])/(times[i]-times[i-1]) 
+            if 1/tolerance_derivative < (current_dy / previous_dy) < tolerance_derivative :
+                current_sliding.append([times[i],fondamentales[i], intensities[i]])
+            #Cas où la tolérance est dépassée --> Fin du slide
+            else :
+                if len(current_sliding) > 2 :
+                    borne_inf = current_sliding[0]
+                    borne_sup = current_sliding[-1]
+                    final_values.append(borne_inf + [True])
+                    final_values.append(borne_sup + [False])
+                else :
+                    for note in current_sliding :
+                        final_values.append(note + [False])
+                current_sliding = []
+                current_sliding.append([times[i],fondamentales[i], intensities[i]])
+    return final_values
+
+def nearest_duration(duration, bpm, seuil = 4) :
+    timespace = 1/ bpm #en seconde
+    quotient = duration // timespace
+    reste = duration % timespace
+    value = 0
+    if (duration - reste) > reste : # Plus proche de reste que de duration
+        value = quotient
+    else :
+        value =  quotient + 1
+    
+    return min(value, seuil)
+    
+
+def tempo_ajusted(notes_with_slidings, bpm):
+    times = [note[0] for note in notes_with_slidings]
+    fondamentales = [note[1] for note in notes_with_slidings]
+    intensities = [note[2] for note in notes_with_slidings]
+    sliding = [note[3] for note in notes_with_slidings]
+    formated = []
+    for i in range(len(notes_with_slidings)) :
+        #différences entre la note et la prochaine note
+        duration = times[i+1] - times[i]
+        formated_value = nearest_duration(duration)
+    
+          
+
+evenements = extract_f0s("dataset/labeled/sounds/VO_02_018.dspadpcm.wav", 
+    duree_fenetre = 0.02,
+    fmin = 100.0,
+    fmax = 800.0,
+    seuil_energie = 0.10
+)
 
 display_f0s(evenements, afficher_intensite=True)
+slidings_detected = detecte_sliding(evenements)
+with Path("sound_config.json").open("r", encoding="utf-8") as f:
+    bpm = json.load(f)
+encoded = tempo_ajusted(slidings_detected, bpm=bpm)
+synthesize_f0_events(
+    evenements,
+    fs=44100,
+    fichier_sortie="reconstruction.wav"
+)

@@ -27,8 +27,8 @@ def get_first_sound():
     return None
 
 def put_to_trash(sound_file):
-    trash_folder = Path("dataset/trash/")
-    sound_file.rename(trash_folder / sound_file.name)
+    if sound_file.is_file():
+        sound_file.unlink()  # supprime le fichier
 
 def move_to_labeled(sound_file, emotion_vector):
     sounds_output_folder = Path(sounds_output_path)
