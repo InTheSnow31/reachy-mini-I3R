@@ -3,7 +3,6 @@ A pour objectif de transformer les sons d'une base de données en encodage souha
 """
 import sys
 from pathlib import Path
-# Ajouter le dossier parent à sys.path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 import numpy as np
@@ -278,8 +277,8 @@ def detecte_sliding(evenements, tolerance_derivative = 2):
                 current_sliding.append([times[i],fondamentales[i], intensities[i]])
     return final_values
 
-def nearest_duration(duration, bpm, seuil = 4) :
-    timespace = 1/ bpm #en seconde
+def nearest_duration(duration, bpm, duration_scale) :
+    timespace = 60 / bpm #en seconde
     quotient = duration // timespace
     reste = duration % timespace
     value = 0
@@ -288,7 +287,7 @@ def nearest_duration(duration, bpm, seuil = 4) :
     else :
         value =  quotient + 1
     
-    return min(value, seuil)
+    return min(value, duration_scale)
 
 def nearest_note(f):
     n = 1 + 12 * math.log2(f / 27.5)
@@ -296,7 +295,7 @@ def nearest_note(f):
     n = max(1, min(88, n)) # limiter entre 1 et 88
     return n
 
-def tempo_ajusted(notes_with_slidings, bpm):
+def tempo_ajusted(notes_with_slidings, bpm, duration_scale):
     times = [note[0] for note in notes_with_slidings]
     fondamentales = [note[1] for note in notes_with_slidings]
     intensities = [note[2] for note in notes_with_slidings]
@@ -305,31 +304,33 @@ def tempo_ajusted(notes_with_slidings, bpm):
     for i in range(len(notes_with_slidings)-1) :
         #différences entre la note et la prochaine note
         duration = times[i+1] - times[i]
-        formated_duration = nearest_duration(duration, bpm)
+        print(duration)
+        formated_duration = nearest_duration(duration, bpm, duration_scale)
         formated_note = nearest_note(fondamentales[i])
         formated.append(Note(formated_note, intensities[i], formated_duration, sliding[i]))
     return formated
 
-
-
 # RECUPERATION DATA
 with Path("sound_config.json").open("r", encoding="utf-8") as f:
-    bpm = json.load(f)["BPM"]
+    content = json.load(f)
+    bpm = content["BPM"]
+    duration_scale = content["DURATION_SCALE"]
 
 #APPEL DES FONCTION
 
 evenements = extract_f0s("dataset/labeled/sounds/VO_02_018.dspadpcm.wav", 
-    duree_fenetre = 0.02,
+    duree_fenetre = 60/bpm/2,
     fmin = 100.0,
     fmax = 800.0,
     seuil_energie = 0.10
 )
-#display_f0s(evenements, afficher_intensite=True)
+display_f0s(evenements, afficher_intensite=True)
 synthesize_f0_events(evenements, fs=44100, fichier_sortie="tests/reconstruction.wav")
 
 slidings_detected = detecte_sliding(evenements, tolerance_derivative=2)
-encoded = tempo_ajusted(slidings_detected, bpm=bpm)
-print(encoded)
+encoded = tempo_ajusted(slidings_detected, bpm=bpm, duration_scale=duration_scale)
+for note in encoded : 
+    print(note)
 notes_to_wav(encoded, "tests/results.wav", bpm=bpm)
 display_formated(encoded)
 

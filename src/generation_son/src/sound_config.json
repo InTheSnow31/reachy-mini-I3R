@@ -1,3 +1,4 @@
 {
-    "BPM":400
+    "BPM":800,
+    "DURATION_SCALE":8
 }

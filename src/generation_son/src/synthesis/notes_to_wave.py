@@ -1,8 +1,11 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
 import numpy as np
 import soundfile as sf
 import math
 from Note import Note
-from pathlib import Path
 import json
 
 SAMPLE_RATE = 44100
@@ -179,4 +182,5 @@ notes = [
     Note(52, 1.0, 4, False),  # ronde
 ]
 
-notes_to_wav(notes, "melodie2.wav")
+
+notes_to_wav(notes, "tests/melodie2.wav")

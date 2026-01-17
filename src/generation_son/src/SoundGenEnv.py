@@ -1,21 +1,28 @@
+
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
 import gym
 from gym import spaces
 import numpy as np
-from notes_to_wave import notes_to_wav
+from synthesis.notes_to_wave import notes_to_wav
 from Note import Note
 from interface_input import input
 from emotion import polar_to_emotion, random_emotion
+import json
 
 class SoundGenEnv(gym.Env):
     def __init__(self, emotion_model, max_notes=16):
         self.EMOTION_MODEL = emotion_model
-        super().__init__()
-        self.max_notes = max_notes
-        self.current_step = 0
-        self.notes = []
-        self.note_range = 24  # MIDI notes from G2 to G4
-        self.num_intensity_bins = 10  # Intensity levels 
-        self.duration_range = 4  # Note Duration from 1 to 4 beats
+        with Path("sound_config.json").open("r", encoding="utf-8") as f:
+            super().__init__()
+            self.max_notes = max_notes
+            self.current_step = 0
+            self.notes = []
+            self.note_range = 24  # MIDI notes from G2 to G4
+            self.num_intensity_bins = 10  # Intensity levels 
+            self.duration_range = json.load(f)["DURATION_SCALE"]  # Note Duration from 1 to 4 beats
 
         self.action_space = spaces.MultiDiscrete([self.note_range, self.duration_range, self.num_intensity_bins, 2, 2]) # Notes 44-67, Duration 1-4, Intensity 0-(num_intensity_bins-1), Slide ?, Final Note ?
 
