@@ -1,0 +1,7 @@
+{
+    "system" : "wheel",
+    "wheel_path" : "models/7_emotions_wheel.png",
+    "number_of_emotions" : 7,
+    "emotion_names" : ["happiness", "sadness", "anger", "fear", "love","disgust","surprise"],
+    "wheel_offset" : -90
+}

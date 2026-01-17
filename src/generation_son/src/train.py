@@ -1,25 +1,22 @@
 from stable_baselines3 import PPO
 from stable_baselines3.common.env_util import DummyVecEnv
 from SoundGenEnv import SoundGenEnv
+import json
+from pathlib import Path
 
 ###### PARAMETERS ######
 
 MAX_NOTES = 4
 INPUTS_PAR_SESSIONS = 5
 
-SEVEN_EMOTION_MODEL = {
-    "system" : "wheel",
-    "wheel_path" : "models/7_emotions_wheel.png",
-    "number_of_emotions" : 7,
-    "emotion_names" : ['happiness', 'sadness', 'anger', 'fear', 'love','disgust','surprise'],
-    "wheel_offset" : -90
-}
+with Path("models\SEVEN_EMOTION_MODEL.json").open("r", encoding="utf-8") as f:
+    SEVEN_EMOTION_MODEL = json.load(f)
 
-SIMPLE_BAR_MODEL = {
-    "system" : "bars",
-    "number_of_emotions" : 2,
-    "emotion_names" : [('Negatvie', 'Positive'), ('Calme','Surpris')]
-}
+with Path("models\SIMPLE_BAR_MODEL.json").open("r", encoding="utf-8") as f:
+    SIMPLE_BAR_MODEL = json.load(f)
+
+with Path("models\THREE_BAR_MODEL.json").open("r", encoding="utf-8") as f:
+    THREE_BAR_MODEL = json.load(f)
 
 
 ###### TRAINING AND TESTING ######
@@ -42,7 +39,7 @@ def train(model_name="ppo_note_model"):
 
 
 def test(model_name="ppo_note_model"):
-    env = DummyVecEnv([lambda: SoundGenEnv(emotion_model = SIMPLE_BAR_MODEL, max_notes=MAX_NOTES)])
+    env = DummyVecEnv([lambda: SoundGenEnv(emotion_model = THREE_BAR_MODEL, max_notes=MAX_NOTES)])
     model = PPO.load(model_name, env=env)
     print(f"Loaded model {model_name}.zip")
     obs = env.reset()

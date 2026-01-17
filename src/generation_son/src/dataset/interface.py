@@ -11,6 +11,7 @@ import math
 import sounddevice as sd
 import soundfile as sf
 from emotion import polar_to_emotion
+import json
 
 WINDOW_SIZE = 800
 CANVAS_SIZE = 700
@@ -20,6 +21,9 @@ WAV_FILE = "temp.wav"  # fichier à jouer
 input_path = "dataset/sources/"
 sounds_output_path = "dataset/labeled/sounds"
 labels_output_path = "dataset/labeled/labels"
+
+with Path("models\THREE_BAR_MODEL.json").open("r", encoding="utf-8") as f:
+    THREE_BAR_MODEL = json.load(f)
 
 def get_first_sound():
     source_folder = Path(input_path)
@@ -210,9 +214,5 @@ class input:
         return self.selected_emotion
 
 while True :
-    interface = input({
-        "system" : "bars",
-        "number_of_emotions" : 2,
-        "emotion_names" : [('Negative', 'Positive'), ('Calme','Explosif'),("Interrogatif","Assuré")]
-    })
+    interface = input(THREE_BAR_MODEL)
     interface.loop()
