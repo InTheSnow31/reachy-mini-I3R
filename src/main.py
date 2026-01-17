@@ -1,19 +1,25 @@
-from creation_mouvement import generate
-# from adaptation_mouvement import adapt
-# from generation_son import train 
+from movement_sound_generation import generate
+# from movement_adaptation import adapt
+# from sound_generation import train
 
 def main():
-    mode = int(input("\n\nBonjour ! Quel mode voulez-vous lancer ? Tapez juste 1, 2 ou 3.\n\n1 = Adaptation d'un mouvement\n2 = Génération d'un mouvement avec son\n3 = Entraînement de l'IA pour le son\n\nVotre choix : "))
+    mode = int(input(
+        "\n\nHello! Which mode do you want to launch? Just type 1, 2, or 3.\n\n"
+        "1 = Movement adaptation\n"
+        "2 = Movement generation with sound\n"
+        "3 = AI training for sound\n\n"
+        "Your choice: "
+    ))
 
-    print(f"Lancement du module : {mode}")
+    print(f"Launching module: {mode}\n\n")
 
     if mode == 1:
-        print("Mode non implémenté pour l'instant.")
+        print("Mode not implemented for now.")
         # adapt.main()
     elif mode == 2:
         generate.main()
     elif mode == 3:
-        print("Mode d'entraînement non implémenté pour l'instant.")
+        print("Training mode not implemented for now.")
         # train.train()
 
 if __name__ == "__main__":

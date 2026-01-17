@@ -1,5 +1,5 @@
-from creation_mouvement.robot_config_space.pose_generation import generate_pose
-from creation_mouvement.sound.sound_generation import generate_sound
+from movement_sound_generation.robot_config_space.pose_generation import generate_pose
+from movement_sound_generation.sound.sound_generation import generate_sound
 
 import json
 import os
@@ -10,7 +10,7 @@ def main():
 
     with ReachyMini() as reachy:
 
-        print("Hello! Try different emotions here.\nType 'q' and enter if you want to quit.")
+        print("\nHello! Try different emotions here.\nType 'q' and enter if you want to quit.")
 
         while True:
 
