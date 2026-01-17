@@ -10,7 +10,7 @@ import sys
 WINDOW_SIZE = 800
 CANVAS_SIZE = 700
 POINT_RADIUS = 5
-WAV_FILE = "temp.wav"  # fichier à jouer
+WAV_FILE = "temp/temp.wav"  # fichier à jouer
 
 class input:
     def __init__(self, EMOTION_MODEL):

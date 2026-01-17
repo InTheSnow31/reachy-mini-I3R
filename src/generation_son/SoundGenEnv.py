@@ -45,7 +45,7 @@ class SoundGenEnv(gym.Env):
 
 
     def estimate_emotion(self, notes):
-        notes_to_wav(notes, "temp.wav")
+        notes_to_wav(notes, "temp/temp.wav")
         interface = input(self.EMOTION_MODEL)
         return interface.loop()
 

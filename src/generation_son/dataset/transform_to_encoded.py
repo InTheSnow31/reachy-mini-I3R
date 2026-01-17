@@ -7,6 +7,7 @@ import scipy.io.wavfile as wav
 import matplotlib.pyplot as plt
 import json
 from pathlib import Path
+import math
 
 def extract_f0s(
     fichier_wav: str,
@@ -56,7 +57,6 @@ def extract_f0s(
 
     return evenements
 
-
 def estimate_f0(frame, fs, fmin, fmax):
     corr = np.correlate(frame, frame, mode="full")
     corr = corr[len(corr)//2:]
@@ -100,6 +100,7 @@ def group_f0s_intensities(
             debut = t
             nb = 1
             intensites = [r]
+
         elif abs(f0 - freq_courante) <= tolerance_hz:
             nb += 1
             intensites.append(r)
@@ -120,15 +121,10 @@ def group_f0s_intensities(
 
     return evenements
 
-
 def display_f0s(evenements, afficher_intensite: bool = True, cmap: str = "viridis"):
     """
     Affiche les événements de fondamentales avec intensité.
     """
-
-    if not evenements:
-        print("Aucun événement à afficher.")
-        return
 
     fig, ax = plt.subplots(figsize=(10, 4))
 
@@ -169,6 +165,22 @@ def display_f0s(evenements, afficher_intensite: bool = True, cmap: str = "viridi
         fig.colorbar(sm, ax=ax, label="Intensité (RMS)")
 
     plt.tight_layout()
+    plt.show()
+
+def display_formated(notes):
+    current_x = 0
+    i = 0
+    while i < len(notes) :
+        if notes[i][3] : #Sliding == "True"
+            plt.plot([current_x, current_x + notes[i][1]], [notes[i][0], notes[i+1][0]], marker='o', linestyle='-')
+            current_x += notes[i][1] + notes[i+1][1]
+            i += 2
+        else :
+            plt.plot([current_x], [notes[i][0]], marker='o', linestyle='None')
+            current_x += notes[i][1] 
+            i += 1
+        print(current_x)
+    plt.grid(True)
     plt.show()
 
 def synthesize_f0_events(
@@ -232,7 +244,6 @@ def synthesize_f0_events(
 
     print(f"WAV généré : {fichier_sortie}")
 
-
 def detecte_sliding(evenements, tolerance_derivative = 2):
     times = [evenement[0] for evenement in evenements]
     fondamentales = [evenement[2] for evenement in evenements]
@@ -272,7 +283,12 @@ def nearest_duration(duration, bpm, seuil = 4) :
         value =  quotient + 1
     
     return min(value, seuil)
-    
+
+def nearest_note(f):
+    n = 1 + 12 * math.log2(f / 27.5)
+    n = round(n)           # touche entière la plus proche
+    n = max(1, min(88, n)) # limiter entre 1 et 88
+    return n
 
 def tempo_ajusted(notes_with_slidings, bpm):
     times = [note[0] for note in notes_with_slidings]
@@ -280,12 +296,13 @@ def tempo_ajusted(notes_with_slidings, bpm):
     intensities = [note[2] for note in notes_with_slidings]
     sliding = [note[3] for note in notes_with_slidings]
     formated = []
-    for i in range(len(notes_with_slidings)) :
+    for i in range(len(notes_with_slidings)-1) :
         #différences entre la note et la prochaine note
         duration = times[i+1] - times[i]
-        formated_value = nearest_duration(duration)
-    
-          
+        formated_duration = nearest_duration(duration, bpm)
+        formated_note = nearest_note(fondamentales[i])
+        formated.append((formated_note, formated_duration, intensities[i], sliding[i]))
+    return formated
 
 evenements = extract_f0s("dataset/labeled/sounds/VO_02_018.dspadpcm.wav", 
     duree_fenetre = 0.02,
@@ -294,13 +311,16 @@ evenements = extract_f0s("dataset/labeled/sounds/VO_02_018.dspadpcm.wav",
     seuil_energie = 0.10
 )
 
-display_f0s(evenements, afficher_intensite=True)
-slidings_detected = detecte_sliding(evenements)
+# RECUPERATION DATA
 with Path("sound_config.json").open("r", encoding="utf-8") as f:
-    bpm = json.load(f)
+    bpm = json.load(f)["BPM"]
+
+#APPEL DES FONCTION
+
+display_f0s(evenements, afficher_intensite=True)
+synthesize_f0_events(evenements, fs=44100, fichier_sortie="reconstruction.wav")
+
+slidings_detected = detecte_sliding(evenements, tolerance_derivative=2)
 encoded = tempo_ajusted(slidings_detected, bpm=bpm)
-synthesize_f0_events(
-    evenements,
-    fs=44100,
-    fichier_sortie="reconstruction.wav"
-)
+display_formated(encoded)
+
