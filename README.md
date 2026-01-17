@@ -1,9 +1,10 @@
-# Name of my project
+# Generating expressive movements on Reachy Mini
 
-**Description:** Template for deliverables of robotics projects at Bordeaux-INP.
-Replace this description by a sentence summarizing your project.
+Discover this experimental project on creating expressive movement and sound on the robot [Reachy Mini](https://github.com/pollen-robotics/reachy_mini?tab=readme-ov-file). It is a compact, open-source robot designed to make robotics accessible, fun, and affordable.
 
-<img src="https://via.placeholder.com/900x300.png?text=Video+illustrating+your+project,+or+picture"> 
+It is deployed by the compagny [Pollen Robotics](https://www.pollen-robotics.com/), now part of [Hugging Face](https://huggingface.co/pollen-robotics).
+
+<img src="https://www.pollen-robotics.com/wp-content/uploads/2025/06/Reachy_mini_website_stuff00558988-ezgif.com-video-to-gif-converter.gif"> 
 
 [📖 User documentation](docs/user) • [👨‍💻 Developer documentation](docs/developer) • [📈 Project report](docs/report) • [📚 Bibliography](docs/bibliography) • [⚠️ Risk Analysis](docs/risk)
   
