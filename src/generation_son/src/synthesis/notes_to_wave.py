@@ -2,11 +2,14 @@ import numpy as np
 import soundfile as sf
 import math
 from Note import Note
+from pathlib import Path
+import json
 
 SAMPLE_RATE = 44100
 A4_PITCH = 49
 A4_FREQ = 440.0
-DEFAULT_BPM = 400
+with Path("sound_config.json").open("r", encoding="utf-8") as f:
+    DEFAULT_BPM = json.load(f)["BPM"]
 
 # Harmoniques typiques
 harmonics_crisp = [

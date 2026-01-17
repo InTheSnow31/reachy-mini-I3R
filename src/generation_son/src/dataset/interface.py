@@ -1,3 +1,9 @@
+import sys
+from pathlib import Path
+
+# Ajouter le dossier parent à sys.path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
 import tkinter as tk
 import tkinter.font as tkfont
 from PIL import Image, ImageTk
@@ -5,8 +11,6 @@ import math
 import sounddevice as sd
 import soundfile as sf
 from emotion import polar_to_emotion
-from pathlib import Path
-import sys
 
 WINDOW_SIZE = 800
 CANVAS_SIZE = 700

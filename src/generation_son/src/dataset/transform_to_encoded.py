@@ -1,13 +1,20 @@
 """
 A pour objectif de transformer les sons d'une base de données en encodage souhaité pour la synthèse sonore.
 """
+import sys
+from pathlib import Path
+# Ajouter le dossier parent à sys.path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 import numpy as np
 import scipy.io.wavfile as wav
 import matplotlib.pyplot as plt
 import json
-from pathlib import Path
 import math
+
+from synthesis.notes_to_wave import notes_to_wav
+from Note import Note
+
 
 def extract_f0s(
     fichier_wav: str,
@@ -171,15 +178,14 @@ def display_formated(notes):
     current_x = 0
     i = 0
     while i < len(notes) :
-        if notes[i][3] : #Sliding == "True"
-            plt.plot([current_x, current_x + notes[i][1]], [notes[i][0], notes[i+1][0]], marker='o', linestyle='-')
-            current_x += notes[i][1] + notes[i+1][1]
+        if notes[i].slide : #Sliding == "True"
+            plt.plot([current_x, current_x + notes[i].duration], [notes[i].pitch, notes[i+1].pitch], marker='o', linestyle='-')
+            current_x += notes[i].duration + notes[i+1].duration
             i += 2
         else :
-            plt.plot([current_x], [notes[i][0]], marker='o', linestyle='None')
-            current_x += notes[i][1] 
+            plt.plot([current_x], [notes[i].pitch], marker='o', linestyle='None')
+            current_x += notes[i].duration
             i += 1
-        print(current_x)
     plt.grid(True)
     plt.show()
 
@@ -189,7 +195,7 @@ def synthesize_f0_events(
     gain: float = 0.9,
     attaque: float = 0.01,
     relache: float = 0.02,
-    fichier_sortie: str = "synthese.wav"
+    fichier_sortie: str = "tests/synthese.wav"
 ):
     """
     Synthétise un WAV à partir d'événements (t, d, f0, intensité).
@@ -240,7 +246,7 @@ def synthesize_f0_events(
     # --- Conversion int16 ---
     signal_int16 = np.int16(signal * 32767)
 
-    wav.write("tests/"+fichier_sortie, fs, signal_int16)
+    wav.write(fichier_sortie, fs, signal_int16)
 
     print(f"WAV généré : {fichier_sortie}")
 
@@ -301,15 +307,10 @@ def tempo_ajusted(notes_with_slidings, bpm):
         duration = times[i+1] - times[i]
         formated_duration = nearest_duration(duration, bpm)
         formated_note = nearest_note(fondamentales[i])
-        formated.append((formated_note, formated_duration, intensities[i], sliding[i]))
+        formated.append(Note(formated_note, intensities[i], formated_duration, sliding[i]))
     return formated
 
-evenements = extract_f0s("dataset/labeled/sounds/VO_02_018.dspadpcm.wav", 
-    duree_fenetre = 0.02,
-    fmin = 100.0,
-    fmax = 800.0,
-    seuil_energie = 0.10
-)
+
 
 # RECUPERATION DATA
 with Path("sound_config.json").open("r", encoding="utf-8") as f:
@@ -317,10 +318,18 @@ with Path("sound_config.json").open("r", encoding="utf-8") as f:
 
 #APPEL DES FONCTION
 
-display_f0s(evenements, afficher_intensite=True)
-synthesize_f0_events(evenements, fs=44100, fichier_sortie="reconstruction.wav")
+evenements = extract_f0s("dataset/labeled/sounds/VO_02_018.dspadpcm.wav", 
+    duree_fenetre = 0.02,
+    fmin = 100.0,
+    fmax = 800.0,
+    seuil_energie = 0.10
+)
+#display_f0s(evenements, afficher_intensite=True)
+synthesize_f0_events(evenements, fs=44100, fichier_sortie="tests/reconstruction.wav")
 
 slidings_detected = detecte_sliding(evenements, tolerance_derivative=2)
 encoded = tempo_ajusted(slidings_detected, bpm=bpm)
+print(encoded)
+notes_to_wav(encoded, "tests/results.wav", bpm=bpm)
 display_formated(encoded)
 
