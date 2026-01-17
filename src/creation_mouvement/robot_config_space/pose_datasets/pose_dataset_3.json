@@ -1,0 +1,8502 @@
+[
+  {
+    "pose": {
+      "x": -26,
+      "y": -57,
+      "z": 34,
+      "roll": 0,
+      "pitch": -1,
+      "yaw": -3,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 0
+  },
+  {
+    "pose": {
+      "x": 29,
+      "y": -49,
+      "z": 15,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": -1,
+      "body_yaw": 7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 1
+  },
+  {
+    "pose": {
+      "x": 37,
+      "y": -57,
+      "z": 11,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": -4,
+      "body_yaw": -8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 2
+  },
+  {
+    "pose": {
+      "x": 17,
+      "y": 15,
+      "z": -25,
+      "roll": 1,
+      "pitch": -8,
+      "yaw": -6,
+      "body_yaw": -20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 3
+  },
+  {
+    "pose": {
+      "x": -5,
+      "y": -41,
+      "z": -33,
+      "roll": 0,
+      "pitch": -9,
+      "yaw": -2,
+      "body_yaw": 1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 4
+  },
+  {
+    "pose": {
+      "x": 4,
+      "y": 17,
+      "z": -27,
+      "roll": 2,
+      "pitch": -8,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 5
+  },
+  {
+    "pose": {
+      "x": 8,
+      "y": -50,
+      "z": 10,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": -2,
+      "body_yaw": -2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 6
+  },
+  {
+    "pose": {
+      "x": 33,
+      "y": -36,
+      "z": 30,
+      "roll": 0,
+      "pitch": -1,
+      "yaw": -5,
+      "body_yaw": -16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 7
+  },
+  {
+    "pose": {
+      "x": -30,
+      "y": 49,
+      "z": -31,
+      "roll": 3,
+      "pitch": -9,
+      "yaw": -4,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 8
+  },
+  {
+    "pose": {
+      "x": -20,
+      "y": -13,
+      "z": -15,
+      "roll": 1,
+      "pitch": -7,
+      "yaw": -3,
+      "body_yaw": -7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 9
+  },
+  {
+    "pose": {
+      "x": -31,
+      "y": 17,
+      "z": 21,
+      "roll": 2,
+      "pitch": -2,
+      "yaw": -3,
+      "body_yaw": -10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 10
+  },
+  {
+    "pose": {
+      "x": -6,
+      "y": 58,
+      "z": 21,
+      "roll": 3,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 11
+  },
+  {
+    "pose": {
+      "x": -33,
+      "y": -31,
+      "z": 45,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 12
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": 52,
+      "z": 31,
+      "roll": 3,
+      "pitch": -1,
+      "yaw": -2,
+      "body_yaw": 0,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 13
+  },
+  {
+    "pose": {
+      "x": 18,
+      "y": -42,
+      "z": -27,
+      "roll": 0,
+      "pitch": -8,
+      "yaw": -4,
+      "body_yaw": -12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 14
+  },
+  {
+    "pose": {
+      "x": 34,
+      "y": -6,
+      "z": 54,
+      "roll": 1,
+      "pitch": 1,
+      "yaw": 0,
+      "body_yaw": 17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 15
+  },
+  {
+    "pose": {
+      "x": 25,
+      "y": 3,
+      "z": -49,
+      "roll": 1,
+      "pitch": -11,
+      "yaw": -5,
+      "body_yaw": -17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 16
+  },
+  {
+    "pose": {
+      "x": 14,
+      "y": 16,
+      "z": -52,
+      "roll": 2,
+      "pitch": -12,
+      "yaw": -1,
+      "body_yaw": 4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 17
+  },
+  {
+    "pose": {
+      "x": 30,
+      "y": 50,
+      "z": 60,
+      "roll": 3,
+      "pitch": 2,
+      "yaw": -5,
+      "body_yaw": -20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 18
+  },
+  {
+    "pose": {
+      "x": -6,
+      "y": 38,
+      "z": 22,
+      "roll": 2,
+      "pitch": -2,
+      "yaw": -2,
+      "body_yaw": 1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 19
+  },
+  {
+    "pose": {
+      "x": -7,
+      "y": 4,
+      "z": 37,
+      "roll": 1,
+      "pitch": 0,
+      "yaw": -3,
+      "body_yaw": -9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 20
+  },
+  {
+    "pose": {
+      "x": 24,
+      "y": 17,
+      "z": -35,
+      "roll": 1,
+      "pitch": -9,
+      "yaw": -4,
+      "body_yaw": -11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 21
+  },
+  {
+    "pose": {
+      "x": 27,
+      "y": 57,
+      "z": -60,
+      "roll": 3,
+      "pitch": -13,
+      "yaw": 0,
+      "body_yaw": 18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 22
+  },
+  {
+    "pose": {
+      "x": -1,
+      "y": -30,
+      "z": -53,
+      "roll": 0,
+      "pitch": -11,
+      "yaw": -3,
+      "body_yaw": -5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 23
+  },
+  {
+    "pose": {
+      "x": 22,
+      "y": 44,
+      "z": -52,
+      "roll": 2,
+      "pitch": -11,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 24
+  },
+  {
+    "pose": {
+      "x": 30,
+      "y": -39,
+      "z": -27,
+      "roll": 0,
+      "pitch": -8,
+      "yaw": 0,
+      "body_yaw": 13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 25
+  },
+  {
+    "pose": {
+      "x": 29,
+      "y": 36,
+      "z": 33,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": -3,
+      "body_yaw": -8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 26
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": -4,
+      "z": 55,
+      "roll": 1,
+      "pitch": 1,
+      "yaw": 0,
+      "body_yaw": 13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 27
+  },
+  {
+    "pose": {
+      "x": -38,
+      "y": 15,
+      "z": 10,
+      "roll": 1,
+      "pitch": -3,
+      "yaw": -3,
+      "body_yaw": -6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 28
+  },
+  {
+    "pose": {
+      "x": -33,
+      "y": -31,
+      "z": -52,
+      "roll": 0,
+      "pitch": -11,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 29
+  },
+  {
+    "pose": {
+      "x": 22,
+      "y": -33,
+      "z": 9,
+      "roll": 0,
+      "pitch": -4,
+      "yaw": -4,
+      "body_yaw": -12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 30
+  },
+  {
+    "pose": {
+      "x": -9,
+      "y": 40,
+      "z": 0,
+      "roll": 2,
+      "pitch": -5,
+      "yaw": -1,
+      "body_yaw": 6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 31
+  },
+  {
+    "pose": {
+      "x": 14,
+      "y": -8,
+      "z": -1,
+      "roll": 1,
+      "pitch": -5,
+      "yaw": -5,
+      "body_yaw": -17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 32
+  },
+  {
+    "pose": {
+      "x": 11,
+      "y": 33,
+      "z": -17,
+      "roll": 2,
+      "pitch": -7,
+      "yaw": -4,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 33
+  },
+  {
+    "pose": {
+      "x": 14,
+      "y": -37,
+      "z": -25,
+      "roll": 0,
+      "pitch": -8,
+      "yaw": 0,
+      "body_yaw": 9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 34
+  },
+  {
+    "pose": {
+      "x": 30,
+      "y": -48,
+      "z": -54,
+      "roll": 0,
+      "pitch": -12,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 35
+  },
+  {
+    "pose": {
+      "x": -10,
+      "y": -39,
+      "z": -8,
+      "roll": 0,
+      "pitch": -6,
+      "yaw": 0,
+      "body_yaw": 11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 36
+  },
+  {
+    "pose": {
+      "x": -19,
+      "y": -12,
+      "z": -60,
+      "roll": 1,
+      "pitch": -13,
+      "yaw": -1,
+      "body_yaw": 4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 37
+  },
+  {
+    "pose": {
+      "x": 14,
+      "y": 29,
+      "z": 33,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 38
+  },
+  {
+    "pose": {
+      "x": -13,
+      "y": -53,
+      "z": 14,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 39
+  },
+  {
+    "pose": {
+      "x": 21,
+      "y": 4,
+      "z": 57,
+      "roll": 1,
+      "pitch": 1,
+      "yaw": 0,
+      "body_yaw": 13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 40
+  },
+  {
+    "pose": {
+      "x": -17,
+      "y": -52,
+      "z": 16,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": -5,
+      "body_yaw": -16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 41
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": -29,
+      "z": 14,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": 0,
+      "body_yaw": 18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 42
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": 6,
+      "z": -20,
+      "roll": 1,
+      "pitch": -8,
+      "yaw": -3,
+      "body_yaw": -4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 43
+  },
+  {
+    "pose": {
+      "x": 10,
+      "y": -44,
+      "z": 25,
+      "roll": 0,
+      "pitch": -2,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 44
+  },
+  {
+    "pose": {
+      "x": -39,
+      "y": -2,
+      "z": 19,
+      "roll": 1,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 45
+  },
+  {
+    "pose": {
+      "x": -7,
+      "y": -44,
+      "z": 59,
+      "roll": 0,
+      "pitch": 2,
+      "yaw": -2,
+      "body_yaw": 2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 46
+  },
+  {
+    "pose": {
+      "x": -20,
+      "y": -4,
+      "z": 46,
+      "roll": 1,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 47
+  },
+  {
+    "pose": {
+      "x": 27,
+      "y": -59,
+      "z": 25,
+      "roll": 0,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 48
+  },
+  {
+    "pose": {
+      "x": -23,
+      "y": -27,
+      "z": -46,
+      "roll": 0,
+      "pitch": -11,
+      "yaw": -4,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 49
+  },
+  {
+    "pose": {
+      "x": -14,
+      "y": 31,
+      "z": -17,
+      "roll": 2,
+      "pitch": -7,
+      "yaw": -3,
+      "body_yaw": -7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 50
+  },
+  {
+    "pose": {
+      "x": -8,
+      "y": 55,
+      "z": 56,
+      "roll": 3,
+      "pitch": 1,
+      "yaw": -5,
+      "body_yaw": -17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 51
+  },
+  {
+    "pose": {
+      "x": -40,
+      "y": -18,
+      "z": 38,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -4,
+      "body_yaw": -12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 52
+  },
+  {
+    "pose": {
+      "x": 30,
+      "y": 30,
+      "z": -6,
+      "roll": 2,
+      "pitch": -6,
+      "yaw": 0,
+      "body_yaw": 15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 53
+  },
+  {
+    "pose": {
+      "x": -21,
+      "y": 9,
+      "z": -56,
+      "roll": 1,
+      "pitch": -12,
+      "yaw": -1,
+      "body_yaw": 3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 54
+  },
+  {
+    "pose": {
+      "x": -1,
+      "y": -14,
+      "z": 55,
+      "roll": 0,
+      "pitch": 1,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 55
+  },
+  {
+    "pose": {
+      "x": -27,
+      "y": -15,
+      "z": 39,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 56
+  },
+  {
+    "pose": {
+      "x": -21,
+      "y": 58,
+      "z": 59,
+      "roll": 3,
+      "pitch": 2,
+      "yaw": -2,
+      "body_yaw": -5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 57
+  },
+  {
+    "pose": {
+      "x": 12,
+      "y": -57,
+      "z": -38,
+      "roll": 0,
+      "pitch": -10,
+      "yaw": -2,
+      "body_yaw": 1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 58
+  },
+  {
+    "pose": {
+      "x": -9,
+      "y": -26,
+      "z": -40,
+      "roll": 0,
+      "pitch": -10,
+      "yaw": -4,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 59
+  },
+  {
+    "pose": {
+      "x": -15,
+      "y": 44,
+      "z": 57,
+      "roll": 3,
+      "pitch": 1,
+      "yaw": 0,
+      "body_yaw": 9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 60
+  },
+  {
+    "pose": {
+      "x": -12,
+      "y": -57,
+      "z": 24,
+      "roll": 0,
+      "pitch": -2,
+      "yaw": -4,
+      "body_yaw": -8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 61
+  },
+  {
+    "pose": {
+      "x": -5,
+      "y": -16,
+      "z": 22,
+      "roll": 1,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 62
+  },
+  {
+    "pose": {
+      "x": -37,
+      "y": -46,
+      "z": 52,
+      "roll": 0,
+      "pitch": 1,
+      "yaw": -3,
+      "body_yaw": -4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 63
+  },
+  {
+    "pose": {
+      "x": -27,
+      "y": 16,
+      "z": -5,
+      "roll": 2,
+      "pitch": -5,
+      "yaw": -1,
+      "body_yaw": 2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 64
+  },
+  {
+    "pose": {
+      "x": 25,
+      "y": -46,
+      "z": -11,
+      "roll": 0,
+      "pitch": -6,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 65
+  },
+  {
+    "pose": {
+      "x": 26,
+      "y": 58,
+      "z": 43,
+      "roll": 3,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 66
+  },
+  {
+    "pose": {
+      "x": -15,
+      "y": -14,
+      "z": -5,
+      "roll": 1,
+      "pitch": -5,
+      "yaw": -5,
+      "body_yaw": -16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 67
+  },
+  {
+    "pose": {
+      "x": -25,
+      "y": 32,
+      "z": 55,
+      "roll": 2,
+      "pitch": 1,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 68
+  },
+  {
+    "pose": {
+      "x": -3,
+      "y": 10,
+      "z": -44,
+      "roll": 2,
+      "pitch": -11,
+      "yaw": -3,
+      "body_yaw": -8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 69
+  },
+  {
+    "pose": {
+      "x": -18,
+      "y": 18,
+      "z": 12,
+      "roll": 2,
+      "pitch": -3,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 70
+  },
+  {
+    "pose": {
+      "x": -14,
+      "y": -5,
+      "z": 40,
+      "roll": 1,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 71
+  },
+  {
+    "pose": {
+      "x": -13,
+      "y": 5,
+      "z": 0,
+      "roll": 1,
+      "pitch": -5,
+      "yaw": -3,
+      "body_yaw": -10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 72
+  },
+  {
+    "pose": {
+      "x": 39,
+      "y": -18,
+      "z": -49,
+      "roll": 0,
+      "pitch": -11,
+      "yaw": -3,
+      "body_yaw": -5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 73
+  },
+  {
+    "pose": {
+      "x": -37,
+      "y": -55,
+      "z": -29,
+      "roll": 0,
+      "pitch": -9,
+      "yaw": 0,
+      "body_yaw": 10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 74
+  },
+  {
+    "pose": {
+      "x": 40,
+      "y": 13,
+      "z": -36,
+      "roll": 1,
+      "pitch": -9,
+      "yaw": -1,
+      "body_yaw": 4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 75
+  },
+  {
+    "pose": {
+      "x": -40,
+      "y": 54,
+      "z": 36,
+      "roll": 3,
+      "pitch": 0,
+      "yaw": -4,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 76
+  },
+  {
+    "pose": {
+      "x": 26,
+      "y": -1,
+      "z": -54,
+      "roll": 1,
+      "pitch": -12,
+      "yaw": 0,
+      "body_yaw": 15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 77
+  },
+  {
+    "pose": {
+      "x": 19,
+      "y": 25,
+      "z": 7,
+      "roll": 2,
+      "pitch": -4,
+      "yaw": 0,
+      "body_yaw": 15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 78
+  },
+  {
+    "pose": {
+      "x": 38,
+      "y": 44,
+      "z": 32,
+      "roll": 3,
+      "pitch": -1,
+      "yaw": 0,
+      "body_yaw": 12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 79
+  },
+  {
+    "pose": {
+      "x": -20,
+      "y": 35,
+      "z": 50,
+      "roll": 2,
+      "pitch": 1,
+      "yaw": 0,
+      "body_yaw": 10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 80
+  },
+  {
+    "pose": {
+      "x": -5,
+      "y": 38,
+      "z": 39,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 81
+  },
+  {
+    "pose": {
+      "x": -4,
+      "y": -30,
+      "z": -26,
+      "roll": 0,
+      "pitch": -8,
+      "yaw": -2,
+      "body_yaw": 1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 82
+  },
+  {
+    "pose": {
+      "x": -11,
+      "y": -11,
+      "z": 28,
+      "roll": 0,
+      "pitch": -1,
+      "yaw": -4,
+      "body_yaw": -11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 83
+  },
+  {
+    "pose": {
+      "x": 29,
+      "y": -1,
+      "z": -7,
+      "roll": 1,
+      "pitch": -6,
+      "yaw": -5,
+      "body_yaw": -17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 84
+  },
+  {
+    "pose": {
+      "x": 34,
+      "y": 29,
+      "z": -58,
+      "roll": 2,
+      "pitch": -12,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 85
+  },
+  {
+    "pose": {
+      "x": 9,
+      "y": 49,
+      "z": 54,
+      "roll": 3,
+      "pitch": 1,
+      "yaw": -1,
+      "body_yaw": 6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 86
+  },
+  {
+    "pose": {
+      "x": -12,
+      "y": 2,
+      "z": -32,
+      "roll": 1,
+      "pitch": -9,
+      "yaw": -2,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 87
+  },
+  {
+    "pose": {
+      "x": 11,
+      "y": 32,
+      "z": -39,
+      "roll": 2,
+      "pitch": -10,
+      "yaw": 0,
+      "body_yaw": 9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 88
+  },
+  {
+    "pose": {
+      "x": 10,
+      "y": 15,
+      "z": 12,
+      "roll": 2,
+      "pitch": -4,
+      "yaw": -5,
+      "body_yaw": -19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 89
+  },
+  {
+    "pose": {
+      "x": -17,
+      "y": -54,
+      "z": -27,
+      "roll": 0,
+      "pitch": -8,
+      "yaw": -1,
+      "body_yaw": 4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 90
+  },
+  {
+    "pose": {
+      "x": 8,
+      "y": -25,
+      "z": 36,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -1,
+      "body_yaw": 6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 91
+  },
+  {
+    "pose": {
+      "x": 29,
+      "y": -54,
+      "z": -16,
+      "roll": 0,
+      "pitch": -7,
+      "yaw": -3,
+      "body_yaw": -6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 92
+  },
+  {
+    "pose": {
+      "x": -37,
+      "y": -29,
+      "z": -35,
+      "roll": 0,
+      "pitch": -9,
+      "yaw": -5,
+      "body_yaw": -19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 93
+  },
+  {
+    "pose": {
+      "x": -26,
+      "y": 12,
+      "z": -33,
+      "roll": 2,
+      "pitch": -9,
+      "yaw": 0,
+      "body_yaw": 9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 94
+  },
+  {
+    "pose": {
+      "x": 37,
+      "y": 35,
+      "z": 31,
+      "roll": 2,
+      "pitch": -1,
+      "yaw": -5,
+      "body_yaw": -13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 95
+  },
+  {
+    "pose": {
+      "x": 34,
+      "y": -57,
+      "z": 58,
+      "roll": 0,
+      "pitch": 2,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 96
+  },
+  {
+    "pose": {
+      "x": -15,
+      "y": -51,
+      "z": 15,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": 1,
+      "body_yaw": 20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 97
+  },
+  {
+    "pose": {
+      "x": 36,
+      "y": 43,
+      "z": -45,
+      "roll": 3,
+      "pitch": -10,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 98
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": -52,
+      "z": 4,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": -2,
+      "body_yaw": 1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 99
+  },
+  {
+    "pose": {
+      "x": 15,
+      "y": -14,
+      "z": 21,
+      "roll": 0,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 100
+  },
+  {
+    "pose": {
+      "x": -6,
+      "y": 18,
+      "z": 43,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 101
+  },
+  {
+    "pose": {
+      "x": 35,
+      "y": -26,
+      "z": -19,
+      "roll": 0,
+      "pitch": -7,
+      "yaw": -3,
+      "body_yaw": -5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 102
+  },
+  {
+    "pose": {
+      "x": -9,
+      "y": 36,
+      "z": -1,
+      "roll": 2,
+      "pitch": -5,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 103
+  },
+  {
+    "pose": {
+      "x": 1,
+      "y": -37,
+      "z": 2,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": -3,
+      "body_yaw": -7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 104
+  },
+  {
+    "pose": {
+      "x": 36,
+      "y": 29,
+      "z": 52,
+      "roll": 2,
+      "pitch": 1,
+      "yaw": -3,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 105
+  },
+  {
+    "pose": {
+      "x": -10,
+      "y": 32,
+      "z": -8,
+      "roll": 2,
+      "pitch": -6,
+      "yaw": 0,
+      "body_yaw": 11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 106
+  },
+  {
+    "pose": {
+      "x": 22,
+      "y": -3,
+      "z": 41,
+      "roll": 1,
+      "pitch": 0,
+      "yaw": -5,
+      "body_yaw": -19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 107
+  },
+  {
+    "pose": {
+      "x": -1,
+      "y": 24,
+      "z": 14,
+      "roll": 2,
+      "pitch": -3,
+      "yaw": -1,
+      "body_yaw": 3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 108
+  },
+  {
+    "pose": {
+      "x": 30,
+      "y": -18,
+      "z": -15,
+      "roll": 0,
+      "pitch": -7,
+      "yaw": -1,
+      "body_yaw": 9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 109
+  },
+  {
+    "pose": {
+      "x": -16,
+      "y": -20,
+      "z": -45,
+      "roll": 0,
+      "pitch": -10,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 110
+  },
+  {
+    "pose": {
+      "x": 21,
+      "y": -25,
+      "z": 32,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 111
+  },
+  {
+    "pose": {
+      "x": -28,
+      "y": 46,
+      "z": -36,
+      "roll": 3,
+      "pitch": -10,
+      "yaw": -2,
+      "body_yaw": -2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 112
+  },
+  {
+    "pose": {
+      "x": 28,
+      "y": -44,
+      "z": -25,
+      "roll": 0,
+      "pitch": -8,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 113
+  },
+  {
+    "pose": {
+      "x": -24,
+      "y": 21,
+      "z": 51,
+      "roll": 2,
+      "pitch": 1,
+      "yaw": 0,
+      "body_yaw": 11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 114
+  },
+  {
+    "pose": {
+      "x": 21,
+      "y": -4,
+      "z": -17,
+      "roll": 1,
+      "pitch": -7,
+      "yaw": -3,
+      "body_yaw": -9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 115
+  },
+  {
+    "pose": {
+      "x": -26,
+      "y": 45,
+      "z": -52,
+      "roll": 3,
+      "pitch": -12,
+      "yaw": -1,
+      "body_yaw": 5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 116
+  },
+  {
+    "pose": {
+      "x": -21,
+      "y": -41,
+      "z": 43,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 117
+  },
+  {
+    "pose": {
+      "x": 31,
+      "y": 37,
+      "z": -7,
+      "roll": 2,
+      "pitch": -6,
+      "yaw": 0,
+      "body_yaw": 18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 118
+  },
+  {
+    "pose": {
+      "x": 8,
+      "y": -3,
+      "z": 56,
+      "roll": 1,
+      "pitch": 1,
+      "yaw": -1,
+      "body_yaw": 8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 119
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": 19,
+      "z": -53,
+      "roll": 2,
+      "pitch": -11,
+      "yaw": 1,
+      "body_yaw": 19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 120
+  },
+  {
+    "pose": {
+      "x": 40,
+      "y": -33,
+      "z": -27,
+      "roll": 0,
+      "pitch": -9,
+      "yaw": -5,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 121
+  },
+  {
+    "pose": {
+      "x": -40,
+      "y": -8,
+      "z": -3,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": 0,
+      "body_yaw": 18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 122
+  },
+  {
+    "pose": {
+      "x": -4,
+      "y": 29,
+      "z": 50,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 123
+  },
+  {
+    "pose": {
+      "x": 40,
+      "y": 15,
+      "z": 24,
+      "roll": 2,
+      "pitch": -2,
+      "yaw": -3,
+      "body_yaw": -8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 124
+  },
+  {
+    "pose": {
+      "x": -6,
+      "y": 45,
+      "z": -42,
+      "roll": 3,
+      "pitch": -10,
+      "yaw": -5,
+      "body_yaw": -16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 125
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": 57,
+      "z": -24,
+      "roll": 3,
+      "pitch": -8,
+      "yaw": 0,
+      "body_yaw": 8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 126
+  },
+  {
+    "pose": {
+      "x": -6,
+      "y": 4,
+      "z": 9,
+      "roll": 1,
+      "pitch": -4,
+      "yaw": 0,
+      "body_yaw": 11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 127
+  },
+  {
+    "pose": {
+      "x": 1,
+      "y": 17,
+      "z": -28,
+      "roll": 2,
+      "pitch": -9,
+      "yaw": -5,
+      "body_yaw": -19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 128
+  },
+  {
+    "pose": {
+      "x": 33,
+      "y": 15,
+      "z": -58,
+      "roll": 2,
+      "pitch": -12,
+      "yaw": -3,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 129
+  },
+  {
+    "pose": {
+      "x": 26,
+      "y": 23,
+      "z": -4,
+      "roll": 2,
+      "pitch": -6,
+      "yaw": -2,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 130
+  },
+  {
+    "pose": {
+      "x": 22,
+      "y": -49,
+      "z": 0,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": -2,
+      "body_yaw": 2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 131
+  },
+  {
+    "pose": {
+      "x": -20,
+      "y": -18,
+      "z": -8,
+      "roll": 1,
+      "pitch": -6,
+      "yaw": 0,
+      "body_yaw": 11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 132
+  },
+  {
+    "pose": {
+      "x": 30,
+      "y": -56,
+      "z": -2,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": -4,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 133
+  },
+  {
+    "pose": {
+      "x": 11,
+      "y": 50,
+      "z": 5,
+      "roll": 3,
+      "pitch": -4,
+      "yaw": -6,
+      "body_yaw": -20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 134
+  },
+  {
+    "pose": {
+      "x": -16,
+      "y": 6,
+      "z": -14,
+      "roll": 1,
+      "pitch": -6,
+      "yaw": 1,
+      "body_yaw": 19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 135
+  },
+  {
+    "pose": {
+      "x": -14,
+      "y": -26,
+      "z": 10,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": -4,
+      "body_yaw": -12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 136
+  },
+  {
+    "pose": {
+      "x": -25,
+      "y": -57,
+      "z": 20,
+      "roll": 0,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 137
+  },
+  {
+    "pose": {
+      "x": -39,
+      "y": 10,
+      "z": -8,
+      "roll": 2,
+      "pitch": -6,
+      "yaw": -5,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 138
+  },
+  {
+    "pose": {
+      "x": -25,
+      "y": 22,
+      "z": 46,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": -4,
+      "body_yaw": -11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 139
+  },
+  {
+    "pose": {
+      "x": -6,
+      "y": -7,
+      "z": 46,
+      "roll": 1,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 140
+  },
+  {
+    "pose": {
+      "x": 9,
+      "y": -36,
+      "z": 57,
+      "roll": 0,
+      "pitch": 2,
+      "yaw": 1,
+      "body_yaw": 18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 141
+  },
+  {
+    "pose": {
+      "x": -5,
+      "y": 38,
+      "z": 41,
+      "roll": 3,
+      "pitch": 0,
+      "yaw": -1,
+      "body_yaw": 6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 142
+  },
+  {
+    "pose": {
+      "x": -40,
+      "y": -24,
+      "z": 32,
+      "roll": 0,
+      "pitch": -1,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 143
+  },
+  {
+    "pose": {
+      "x": -21,
+      "y": -3,
+      "z": 8,
+      "roll": 1,
+      "pitch": -4,
+      "yaw": 0,
+      "body_yaw": 10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 144
+  },
+  {
+    "pose": {
+      "x": 18,
+      "y": 59,
+      "z": -19,
+      "roll": 3,
+      "pitch": -7,
+      "yaw": -3,
+      "body_yaw": -8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 145
+  },
+  {
+    "pose": {
+      "x": 12,
+      "y": -55,
+      "z": -20,
+      "roll": 0,
+      "pitch": -7,
+      "yaw": 0,
+      "body_yaw": 10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 146
+  },
+  {
+    "pose": {
+      "x": -21,
+      "y": 3,
+      "z": -56,
+      "roll": 1,
+      "pitch": -12,
+      "yaw": -4,
+      "body_yaw": -12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 147
+  },
+  {
+    "pose": {
+      "x": 16,
+      "y": -48,
+      "z": 7,
+      "roll": 0,
+      "pitch": -4,
+      "yaw": 0,
+      "body_yaw": 9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 148
+  },
+  {
+    "pose": {
+      "x": -21,
+      "y": -51,
+      "z": 0,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": -2,
+      "body_yaw": -4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 149
+  },
+  {
+    "pose": {
+      "x": 2,
+      "y": 49,
+      "z": 26,
+      "roll": 3,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 150
+  },
+  {
+    "pose": {
+      "x": 22,
+      "y": 51,
+      "z": 9,
+      "roll": 3,
+      "pitch": -4,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 151
+  },
+  {
+    "pose": {
+      "x": -4,
+      "y": -31,
+      "z": 35,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -4,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 152
+  },
+  {
+    "pose": {
+      "x": -28,
+      "y": -4,
+      "z": -39,
+      "roll": 1,
+      "pitch": -10,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 153
+  },
+  {
+    "pose": {
+      "x": -3,
+      "y": -15,
+      "z": -13,
+      "roll": 0,
+      "pitch": -7,
+      "yaw": -1,
+      "body_yaw": 7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 154
+  },
+  {
+    "pose": {
+      "x": -17,
+      "y": -39,
+      "z": -38,
+      "roll": 0,
+      "pitch": -10,
+      "yaw": -4,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 155
+  },
+  {
+    "pose": {
+      "x": 23,
+      "y": 56,
+      "z": 14,
+      "roll": 3,
+      "pitch": -3,
+      "yaw": -4,
+      "body_yaw": -11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 156
+  },
+  {
+    "pose": {
+      "x": -39,
+      "y": 55,
+      "z": 42,
+      "roll": 3,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 157
+  },
+  {
+    "pose": {
+      "x": 16,
+      "y": 60,
+      "z": -16,
+      "roll": 3,
+      "pitch": -7,
+      "yaw": 0,
+      "body_yaw": 17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 158
+  },
+  {
+    "pose": {
+      "x": 18,
+      "y": 48,
+      "z": -22,
+      "roll": 3,
+      "pitch": -7,
+      "yaw": -4,
+      "body_yaw": -8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 159
+  },
+  {
+    "pose": {
+      "x": 8,
+      "y": 13,
+      "z": -15,
+      "roll": 2,
+      "pitch": -7,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 160
+  },
+  {
+    "pose": {
+      "x": 10,
+      "y": -25,
+      "z": -59,
+      "roll": 0,
+      "pitch": -12,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 161
+  },
+  {
+    "pose": {
+      "x": 37,
+      "y": 35,
+      "z": 3,
+      "roll": 2,
+      "pitch": -4,
+      "yaw": -2,
+      "body_yaw": -2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 162
+  },
+  {
+    "pose": {
+      "x": -12,
+      "y": 21,
+      "z": -36,
+      "roll": 2,
+      "pitch": -10,
+      "yaw": 1,
+      "body_yaw": 19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 163
+  },
+  {
+    "pose": {
+      "x": -23,
+      "y": 20,
+      "z": -48,
+      "roll": 2,
+      "pitch": -11,
+      "yaw": 1,
+      "body_yaw": 20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 164
+  },
+  {
+    "pose": {
+      "x": 34,
+      "y": -14,
+      "z": 33,
+      "roll": 0,
+      "pitch": -1,
+      "yaw": -4,
+      "body_yaw": -12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 165
+  },
+  {
+    "pose": {
+      "x": -18,
+      "y": -35,
+      "z": -44,
+      "roll": 0,
+      "pitch": -10,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 166
+  },
+  {
+    "pose": {
+      "x": -6,
+      "y": 46,
+      "z": -39,
+      "roll": 3,
+      "pitch": -10,
+      "yaw": -2,
+      "body_yaw": -4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 167
+  },
+  {
+    "pose": {
+      "x": -3,
+      "y": 35,
+      "z": 51,
+      "roll": 2,
+      "pitch": 1,
+      "yaw": -2,
+      "body_yaw": 1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 168
+  },
+  {
+    "pose": {
+      "x": -12,
+      "y": 50,
+      "z": 26,
+      "roll": 3,
+      "pitch": -1,
+      "yaw": -1,
+      "body_yaw": 5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 169
+  },
+  {
+    "pose": {
+      "x": 10,
+      "y": -59,
+      "z": -27,
+      "roll": 0,
+      "pitch": -9,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 170
+  },
+  {
+    "pose": {
+      "x": -7,
+      "y": 14,
+      "z": -12,
+      "roll": 1,
+      "pitch": -6,
+      "yaw": 1,
+      "body_yaw": 20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 171
+  },
+  {
+    "pose": {
+      "x": -37,
+      "y": 19,
+      "z": 53,
+      "roll": 2,
+      "pitch": 1,
+      "yaw": 0,
+      "body_yaw": 15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 172
+  },
+  {
+    "pose": {
+      "x": 19,
+      "y": 56,
+      "z": 29,
+      "roll": 3,
+      "pitch": -1,
+      "yaw": -3,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 173
+  },
+  {
+    "pose": {
+      "x": -36,
+      "y": -22,
+      "z": 3,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": -4,
+      "body_yaw": -13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 174
+  },
+  {
+    "pose": {
+      "x": 18,
+      "y": -13,
+      "z": 25,
+      "roll": 1,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 175
+  },
+  {
+    "pose": {
+      "x": 13,
+      "y": 23,
+      "z": -48,
+      "roll": 2,
+      "pitch": -11,
+      "yaw": 0,
+      "body_yaw": 11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 176
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": -33,
+      "z": -4,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": -1,
+      "body_yaw": 8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 177
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": 9,
+      "z": 55,
+      "roll": 1,
+      "pitch": 1,
+      "yaw": -1,
+      "body_yaw": 2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 178
+  },
+  {
+    "pose": {
+      "x": 18,
+      "y": -49,
+      "z": 24,
+      "roll": 0,
+      "pitch": -2,
+      "yaw": -4,
+      "body_yaw": -7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 179
+  },
+  {
+    "pose": {
+      "x": 2,
+      "y": -29,
+      "z": -44,
+      "roll": 0,
+      "pitch": -11,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 180
+  },
+  {
+    "pose": {
+      "x": 35,
+      "y": -33,
+      "z": 44,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -3,
+      "body_yaw": -6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 181
+  },
+  {
+    "pose": {
+      "x": -40,
+      "y": -25,
+      "z": 49,
+      "roll": 0,
+      "pitch": 1,
+      "yaw": -3,
+      "body_yaw": -11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 182
+  },
+  {
+    "pose": {
+      "x": -26,
+      "y": 24,
+      "z": 50,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": -5,
+      "body_yaw": -19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 183
+  },
+  {
+    "pose": {
+      "x": 35,
+      "y": -19,
+      "z": -58,
+      "roll": 0,
+      "pitch": -12,
+      "yaw": -4,
+      "body_yaw": -9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 184
+  },
+  {
+    "pose": {
+      "x": -26,
+      "y": 35,
+      "z": -52,
+      "roll": 2,
+      "pitch": -12,
+      "yaw": 0,
+      "body_yaw": 10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 185
+  },
+  {
+    "pose": {
+      "x": 17,
+      "y": 4,
+      "z": -32,
+      "roll": 1,
+      "pitch": -9,
+      "yaw": 1,
+      "body_yaw": 19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 186
+  },
+  {
+    "pose": {
+      "x": 26,
+      "y": -22,
+      "z": -2,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": -5,
+      "body_yaw": -19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 187
+  },
+  {
+    "pose": {
+      "x": -27,
+      "y": 2,
+      "z": 31,
+      "roll": 1,
+      "pitch": -1,
+      "yaw": 0,
+      "body_yaw": 8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 188
+  },
+  {
+    "pose": {
+      "x": -32,
+      "y": -44,
+      "z": -25,
+      "roll": 0,
+      "pitch": -8,
+      "yaw": 1,
+      "body_yaw": 19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 189
+  },
+  {
+    "pose": {
+      "x": 36,
+      "y": 7,
+      "z": -23,
+      "roll": 1,
+      "pitch": -8,
+      "yaw": 0,
+      "body_yaw": 9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 190
+  },
+  {
+    "pose": {
+      "x": -26,
+      "y": 49,
+      "z": 23,
+      "roll": 3,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 191
+  },
+  {
+    "pose": {
+      "x": -11,
+      "y": -8,
+      "z": -17,
+      "roll": 1,
+      "pitch": -7,
+      "yaw": 0,
+      "body_yaw": 9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 192
+  },
+  {
+    "pose": {
+      "x": 0,
+      "y": 25,
+      "z": -28,
+      "roll": 2,
+      "pitch": -8,
+      "yaw": -1,
+      "body_yaw": 3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 193
+  },
+  {
+    "pose": {
+      "x": -29,
+      "y": 46,
+      "z": -50,
+      "roll": 3,
+      "pitch": -11,
+      "yaw": -4,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 194
+  },
+  {
+    "pose": {
+      "x": -24,
+      "y": 11,
+      "z": -53,
+      "roll": 1,
+      "pitch": -11,
+      "yaw": 0,
+      "body_yaw": 17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 195
+  },
+  {
+    "pose": {
+      "x": 12,
+      "y": -15,
+      "z": 51,
+      "roll": 1,
+      "pitch": 1,
+      "yaw": 0,
+      "body_yaw": 7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 196
+  },
+  {
+    "pose": {
+      "x": 36,
+      "y": -21,
+      "z": -15,
+      "roll": 0,
+      "pitch": -7,
+      "yaw": -4,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 197
+  },
+  {
+    "pose": {
+      "x": -12,
+      "y": 48,
+      "z": -47,
+      "roll": 3,
+      "pitch": -11,
+      "yaw": -1,
+      "body_yaw": 2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 198
+  },
+  {
+    "pose": {
+      "x": 33,
+      "y": -32,
+      "z": 43,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -1,
+      "body_yaw": 7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 199
+  },
+  {
+    "pose": {
+      "x": 38,
+      "y": 26,
+      "z": 22,
+      "roll": 2,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 200
+  },
+  {
+    "pose": {
+      "x": -6,
+      "y": -57,
+      "z": -37,
+      "roll": 0,
+      "pitch": -9,
+      "yaw": -2,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 201
+  },
+  {
+    "pose": {
+      "x": -40,
+      "y": -37,
+      "z": 51,
+      "roll": 0,
+      "pitch": 1,
+      "yaw": -4,
+      "body_yaw": -11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 202
+  },
+  {
+    "pose": {
+      "x": -37,
+      "y": -49,
+      "z": 35,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 203
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": -21,
+      "z": 32,
+      "roll": 0,
+      "pitch": -1,
+      "yaw": -2,
+      "body_yaw": 0,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 204
+  },
+  {
+    "pose": {
+      "x": -34,
+      "y": -41,
+      "z": -40,
+      "roll": 0,
+      "pitch": -10,
+      "yaw": 1,
+      "body_yaw": 19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 205
+  },
+  {
+    "pose": {
+      "x": 14,
+      "y": 2,
+      "z": 17,
+      "roll": 1,
+      "pitch": -3,
+      "yaw": -1,
+      "body_yaw": 8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 206
+  },
+  {
+    "pose": {
+      "x": 4,
+      "y": -5,
+      "z": -46,
+      "roll": 1,
+      "pitch": -11,
+      "yaw": -2,
+      "body_yaw": -2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 207
+  },
+  {
+    "pose": {
+      "x": -1,
+      "y": -55,
+      "z": -32,
+      "roll": 0,
+      "pitch": -9,
+      "yaw": -1,
+      "body_yaw": 5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 208
+  },
+  {
+    "pose": {
+      "x": -13,
+      "y": 38,
+      "z": -43,
+      "roll": 2,
+      "pitch": -10,
+      "yaw": -2,
+      "body_yaw": -4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 209
+  },
+  {
+    "pose": {
+      "x": 15,
+      "y": -38,
+      "z": -44,
+      "roll": 0,
+      "pitch": -10,
+      "yaw": -1,
+      "body_yaw": 4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 210
+  },
+  {
+    "pose": {
+      "x": 5,
+      "y": -51,
+      "z": -10,
+      "roll": 0,
+      "pitch": -6,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 211
+  },
+  {
+    "pose": {
+      "x": 0,
+      "y": 13,
+      "z": -6,
+      "roll": 2,
+      "pitch": -6,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 212
+  },
+  {
+    "pose": {
+      "x": 11,
+      "y": -58,
+      "z": -19,
+      "roll": 0,
+      "pitch": -7,
+      "yaw": -3,
+      "body_yaw": -10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 213
+  },
+  {
+    "pose": {
+      "x": 6,
+      "y": -49,
+      "z": -5,
+      "roll": 0,
+      "pitch": -6,
+      "yaw": -4,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 214
+  },
+  {
+    "pose": {
+      "x": 10,
+      "y": 51,
+      "z": -21,
+      "roll": 3,
+      "pitch": -8,
+      "yaw": -2,
+      "body_yaw": 1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 215
+  },
+  {
+    "pose": {
+      "x": -26,
+      "y": 7,
+      "z": 5,
+      "roll": 1,
+      "pitch": -4,
+      "yaw": -3,
+      "body_yaw": -8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 216
+  },
+  {
+    "pose": {
+      "x": -22,
+      "y": -30,
+      "z": -47,
+      "roll": 0,
+      "pitch": -11,
+      "yaw": -4,
+      "body_yaw": -11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 217
+  },
+  {
+    "pose": {
+      "x": -31,
+      "y": -38,
+      "z": 38,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": 1,
+      "body_yaw": 20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 218
+  },
+  {
+    "pose": {
+      "x": 17,
+      "y": 27,
+      "z": 58,
+      "roll": 2,
+      "pitch": 2,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 219
+  },
+  {
+    "pose": {
+      "x": 40,
+      "y": -20,
+      "z": -41,
+      "roll": 0,
+      "pitch": -10,
+      "yaw": -1,
+      "body_yaw": 8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 220
+  },
+  {
+    "pose": {
+      "x": -5,
+      "y": 15,
+      "z": -53,
+      "roll": 1,
+      "pitch": -12,
+      "yaw": -2,
+      "body_yaw": 2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 221
+  },
+  {
+    "pose": {
+      "x": -33,
+      "y": -13,
+      "z": 46,
+      "roll": 1,
+      "pitch": 0,
+      "yaw": -2,
+      "body_yaw": -2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 222
+  },
+  {
+    "pose": {
+      "x": 38,
+      "y": 16,
+      "z": 4,
+      "roll": 2,
+      "pitch": -4,
+      "yaw": -1,
+      "body_yaw": 4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 223
+  },
+  {
+    "pose": {
+      "x": -35,
+      "y": -3,
+      "z": 56,
+      "roll": 1,
+      "pitch": 1,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 224
+  },
+  {
+    "pose": {
+      "x": -21,
+      "y": -53,
+      "z": -3,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": -4,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 225
+  },
+  {
+    "pose": {
+      "x": -30,
+      "y": 4,
+      "z": 22,
+      "roll": 1,
+      "pitch": -2,
+      "yaw": -3,
+      "body_yaw": -9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 226
+  },
+  {
+    "pose": {
+      "x": 27,
+      "y": 6,
+      "z": 18,
+      "roll": 1,
+      "pitch": -3,
+      "yaw": -4,
+      "body_yaw": -10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 227
+  },
+  {
+    "pose": {
+      "x": 3,
+      "y": 26,
+      "z": 16,
+      "roll": 2,
+      "pitch": -3,
+      "yaw": -5,
+      "body_yaw": -17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 228
+  },
+  {
+    "pose": {
+      "x": -28,
+      "y": 11,
+      "z": 26,
+      "roll": 2,
+      "pitch": -2,
+      "yaw": -1,
+      "body_yaw": 4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 229
+  },
+  {
+    "pose": {
+      "x": 37,
+      "y": 51,
+      "z": -41,
+      "roll": 3,
+      "pitch": -10,
+      "yaw": -2,
+      "body_yaw": 1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 230
+  },
+  {
+    "pose": {
+      "x": -1,
+      "y": 23,
+      "z": 29,
+      "roll": 2,
+      "pitch": -1,
+      "yaw": -1,
+      "body_yaw": 5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 231
+  },
+  {
+    "pose": {
+      "x": 31,
+      "y": -12,
+      "z": 22,
+      "roll": 1,
+      "pitch": -2,
+      "yaw": -2,
+      "body_yaw": 1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 232
+  },
+  {
+    "pose": {
+      "x": 27,
+      "y": -49,
+      "z": 22,
+      "roll": 0,
+      "pitch": -2,
+      "yaw": -1,
+      "body_yaw": 7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 233
+  },
+  {
+    "pose": {
+      "x": -13,
+      "y": -17,
+      "z": 38,
+      "roll": 1,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 234
+  },
+  {
+    "pose": {
+      "x": -3,
+      "y": 48,
+      "z": 40,
+      "roll": 3,
+      "pitch": 0,
+      "yaw": -4,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 235
+  },
+  {
+    "pose": {
+      "x": 27,
+      "y": -56,
+      "z": 24,
+      "roll": 0,
+      "pitch": -2,
+      "yaw": -2,
+      "body_yaw": 1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 236
+  },
+  {
+    "pose": {
+      "x": -21,
+      "y": -40,
+      "z": -37,
+      "roll": 0,
+      "pitch": -9,
+      "yaw": 1,
+      "body_yaw": 19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 237
+  },
+  {
+    "pose": {
+      "x": 12,
+      "y": -14,
+      "z": 26,
+      "roll": 1,
+      "pitch": -1,
+      "yaw": -3,
+      "body_yaw": -5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 238
+  },
+  {
+    "pose": {
+      "x": 17,
+      "y": -31,
+      "z": 8,
+      "roll": 0,
+      "pitch": -4,
+      "yaw": -3,
+      "body_yaw": -5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 239
+  },
+  {
+    "pose": {
+      "x": -16,
+      "y": -13,
+      "z": 26,
+      "roll": 1,
+      "pitch": -1,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 240
+  },
+  {
+    "pose": {
+      "x": 8,
+      "y": 4,
+      "z": 7,
+      "roll": 1,
+      "pitch": -4,
+      "yaw": -1,
+      "body_yaw": 6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 241
+  },
+  {
+    "pose": {
+      "x": -23,
+      "y": 51,
+      "z": -28,
+      "roll": 3,
+      "pitch": -8,
+      "yaw": -5,
+      "body_yaw": -17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 242
+  },
+  {
+    "pose": {
+      "x": -27,
+      "y": 31,
+      "z": 48,
+      "roll": 2,
+      "pitch": 1,
+      "yaw": 0,
+      "body_yaw": 13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 243
+  },
+  {
+    "pose": {
+      "x": -6,
+      "y": -3,
+      "z": 55,
+      "roll": 1,
+      "pitch": 1,
+      "yaw": 0,
+      "body_yaw": 12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 244
+  },
+  {
+    "pose": {
+      "x": -12,
+      "y": 44,
+      "z": -3,
+      "roll": 3,
+      "pitch": -5,
+      "yaw": -2,
+      "body_yaw": 2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 245
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": -30,
+      "z": -11,
+      "roll": 0,
+      "pitch": -6,
+      "yaw": -4,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 246
+  },
+  {
+    "pose": {
+      "x": 2,
+      "y": 41,
+      "z": -42,
+      "roll": 3,
+      "pitch": -11,
+      "yaw": -4,
+      "body_yaw": -12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 247
+  },
+  {
+    "pose": {
+      "x": -23,
+      "y": 37,
+      "z": 30,
+      "roll": 2,
+      "pitch": -1,
+      "yaw": 0,
+      "body_yaw": 10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 248
+  },
+  {
+    "pose": {
+      "x": -8,
+      "y": -33,
+      "z": 46,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -4,
+      "body_yaw": -11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 249
+  },
+  {
+    "pose": {
+      "x": -26,
+      "y": 39,
+      "z": -24,
+      "roll": 2,
+      "pitch": -8,
+      "yaw": -3,
+      "body_yaw": -5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 250
+  },
+  {
+    "pose": {
+      "x": 39,
+      "y": -2,
+      "z": -52,
+      "roll": 1,
+      "pitch": -11,
+      "yaw": -4,
+      "body_yaw": -13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 251
+  },
+  {
+    "pose": {
+      "x": 40,
+      "y": 5,
+      "z": 13,
+      "roll": 1,
+      "pitch": -3,
+      "yaw": -3,
+      "body_yaw": -5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 252
+  },
+  {
+    "pose": {
+      "x": 5,
+      "y": -30,
+      "z": 13,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": -1,
+      "body_yaw": 6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 253
+  },
+  {
+    "pose": {
+      "x": 6,
+      "y": -52,
+      "z": 7,
+      "roll": 0,
+      "pitch": -4,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 254
+  },
+  {
+    "pose": {
+      "x": 9,
+      "y": 51,
+      "z": 0,
+      "roll": 3,
+      "pitch": -5,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 255
+  },
+  {
+    "pose": {
+      "x": -38,
+      "y": -15,
+      "z": 40,
+      "roll": 1,
+      "pitch": 0,
+      "yaw": -4,
+      "body_yaw": -16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 256
+  },
+  {
+    "pose": {
+      "x": 34,
+      "y": 34,
+      "z": 36,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": -2,
+      "body_yaw": 1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 257
+  },
+  {
+    "pose": {
+      "x": -18,
+      "y": 46,
+      "z": 39,
+      "roll": 3,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 258
+  },
+  {
+    "pose": {
+      "x": -23,
+      "y": -52,
+      "z": 31,
+      "roll": 0,
+      "pitch": -1,
+      "yaw": 0,
+      "body_yaw": 9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 259
+  },
+  {
+    "pose": {
+      "x": -35,
+      "y": -20,
+      "z": 59,
+      "roll": 1,
+      "pitch": 2,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 260
+  },
+  {
+    "pose": {
+      "x": -8,
+      "y": -56,
+      "z": 36,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -4,
+      "body_yaw": -8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 261
+  },
+  {
+    "pose": {
+      "x": 2,
+      "y": -26,
+      "z": -45,
+      "roll": 0,
+      "pitch": -11,
+      "yaw": -1,
+      "body_yaw": 3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 262
+  },
+  {
+    "pose": {
+      "x": 9,
+      "y": -17,
+      "z": -37,
+      "roll": 0,
+      "pitch": -9,
+      "yaw": 0,
+      "body_yaw": 11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 263
+  },
+  {
+    "pose": {
+      "x": -6,
+      "y": 42,
+      "z": -50,
+      "roll": 3,
+      "pitch": -12,
+      "yaw": 0,
+      "body_yaw": 7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 264
+  },
+  {
+    "pose": {
+      "x": 29,
+      "y": -23,
+      "z": -19,
+      "roll": 0,
+      "pitch": -8,
+      "yaw": -5,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 265
+  },
+  {
+    "pose": {
+      "x": 37,
+      "y": 31,
+      "z": -6,
+      "roll": 2,
+      "pitch": -5,
+      "yaw": -4,
+      "body_yaw": -10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 266
+  },
+  {
+    "pose": {
+      "x": 5,
+      "y": 18,
+      "z": -5,
+      "roll": 2,
+      "pitch": -5,
+      "yaw": -3,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 267
+  },
+  {
+    "pose": {
+      "x": 11,
+      "y": -14,
+      "z": 5,
+      "roll": 0,
+      "pitch": -4,
+      "yaw": -4,
+      "body_yaw": -10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 268
+  },
+  {
+    "pose": {
+      "x": 16,
+      "y": -56,
+      "z": -44,
+      "roll": 0,
+      "pitch": -11,
+      "yaw": -5,
+      "body_yaw": -16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 269
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": -56,
+      "z": 17,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": -4,
+      "body_yaw": -11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 270
+  },
+  {
+    "pose": {
+      "x": -31,
+      "y": 13,
+      "z": -43,
+      "roll": 1,
+      "pitch": -10,
+      "yaw": 0,
+      "body_yaw": 13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 271
+  },
+  {
+    "pose": {
+      "x": -26,
+      "y": -57,
+      "z": 34,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -3,
+      "body_yaw": -9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 272
+  },
+  {
+    "pose": {
+      "x": -7,
+      "y": 39,
+      "z": -27,
+      "roll": 3,
+      "pitch": -8,
+      "yaw": 0,
+      "body_yaw": 8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 273
+  },
+  {
+    "pose": {
+      "x": 22,
+      "y": -35,
+      "z": -45,
+      "roll": 0,
+      "pitch": -10,
+      "yaw": -4,
+      "body_yaw": -12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 274
+  },
+  {
+    "pose": {
+      "x": 16,
+      "y": -49,
+      "z": 43,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -2,
+      "body_yaw": 0,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 275
+  },
+  {
+    "pose": {
+      "x": -3,
+      "y": 54,
+      "z": -22,
+      "roll": 3,
+      "pitch": -8,
+      "yaw": -4,
+      "body_yaw": -10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 276
+  },
+  {
+    "pose": {
+      "x": 6,
+      "y": 5,
+      "z": -32,
+      "roll": 1,
+      "pitch": -9,
+      "yaw": -4,
+      "body_yaw": -13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 277
+  },
+  {
+    "pose": {
+      "x": 23,
+      "y": -57,
+      "z": -14,
+      "roll": 0,
+      "pitch": -7,
+      "yaw": 0,
+      "body_yaw": 15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 278
+  },
+  {
+    "pose": {
+      "x": -24,
+      "y": 18,
+      "z": 53,
+      "roll": 2,
+      "pitch": 1,
+      "yaw": -4,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 279
+  },
+  {
+    "pose": {
+      "x": 21,
+      "y": 7,
+      "z": -8,
+      "roll": 1,
+      "pitch": -6,
+      "yaw": -1,
+      "body_yaw": 6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 280
+  },
+  {
+    "pose": {
+      "x": -31,
+      "y": -3,
+      "z": -1,
+      "roll": 1,
+      "pitch": -5,
+      "yaw": 0,
+      "body_yaw": 13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 281
+  },
+  {
+    "pose": {
+      "x": 35,
+      "y": -37,
+      "z": 38,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -5,
+      "body_yaw": -12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 282
+  },
+  {
+    "pose": {
+      "x": -25,
+      "y": 6,
+      "z": -41,
+      "roll": 1,
+      "pitch": -10,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 283
+  },
+  {
+    "pose": {
+      "x": 4,
+      "y": 60,
+      "z": 6,
+      "roll": 3,
+      "pitch": -4,
+      "yaw": -2,
+      "body_yaw": -2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 284
+  },
+  {
+    "pose": {
+      "x": 30,
+      "y": -25,
+      "z": -44,
+      "roll": 0,
+      "pitch": -11,
+      "yaw": 0,
+      "body_yaw": 20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 285
+  },
+  {
+    "pose": {
+      "x": -19,
+      "y": 15,
+      "z": 60,
+      "roll": 2,
+      "pitch": 2,
+      "yaw": 0,
+      "body_yaw": 17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 286
+  },
+  {
+    "pose": {
+      "x": 37,
+      "y": -17,
+      "z": 47,
+      "roll": 1,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 287
+  },
+  {
+    "pose": {
+      "x": 33,
+      "y": -27,
+      "z": 23,
+      "roll": 0,
+      "pitch": -2,
+      "yaw": -3,
+      "body_yaw": -7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 288
+  },
+  {
+    "pose": {
+      "x": 23,
+      "y": 53,
+      "z": 20,
+      "roll": 3,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 289
+  },
+  {
+    "pose": {
+      "x": 11,
+      "y": -22,
+      "z": -2,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": -5,
+      "body_yaw": -16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 290
+  },
+  {
+    "pose": {
+      "x": 19,
+      "y": -34,
+      "z": -17,
+      "roll": 0,
+      "pitch": -7,
+      "yaw": 0,
+      "body_yaw": 18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 291
+  },
+  {
+    "pose": {
+      "x": 4,
+      "y": -9,
+      "z": -44,
+      "roll": 0,
+      "pitch": -10,
+      "yaw": -2,
+      "body_yaw": 3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 292
+  },
+  {
+    "pose": {
+      "x": -25,
+      "y": -26,
+      "z": -3,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": -2,
+      "body_yaw": -5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 293
+  },
+  {
+    "pose": {
+      "x": 38,
+      "y": -7,
+      "z": -29,
+      "roll": 1,
+      "pitch": -8,
+      "yaw": -4,
+      "body_yaw": -10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 294
+  },
+  {
+    "pose": {
+      "x": -16,
+      "y": 37,
+      "z": -40,
+      "roll": 2,
+      "pitch": -10,
+      "yaw": 0,
+      "body_yaw": 11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 295
+  },
+  {
+    "pose": {
+      "x": 23,
+      "y": -58,
+      "z": -49,
+      "roll": 0,
+      "pitch": -11,
+      "yaw": -1,
+      "body_yaw": 5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 296
+  },
+  {
+    "pose": {
+      "x": 5,
+      "y": -54,
+      "z": -54,
+      "roll": 0,
+      "pitch": -12,
+      "yaw": -2,
+      "body_yaw": -2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 297
+  },
+  {
+    "pose": {
+      "x": 20,
+      "y": -24,
+      "z": 8,
+      "roll": 0,
+      "pitch": -4,
+      "yaw": -5,
+      "body_yaw": -20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 298
+  },
+  {
+    "pose": {
+      "x": 6,
+      "y": 37,
+      "z": -9,
+      "roll": 2,
+      "pitch": -6,
+      "yaw": -1,
+      "body_yaw": 3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 299
+  },
+  {
+    "pose": {
+      "x": 6,
+      "y": 10,
+      "z": -24,
+      "roll": 1,
+      "pitch": -8,
+      "yaw": -5,
+      "body_yaw": -16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 300
+  },
+  {
+    "pose": {
+      "x": 39,
+      "y": 27,
+      "z": 18,
+      "roll": 2,
+      "pitch": -3,
+      "yaw": -5,
+      "body_yaw": -13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 301
+  },
+  {
+    "pose": {
+      "x": 3,
+      "y": 11,
+      "z": 60,
+      "roll": 1,
+      "pitch": 2,
+      "yaw": -1,
+      "body_yaw": 3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 302
+  },
+  {
+    "pose": {
+      "x": 24,
+      "y": -55,
+      "z": -55,
+      "roll": 0,
+      "pitch": -12,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 303
+  },
+  {
+    "pose": {
+      "x": 18,
+      "y": -41,
+      "z": 17,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": 0,
+      "body_yaw": 12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 304
+  },
+  {
+    "pose": {
+      "x": 10,
+      "y": 18,
+      "z": 34,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 305
+  },
+  {
+    "pose": {
+      "x": 22,
+      "y": 30,
+      "z": 12,
+      "roll": 2,
+      "pitch": -3,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 306
+  },
+  {
+    "pose": {
+      "x": -26,
+      "y": -7,
+      "z": 14,
+      "roll": 1,
+      "pitch": -3,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 307
+  },
+  {
+    "pose": {
+      "x": -37,
+      "y": 16,
+      "z": 0,
+      "roll": 2,
+      "pitch": -5,
+      "yaw": -2,
+      "body_yaw": -4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 308
+  },
+  {
+    "pose": {
+      "x": 33,
+      "y": -31,
+      "z": 32,
+      "roll": 0,
+      "pitch": -1,
+      "yaw": -5,
+      "body_yaw": -17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 309
+  },
+  {
+    "pose": {
+      "x": 39,
+      "y": 39,
+      "z": 47,
+      "roll": 3,
+      "pitch": 0,
+      "yaw": -2,
+      "body_yaw": 4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 310
+  },
+  {
+    "pose": {
+      "x": -26,
+      "y": -36,
+      "z": -58,
+      "roll": 0,
+      "pitch": -12,
+      "yaw": 0,
+      "body_yaw": 8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 311
+  },
+  {
+    "pose": {
+      "x": 12,
+      "y": 4,
+      "z": 39,
+      "roll": 1,
+      "pitch": 0,
+      "yaw": 1,
+      "body_yaw": 19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 312
+  },
+  {
+    "pose": {
+      "x": -33,
+      "y": 30,
+      "z": -43,
+      "roll": 2,
+      "pitch": -11,
+      "yaw": 0,
+      "body_yaw": 13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 313
+  },
+  {
+    "pose": {
+      "x": 27,
+      "y": -12,
+      "z": -20,
+      "roll": 1,
+      "pitch": -7,
+      "yaw": -4,
+      "body_yaw": -9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 314
+  },
+  {
+    "pose": {
+      "x": -7,
+      "y": 18,
+      "z": 1,
+      "roll": 2,
+      "pitch": -4,
+      "yaw": -3,
+      "body_yaw": -8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 315
+  },
+  {
+    "pose": {
+      "x": -2,
+      "y": 38,
+      "z": -24,
+      "roll": 2,
+      "pitch": -8,
+      "yaw": -3,
+      "body_yaw": -7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 316
+  },
+  {
+    "pose": {
+      "x": 31,
+      "y": 59,
+      "z": 59,
+      "roll": 3,
+      "pitch": 2,
+      "yaw": -3,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 317
+  },
+  {
+    "pose": {
+      "x": 10,
+      "y": 44,
+      "z": -16,
+      "roll": 3,
+      "pitch": -7,
+      "yaw": -4,
+      "body_yaw": -11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 318
+  },
+  {
+    "pose": {
+      "x": 4,
+      "y": 58,
+      "z": -4,
+      "roll": 3,
+      "pitch": -5,
+      "yaw": -2,
+      "body_yaw": -4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 319
+  },
+  {
+    "pose": {
+      "x": -6,
+      "y": 59,
+      "z": 11,
+      "roll": 3,
+      "pitch": -4,
+      "yaw": -2,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 320
+  },
+  {
+    "pose": {
+      "x": -9,
+      "y": -54,
+      "z": 25,
+      "roll": 0,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 321
+  },
+  {
+    "pose": {
+      "x": 2,
+      "y": 31,
+      "z": 0,
+      "roll": 2,
+      "pitch": -5,
+      "yaw": -4,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 322
+  },
+  {
+    "pose": {
+      "x": -20,
+      "y": -8,
+      "z": 23,
+      "roll": 1,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 323
+  },
+  {
+    "pose": {
+      "x": 1,
+      "y": -24,
+      "z": 22,
+      "roll": 0,
+      "pitch": -2,
+      "yaw": -5,
+      "body_yaw": -17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 324
+  },
+  {
+    "pose": {
+      "x": 28,
+      "y": 34,
+      "z": 32,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 325
+  },
+  {
+    "pose": {
+      "x": -18,
+      "y": 59,
+      "z": 57,
+      "roll": 3,
+      "pitch": 2,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 326
+  },
+  {
+    "pose": {
+      "x": -3,
+      "y": 52,
+      "z": -56,
+      "roll": 3,
+      "pitch": -12,
+      "yaw": -5,
+      "body_yaw": -20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 327
+  },
+  {
+    "pose": {
+      "x": 2,
+      "y": -24,
+      "z": -2,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 328
+  },
+  {
+    "pose": {
+      "x": 24,
+      "y": -1,
+      "z": -26,
+      "roll": 1,
+      "pitch": -8,
+      "yaw": -3,
+      "body_yaw": -8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 329
+  },
+  {
+    "pose": {
+      "x": -8,
+      "y": 31,
+      "z": -37,
+      "roll": 2,
+      "pitch": -9,
+      "yaw": -5,
+      "body_yaw": -20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 330
+  },
+  {
+    "pose": {
+      "x": -16,
+      "y": -38,
+      "z": 18,
+      "roll": 0,
+      "pitch": -2,
+      "yaw": 1,
+      "body_yaw": 20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 331
+  },
+  {
+    "pose": {
+      "x": -29,
+      "y": -9,
+      "z": 25,
+      "roll": 1,
+      "pitch": -2,
+      "yaw": -4,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 332
+  },
+  {
+    "pose": {
+      "x": -9,
+      "y": -60,
+      "z": -27,
+      "roll": 0,
+      "pitch": -8,
+      "yaw": -1,
+      "body_yaw": 4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 333
+  },
+  {
+    "pose": {
+      "x": -2,
+      "y": 14,
+      "z": 32,
+      "roll": 2,
+      "pitch": -1,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 334
+  },
+  {
+    "pose": {
+      "x": -33,
+      "y": 25,
+      "z": -45,
+      "roll": 2,
+      "pitch": -11,
+      "yaw": 0,
+      "body_yaw": 9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 335
+  },
+  {
+    "pose": {
+      "x": -1,
+      "y": 28,
+      "z": -45,
+      "roll": 2,
+      "pitch": -10,
+      "yaw": 1,
+      "body_yaw": 20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 336
+  },
+  {
+    "pose": {
+      "x": -12,
+      "y": -43,
+      "z": 1,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": -4,
+      "body_yaw": -11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 337
+  },
+  {
+    "pose": {
+      "x": 30,
+      "y": 56,
+      "z": 0,
+      "roll": 3,
+      "pitch": -5,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 338
+  },
+  {
+    "pose": {
+      "x": 36,
+      "y": 51,
+      "z": 40,
+      "roll": 3,
+      "pitch": 0,
+      "yaw": -5,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 339
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": -46,
+      "z": -53,
+      "roll": 0,
+      "pitch": -11,
+      "yaw": 0,
+      "body_yaw": 15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 340
+  },
+  {
+    "pose": {
+      "x": -19,
+      "y": -19,
+      "z": 49,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 341
+  },
+  {
+    "pose": {
+      "x": 22,
+      "y": -49,
+      "z": 55,
+      "roll": 0,
+      "pitch": 1,
+      "yaw": 0,
+      "body_yaw": 12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 342
+  },
+  {
+    "pose": {
+      "x": 13,
+      "y": -2,
+      "z": 12,
+      "roll": 1,
+      "pitch": -3,
+      "yaw": -5,
+      "body_yaw": -17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 343
+  },
+  {
+    "pose": {
+      "x": -38,
+      "y": -10,
+      "z": -28,
+      "roll": 1,
+      "pitch": -8,
+      "yaw": -6,
+      "body_yaw": -20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 344
+  },
+  {
+    "pose": {
+      "x": 4,
+      "y": 29,
+      "z": -52,
+      "roll": 2,
+      "pitch": -11,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 345
+  },
+  {
+    "pose": {
+      "x": 20,
+      "y": -56,
+      "z": -24,
+      "roll": 0,
+      "pitch": -8,
+      "yaw": -1,
+      "body_yaw": 6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 346
+  },
+  {
+    "pose": {
+      "x": 13,
+      "y": -13,
+      "z": 54,
+      "roll": 1,
+      "pitch": 1,
+      "yaw": -1,
+      "body_yaw": 4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 347
+  },
+  {
+    "pose": {
+      "x": -30,
+      "y": 27,
+      "z": 24,
+      "roll": 2,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 348
+  },
+  {
+    "pose": {
+      "x": 28,
+      "y": -10,
+      "z": 7,
+      "roll": 1,
+      "pitch": -4,
+      "yaw": -5,
+      "body_yaw": -12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 349
+  },
+  {
+    "pose": {
+      "x": -38,
+      "y": -22,
+      "z": -1,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 350
+  },
+  {
+    "pose": {
+      "x": 18,
+      "y": -16,
+      "z": -41,
+      "roll": 1,
+      "pitch": -10,
+      "yaw": -2,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 351
+  },
+  {
+    "pose": {
+      "x": -36,
+      "y": 43,
+      "z": 24,
+      "roll": 3,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 352
+  },
+  {
+    "pose": {
+      "x": -10,
+      "y": -34,
+      "z": -52,
+      "roll": 0,
+      "pitch": -11,
+      "yaw": -4,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 353
+  },
+  {
+    "pose": {
+      "x": -34,
+      "y": -29,
+      "z": 34,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 354
+  },
+  {
+    "pose": {
+      "x": -33,
+      "y": -43,
+      "z": 4,
+      "roll": 0,
+      "pitch": -4,
+      "yaw": -2,
+      "body_yaw": -2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 355
+  },
+  {
+    "pose": {
+      "x": 33,
+      "y": 16,
+      "z": 38,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": -2,
+      "body_yaw": 0,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 356
+  },
+  {
+    "pose": {
+      "x": 26,
+      "y": -32,
+      "z": -8,
+      "roll": 0,
+      "pitch": -6,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 357
+  },
+  {
+    "pose": {
+      "x": -18,
+      "y": 20,
+      "z": 26,
+      "roll": 2,
+      "pitch": -1,
+      "yaw": -1,
+      "body_yaw": 7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 358
+  },
+  {
+    "pose": {
+      "x": 8,
+      "y": 40,
+      "z": 7,
+      "roll": 2,
+      "pitch": -4,
+      "yaw": -2,
+      "body_yaw": 0,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 359
+  },
+  {
+    "pose": {
+      "x": -17,
+      "y": 36,
+      "z": 8,
+      "roll": 2,
+      "pitch": -4,
+      "yaw": 0,
+      "body_yaw": 10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 360
+  },
+  {
+    "pose": {
+      "x": -22,
+      "y": 43,
+      "z": -1,
+      "roll": 3,
+      "pitch": -5,
+      "yaw": -5,
+      "body_yaw": -17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 361
+  },
+  {
+    "pose": {
+      "x": -23,
+      "y": -11,
+      "z": -29,
+      "roll": 1,
+      "pitch": -9,
+      "yaw": -2,
+      "body_yaw": -4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 362
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": -49,
+      "z": 8,
+      "roll": 0,
+      "pitch": -4,
+      "yaw": -3,
+      "body_yaw": -8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 363
+  },
+  {
+    "pose": {
+      "x": -35,
+      "y": 51,
+      "z": -51,
+      "roll": 3,
+      "pitch": -11,
+      "yaw": -3,
+      "body_yaw": -8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 364
+  },
+  {
+    "pose": {
+      "x": -13,
+      "y": 1,
+      "z": -34,
+      "roll": 1,
+      "pitch": -9,
+      "yaw": -2,
+      "body_yaw": 1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 365
+  },
+  {
+    "pose": {
+      "x": -16,
+      "y": 34,
+      "z": -45,
+      "roll": 2,
+      "pitch": -10,
+      "yaw": 0,
+      "body_yaw": 10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 366
+  },
+  {
+    "pose": {
+      "x": 10,
+      "y": 57,
+      "z": -30,
+      "roll": 3,
+      "pitch": -9,
+      "yaw": 0,
+      "body_yaw": 15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 367
+  },
+  {
+    "pose": {
+      "x": 5,
+      "y": -21,
+      "z": -27,
+      "roll": 0,
+      "pitch": -8,
+      "yaw": -2,
+      "body_yaw": 3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 368
+  },
+  {
+    "pose": {
+      "x": 20,
+      "y": 37,
+      "z": 47,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": -2,
+      "body_yaw": 0,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 369
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": 50,
+      "z": -32,
+      "roll": 3,
+      "pitch": -9,
+      "yaw": -4,
+      "body_yaw": -11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 370
+  },
+  {
+    "pose": {
+      "x": 13,
+      "y": -23,
+      "z": -41,
+      "roll": 0,
+      "pitch": -10,
+      "yaw": -3,
+      "body_yaw": -8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 371
+  },
+  {
+    "pose": {
+      "x": 23,
+      "y": 10,
+      "z": 23,
+      "roll": 2,
+      "pitch": -2,
+      "yaw": -1,
+      "body_yaw": 1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 372
+  },
+  {
+    "pose": {
+      "x": 22,
+      "y": -2,
+      "z": -39,
+      "roll": 1,
+      "pitch": -10,
+      "yaw": -2,
+      "body_yaw": 2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 373
+  },
+  {
+    "pose": {
+      "x": 29,
+      "y": 22,
+      "z": -53,
+      "roll": 2,
+      "pitch": -12,
+      "yaw": 0,
+      "body_yaw": 13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 374
+  },
+  {
+    "pose": {
+      "x": -34,
+      "y": 37,
+      "z": -60,
+      "roll": 2,
+      "pitch": -13,
+      "yaw": -1,
+      "body_yaw": 6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 375
+  },
+  {
+    "pose": {
+      "x": -21,
+      "y": -59,
+      "z": -33,
+      "roll": 0,
+      "pitch": -9,
+      "yaw": 0,
+      "body_yaw": 12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 376
+  },
+  {
+    "pose": {
+      "x": 38,
+      "y": 56,
+      "z": 1,
+      "roll": 3,
+      "pitch": -5,
+      "yaw": 0,
+      "body_yaw": 11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 377
+  },
+  {
+    "pose": {
+      "x": -38,
+      "y": 7,
+      "z": 32,
+      "roll": 1,
+      "pitch": -1,
+      "yaw": -2,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 378
+  },
+  {
+    "pose": {
+      "x": 15,
+      "y": 43,
+      "z": 60,
+      "roll": 2,
+      "pitch": 2,
+      "yaw": -4,
+      "body_yaw": -9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 379
+  },
+  {
+    "pose": {
+      "x": -16,
+      "y": 19,
+      "z": 7,
+      "roll": 2,
+      "pitch": -4,
+      "yaw": -3,
+      "body_yaw": -4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 380
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": -9,
+      "z": -2,
+      "roll": 1,
+      "pitch": -5,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 381
+  },
+  {
+    "pose": {
+      "x": -30,
+      "y": 23,
+      "z": 49,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 382
+  },
+  {
+    "pose": {
+      "x": -33,
+      "y": 21,
+      "z": -59,
+      "roll": 2,
+      "pitch": -13,
+      "yaw": -3,
+      "body_yaw": -10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 383
+  },
+  {
+    "pose": {
+      "x": 2,
+      "y": 12,
+      "z": 49,
+      "roll": 2,
+      "pitch": 1,
+      "yaw": -5,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 384
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": 0,
+      "z": -26,
+      "roll": 1,
+      "pitch": -8,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 385
+  },
+  {
+    "pose": {
+      "x": 29,
+      "y": 12,
+      "z": 24,
+      "roll": 2,
+      "pitch": -2,
+      "yaw": -6,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 386
+  },
+  {
+    "pose": {
+      "x": -14,
+      "y": 15,
+      "z": -42,
+      "roll": 1,
+      "pitch": -10,
+      "yaw": -1,
+      "body_yaw": 5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 387
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": 46,
+      "z": 48,
+      "roll": 3,
+      "pitch": 0,
+      "yaw": -1,
+      "body_yaw": 4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 388
+  },
+  {
+    "pose": {
+      "x": -23,
+      "y": 41,
+      "z": 28,
+      "roll": 3,
+      "pitch": -1,
+      "yaw": -5,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 389
+  },
+  {
+    "pose": {
+      "x": 15,
+      "y": -31,
+      "z": 47,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -4,
+      "body_yaw": -16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 390
+  },
+  {
+    "pose": {
+      "x": 10,
+      "y": 39,
+      "z": -19,
+      "roll": 3,
+      "pitch": -7,
+      "yaw": -5,
+      "body_yaw": -19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 391
+  },
+  {
+    "pose": {
+      "x": -11,
+      "y": -15,
+      "z": 10,
+      "roll": 1,
+      "pitch": -4,
+      "yaw": -1,
+      "body_yaw": 4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 392
+  },
+  {
+    "pose": {
+      "x": -30,
+      "y": 38,
+      "z": 19,
+      "roll": 3,
+      "pitch": -2,
+      "yaw": -2,
+      "body_yaw": -2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 393
+  },
+  {
+    "pose": {
+      "x": -21,
+      "y": -12,
+      "z": 31,
+      "roll": 1,
+      "pitch": -1,
+      "yaw": 1,
+      "body_yaw": 20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 394
+  },
+  {
+    "pose": {
+      "x": -29,
+      "y": -60,
+      "z": 60,
+      "roll": 0,
+      "pitch": 2,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 395
+  },
+  {
+    "pose": {
+      "x": -29,
+      "y": -37,
+      "z": -5,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": -1,
+      "body_yaw": 8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 396
+  },
+  {
+    "pose": {
+      "x": -29,
+      "y": -15,
+      "z": 10,
+      "roll": 1,
+      "pitch": -3,
+      "yaw": -4,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 397
+  },
+  {
+    "pose": {
+      "x": -39,
+      "y": -23,
+      "z": -8,
+      "roll": 0,
+      "pitch": -6,
+      "yaw": -1,
+      "body_yaw": 4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 398
+  },
+  {
+    "pose": {
+      "x": -9,
+      "y": 13,
+      "z": 6,
+      "roll": 1,
+      "pitch": -4,
+      "yaw": -4,
+      "body_yaw": -10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 399
+  },
+  {
+    "pose": {
+      "x": -6,
+      "y": 3,
+      "z": -42,
+      "roll": 1,
+      "pitch": -10,
+      "yaw": -5,
+      "body_yaw": -16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 400
+  },
+  {
+    "pose": {
+      "x": -31,
+      "y": -14,
+      "z": -28,
+      "roll": 1,
+      "pitch": -8,
+      "yaw": -2,
+      "body_yaw": -5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 401
+  },
+  {
+    "pose": {
+      "x": 18,
+      "y": -47,
+      "z": -43,
+      "roll": 0,
+      "pitch": -11,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 402
+  },
+  {
+    "pose": {
+      "x": 8,
+      "y": 42,
+      "z": 50,
+      "roll": 3,
+      "pitch": 1,
+      "yaw": -1,
+      "body_yaw": 1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 403
+  },
+  {
+    "pose": {
+      "x": 36,
+      "y": -43,
+      "z": -22,
+      "roll": 0,
+      "pitch": -8,
+      "yaw": -2,
+      "body_yaw": 0,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 404
+  },
+  {
+    "pose": {
+      "x": -18,
+      "y": -10,
+      "z": -20,
+      "roll": 1,
+      "pitch": -7,
+      "yaw": -2,
+      "body_yaw": -2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 405
+  },
+  {
+    "pose": {
+      "x": -9,
+      "y": -19,
+      "z": -12,
+      "roll": 0,
+      "pitch": -6,
+      "yaw": -3,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 406
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": -35,
+      "z": 15,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 407
+  },
+  {
+    "pose": {
+      "x": 19,
+      "y": 60,
+      "z": 30,
+      "roll": 3,
+      "pitch": -1,
+      "yaw": -3,
+      "body_yaw": -7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 408
+  },
+  {
+    "pose": {
+      "x": 12,
+      "y": 26,
+      "z": 3,
+      "roll": 2,
+      "pitch": -4,
+      "yaw": -4,
+      "body_yaw": -12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 409
+  },
+  {
+    "pose": {
+      "x": 14,
+      "y": 41,
+      "z": -12,
+      "roll": 3,
+      "pitch": -6,
+      "yaw": -5,
+      "body_yaw": -16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 410
+  },
+  {
+    "pose": {
+      "x": 28,
+      "y": 4,
+      "z": 58,
+      "roll": 1,
+      "pitch": 2,
+      "yaw": -1,
+      "body_yaw": 6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 411
+  },
+  {
+    "pose": {
+      "x": 28,
+      "y": 16,
+      "z": 21,
+      "roll": 1,
+      "pitch": -2,
+      "yaw": -5,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 412
+  },
+  {
+    "pose": {
+      "x": -19,
+      "y": 22,
+      "z": 18,
+      "roll": 2,
+      "pitch": -2,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 413
+  },
+  {
+    "pose": {
+      "x": 2,
+      "y": 41,
+      "z": -5,
+      "roll": 2,
+      "pitch": -6,
+      "yaw": -4,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 414
+  },
+  {
+    "pose": {
+      "x": 26,
+      "y": 11,
+      "z": 14,
+      "roll": 1,
+      "pitch": -3,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 415
+  },
+  {
+    "pose": {
+      "x": 35,
+      "y": 28,
+      "z": 4,
+      "roll": 2,
+      "pitch": -4,
+      "yaw": -4,
+      "body_yaw": -11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 416
+  },
+  {
+    "pose": {
+      "x": 13,
+      "y": 57,
+      "z": -50,
+      "roll": 3,
+      "pitch": -11,
+      "yaw": -4,
+      "body_yaw": -13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 417
+  },
+  {
+    "pose": {
+      "x": 3,
+      "y": -2,
+      "z": 40,
+      "roll": 1,
+      "pitch": 0,
+      "yaw": -3,
+      "body_yaw": -7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 418
+  },
+  {
+    "pose": {
+      "x": 17,
+      "y": -20,
+      "z": -52,
+      "roll": 0,
+      "pitch": -12,
+      "yaw": -3,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 419
+  },
+  {
+    "pose": {
+      "x": 3,
+      "y": 22,
+      "z": -47,
+      "roll": 2,
+      "pitch": -11,
+      "yaw": -4,
+      "body_yaw": -10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 420
+  },
+  {
+    "pose": {
+      "x": 30,
+      "y": -40,
+      "z": -18,
+      "roll": 0,
+      "pitch": -7,
+      "yaw": 0,
+      "body_yaw": 15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 421
+  },
+  {
+    "pose": {
+      "x": 40,
+      "y": -37,
+      "z": -37,
+      "roll": 0,
+      "pitch": -10,
+      "yaw": 1,
+      "body_yaw": 20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 422
+  },
+  {
+    "pose": {
+      "x": -15,
+      "y": -3,
+      "z": 15,
+      "roll": 1,
+      "pitch": -3,
+      "yaw": -1,
+      "body_yaw": 7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 423
+  },
+  {
+    "pose": {
+      "x": -32,
+      "y": 13,
+      "z": -47,
+      "roll": 1,
+      "pitch": -11,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 424
+  },
+  {
+    "pose": {
+      "x": -7,
+      "y": 25,
+      "z": 50,
+      "roll": 2,
+      "pitch": 1,
+      "yaw": 0,
+      "body_yaw": 11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 425
+  },
+  {
+    "pose": {
+      "x": 38,
+      "y": -10,
+      "z": 15,
+      "roll": 1,
+      "pitch": -3,
+      "yaw": -4,
+      "body_yaw": -13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 426
+  },
+  {
+    "pose": {
+      "x": -2,
+      "y": 57,
+      "z": 18,
+      "roll": 3,
+      "pitch": -3,
+      "yaw": 0,
+      "body_yaw": 17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 427
+  },
+  {
+    "pose": {
+      "x": -1,
+      "y": -46,
+      "z": -37,
+      "roll": 0,
+      "pitch": -9,
+      "yaw": -1,
+      "body_yaw": 3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 428
+  },
+  {
+    "pose": {
+      "x": -23,
+      "y": 13,
+      "z": -11,
+      "roll": 2,
+      "pitch": -6,
+      "yaw": 0,
+      "body_yaw": 7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 429
+  },
+  {
+    "pose": {
+      "x": -18,
+      "y": 11,
+      "z": -39,
+      "roll": 1,
+      "pitch": -10,
+      "yaw": 0,
+      "body_yaw": 11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 430
+  },
+  {
+    "pose": {
+      "x": 39,
+      "y": -54,
+      "z": 50,
+      "roll": 0,
+      "pitch": 1,
+      "yaw": -2,
+      "body_yaw": 2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 431
+  },
+  {
+    "pose": {
+      "x": 9,
+      "y": 11,
+      "z": 4,
+      "roll": 1,
+      "pitch": -4,
+      "yaw": 0,
+      "body_yaw": 11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 432
+  },
+  {
+    "pose": {
+      "x": 16,
+      "y": 2,
+      "z": -39,
+      "roll": 1,
+      "pitch": -10,
+      "yaw": -5,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 433
+  },
+  {
+    "pose": {
+      "x": -36,
+      "y": -25,
+      "z": -32,
+      "roll": 0,
+      "pitch": -9,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 434
+  },
+  {
+    "pose": {
+      "x": 23,
+      "y": 10,
+      "z": 5,
+      "roll": 1,
+      "pitch": -4,
+      "yaw": -4,
+      "body_yaw": -13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 435
+  },
+  {
+    "pose": {
+      "x": 6,
+      "y": 9,
+      "z": 45,
+      "roll": 1,
+      "pitch": 0,
+      "yaw": -5,
+      "body_yaw": -18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 436
+  },
+  {
+    "pose": {
+      "x": 14,
+      "y": -47,
+      "z": 34,
+      "roll": 0,
+      "pitch": -1,
+      "yaw": -3,
+      "body_yaw": -5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 437
+  },
+  {
+    "pose": {
+      "x": 4,
+      "y": 50,
+      "z": 44,
+      "roll": 3,
+      "pitch": 0,
+      "yaw": -4,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 438
+  },
+  {
+    "pose": {
+      "x": -10,
+      "y": -34,
+      "z": 43,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 17,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 439
+  },
+  {
+    "pose": {
+      "x": 14,
+      "y": -39,
+      "z": 18,
+      "roll": 0,
+      "pitch": -2,
+      "yaw": -4,
+      "body_yaw": -12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 440
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": -16,
+      "z": 8,
+      "roll": 0,
+      "pitch": -4,
+      "yaw": -2,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 441
+  },
+  {
+    "pose": {
+      "x": -3,
+      "y": -23,
+      "z": 13,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": -2,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 442
+  },
+  {
+    "pose": {
+      "x": -28,
+      "y": -43,
+      "z": 36,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 443
+  },
+  {
+    "pose": {
+      "x": -24,
+      "y": 29,
+      "z": 50,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": -4,
+      "body_yaw": -12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 444
+  },
+  {
+    "pose": {
+      "x": 10,
+      "y": 2,
+      "z": -42,
+      "roll": 1,
+      "pitch": -10,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 445
+  },
+  {
+    "pose": {
+      "x": -31,
+      "y": 21,
+      "z": 41,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": -4,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 446
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": -2,
+      "z": 2,
+      "roll": 1,
+      "pitch": -5,
+      "yaw": -2,
+      "body_yaw": 0,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 447
+  },
+  {
+    "pose": {
+      "x": -29,
+      "y": 33,
+      "z": -2,
+      "roll": 2,
+      "pitch": -5,
+      "yaw": 1,
+      "body_yaw": 20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 448
+  },
+  {
+    "pose": {
+      "x": 28,
+      "y": -10,
+      "z": -33,
+      "roll": 1,
+      "pitch": -9,
+      "yaw": -1,
+      "body_yaw": 7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 449
+  },
+  {
+    "pose": {
+      "x": -4,
+      "y": -17,
+      "z": 10,
+      "roll": 1,
+      "pitch": -4,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 450
+  },
+  {
+    "pose": {
+      "x": -34,
+      "y": -55,
+      "z": -48,
+      "roll": 0,
+      "pitch": -11,
+      "yaw": 1,
+      "body_yaw": 20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 451
+  },
+  {
+    "pose": {
+      "x": -20,
+      "y": -4,
+      "z": -2,
+      "roll": 1,
+      "pitch": -5,
+      "yaw": -5,
+      "body_yaw": -20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 452
+  },
+  {
+    "pose": {
+      "x": -24,
+      "y": 52,
+      "z": 23,
+      "roll": 3,
+      "pitch": -2,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 453
+  },
+  {
+    "pose": {
+      "x": 6,
+      "y": -28,
+      "z": -50,
+      "roll": 0,
+      "pitch": -11,
+      "yaw": -2,
+      "body_yaw": 3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 454
+  },
+  {
+    "pose": {
+      "x": 40,
+      "y": -21,
+      "z": 32,
+      "roll": 0,
+      "pitch": -1,
+      "yaw": -4,
+      "body_yaw": -6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 455
+  },
+  {
+    "pose": {
+      "x": -13,
+      "y": 1,
+      "z": -51,
+      "roll": 1,
+      "pitch": -11,
+      "yaw": -4,
+      "body_yaw": -12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 456
+  },
+  {
+    "pose": {
+      "x": -39,
+      "y": 29,
+      "z": -17,
+      "roll": 2,
+      "pitch": -7,
+      "yaw": -4,
+      "body_yaw": -13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 457
+  },
+  {
+    "pose": {
+      "x": -31,
+      "y": -31,
+      "z": -11,
+      "roll": 0,
+      "pitch": -6,
+      "yaw": -4,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 458
+  },
+  {
+    "pose": {
+      "x": -2,
+      "y": -43,
+      "z": -12,
+      "roll": 0,
+      "pitch": -6,
+      "yaw": -4,
+      "body_yaw": -12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 459
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": -59,
+      "z": 18,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": -4,
+      "body_yaw": -10,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 460
+  },
+  {
+    "pose": {
+      "x": -21,
+      "y": 57,
+      "z": -8,
+      "roll": 3,
+      "pitch": -6,
+      "yaw": 0,
+      "body_yaw": 19,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 461
+  },
+  {
+    "pose": {
+      "x": -28,
+      "y": -43,
+      "z": 36,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -4,
+      "body_yaw": -13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 462
+  },
+  {
+    "pose": {
+      "x": 0,
+      "y": 41,
+      "z": -43,
+      "roll": 2,
+      "pitch": -11,
+      "yaw": -3,
+      "body_yaw": -5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 463
+  },
+  {
+    "pose": {
+      "x": 36,
+      "y": 32,
+      "z": 17,
+      "roll": 2,
+      "pitch": -2,
+      "yaw": -2,
+      "body_yaw": -2,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 464
+  },
+  {
+    "pose": {
+      "x": -2,
+      "y": -34,
+      "z": 6,
+      "roll": 0,
+      "pitch": -4,
+      "yaw": 0,
+      "body_yaw": 18,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 465
+  },
+  {
+    "pose": {
+      "x": -34,
+      "y": 40,
+      "z": 54,
+      "roll": 2,
+      "pitch": 1,
+      "yaw": -3,
+      "body_yaw": -5,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 466
+  },
+  {
+    "pose": {
+      "x": 36,
+      "y": -51,
+      "z": 7,
+      "roll": 0,
+      "pitch": -4,
+      "yaw": -6,
+      "body_yaw": -20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 467
+  },
+  {
+    "pose": {
+      "x": 32,
+      "y": -7,
+      "z": -14,
+      "roll": 1,
+      "pitch": -7,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 468
+  },
+  {
+    "pose": {
+      "x": -31,
+      "y": -58,
+      "z": 15,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": -4,
+      "body_yaw": -16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 469
+  },
+  {
+    "pose": {
+      "x": 10,
+      "y": 4,
+      "z": -24,
+      "roll": 1,
+      "pitch": -8,
+      "yaw": 1,
+      "body_yaw": 20,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 470
+  },
+  {
+    "pose": {
+      "x": 11,
+      "y": -50,
+      "z": 21,
+      "roll": 0,
+      "pitch": -2,
+      "yaw": 0,
+      "body_yaw": 14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 471
+  },
+  {
+    "pose": {
+      "x": -30,
+      "y": 5,
+      "z": 57,
+      "roll": 1,
+      "pitch": 2,
+      "yaw": -3,
+      "body_yaw": -7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 472
+  },
+  {
+    "pose": {
+      "x": 35,
+      "y": 21,
+      "z": 37,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": -5,
+      "body_yaw": -16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 473
+  },
+  {
+    "pose": {
+      "x": -10,
+      "y": -53,
+      "z": -29,
+      "roll": 0,
+      "pitch": -8,
+      "yaw": -4,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 474
+  },
+  {
+    "pose": {
+      "x": -33,
+      "y": -21,
+      "z": 25,
+      "roll": 0,
+      "pitch": -2,
+      "yaw": -3,
+      "body_yaw": -9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 475
+  },
+  {
+    "pose": {
+      "x": -20,
+      "y": 3,
+      "z": -16,
+      "roll": 1,
+      "pitch": -7,
+      "yaw": 0,
+      "body_yaw": 13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 476
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": -44,
+      "z": 35,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -2,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 477
+  },
+  {
+    "pose": {
+      "x": 2,
+      "y": 43,
+      "z": -6,
+      "roll": 2,
+      "pitch": -6,
+      "yaw": -2,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 478
+  },
+  {
+    "pose": {
+      "x": 40,
+      "y": -51,
+      "z": 3,
+      "roll": 0,
+      "pitch": -4,
+      "yaw": 0,
+      "body_yaw": 9,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 479
+  },
+  {
+    "pose": {
+      "x": -19,
+      "y": -13,
+      "z": -40,
+      "roll": 1,
+      "pitch": -10,
+      "yaw": -2,
+      "body_yaw": -4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 480
+  },
+  {
+    "pose": {
+      "x": -26,
+      "y": -31,
+      "z": 34,
+      "roll": 0,
+      "pitch": -1,
+      "yaw": 0,
+      "body_yaw": 12,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 481
+  },
+  {
+    "pose": {
+      "x": -35,
+      "y": 0,
+      "z": -14,
+      "roll": 1,
+      "pitch": -6,
+      "yaw": -1,
+      "body_yaw": 4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 482
+  },
+  {
+    "pose": {
+      "x": -36,
+      "y": 10,
+      "z": 42,
+      "roll": 1,
+      "pitch": 0,
+      "yaw": 0,
+      "body_yaw": 6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 483
+  },
+  {
+    "pose": {
+      "x": 0,
+      "y": -26,
+      "z": 45,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -5,
+      "body_yaw": -16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 484
+  },
+  {
+    "pose": {
+      "x": -34,
+      "y": -38,
+      "z": -32,
+      "roll": 0,
+      "pitch": -9,
+      "yaw": 0,
+      "body_yaw": 13,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 485
+  },
+  {
+    "pose": {
+      "x": 19,
+      "y": 50,
+      "z": -24,
+      "roll": 3,
+      "pitch": -8,
+      "yaw": -3,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 486
+  },
+  {
+    "pose": {
+      "x": -15,
+      "y": -23,
+      "z": 12,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 487
+  },
+  {
+    "pose": {
+      "x": 23,
+      "y": 38,
+      "z": 39,
+      "roll": 2,
+      "pitch": 0,
+      "yaw": -3,
+      "body_yaw": -8,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 488
+  },
+  {
+    "pose": {
+      "x": -21,
+      "y": -60,
+      "z": 59,
+      "roll": 0,
+      "pitch": 2,
+      "yaw": -1,
+      "body_yaw": 6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 489
+  },
+  {
+    "pose": {
+      "x": -39,
+      "y": -18,
+      "z": -60,
+      "roll": 0,
+      "pitch": -12,
+      "yaw": -1,
+      "body_yaw": 4,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 490
+  },
+  {
+    "pose": {
+      "x": 27,
+      "y": -30,
+      "z": -7,
+      "roll": 0,
+      "pitch": -5,
+      "yaw": 0,
+      "body_yaw": 11,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 491
+  },
+  {
+    "pose": {
+      "x": -5,
+      "y": -49,
+      "z": -55,
+      "roll": 0,
+      "pitch": -12,
+      "yaw": -3,
+      "body_yaw": -6,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 492
+  },
+  {
+    "pose": {
+      "x": 7,
+      "y": -2,
+      "z": 35,
+      "roll": 1,
+      "pitch": 0,
+      "yaw": -4,
+      "body_yaw": -15,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 493
+  },
+  {
+    "pose": {
+      "x": 10,
+      "y": -51,
+      "z": 15,
+      "roll": 0,
+      "pitch": -3,
+      "yaw": 0,
+      "body_yaw": 16,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 494
+  },
+  {
+    "pose": {
+      "x": -3,
+      "y": -27,
+      "z": 48,
+      "roll": 0,
+      "pitch": 1,
+      "yaw": -2,
+      "body_yaw": 0,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 495
+  },
+  {
+    "pose": {
+      "x": 1,
+      "y": -20,
+      "z": -3,
+      "roll": 1,
+      "pitch": -5,
+      "yaw": -3,
+      "body_yaw": -3,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 1,
+    "id": 496
+  },
+  {
+    "pose": {
+      "x": 34,
+      "y": -47,
+      "z": -41,
+      "roll": 0,
+      "pitch": -10,
+      "yaw": -5,
+      "body_yaw": -14,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 497
+  },
+  {
+    "pose": {
+      "x": 28,
+      "y": -15,
+      "z": 38,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -3,
+      "body_yaw": -7,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 498
+  },
+  {
+    "pose": {
+      "x": -29,
+      "y": -40,
+      "z": 43,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": -2,
+      "body_yaw": -1,
+      "antennas": [
+        0,
+        0
+      ]
+    },
+    "label": 0,
+    "id": 499
+  }
+]
