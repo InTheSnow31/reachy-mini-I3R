@@ -1,6 +1,6 @@
 import numpy as np
 import time
-from timestep import timestep
+from adapted_motion.timestep import timestep
 
 from reachy_mini import ReachyMini
 from reachy_mini.utils import create_head_pose

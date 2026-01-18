@@ -1,5 +1,5 @@
 from movement_sound_generation import generate
-# from movement_adaptation import adapt
+from adapted_motion import adapt
 # from sound_generation import train
 
 def main():
@@ -25,8 +25,7 @@ def main():
 
     # Dispatch according to selected mode
     if mode == 1:
-        print("Mode not implemented for now.")
-        # adapt.main()
+        adapt.main()
 
     elif mode == 2:
         generate.main()
