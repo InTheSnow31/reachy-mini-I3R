@@ -1,16 +1,24 @@
+
+#------------- IMPORTS -------------#
+
 import tkinter as tk
 import tkinter.font as tkfont
 from PIL import Image, ImageTk
 import math
 import sounddevice as sd
 import soundfile as sf
-from emotion import polar_to_emotion
+from Emotion import polar_to_emotion
 import sys
+
+#------- PATHS AND PARAMETERS -------#
 
 WINDOW_SIZE = 800
 CANVAS_SIZE = 700
 POINT_RADIUS = 5
-WAV_FILE = "temp/temp.wav"  # fichier à jouer
+WAV_FILE = "temp/temp.wav" 
+
+
+#------ CLASSES AND FUNCTIONS ------#
 
 class input:
     def __init__(self, EMOTION_MODEL):
@@ -23,7 +31,7 @@ class input:
             data, samplerate = sf.read(WAV_FILE, dtype='float32')
             sd.play(data, samplerate)
         except Exception as e:
-            print(f"Erreur lors de la lecture du fichier : {e}")
+            print(f" Error reading file : {e}")
             
     def on_next(self):
         if self.EMOTION_MODEL["system"] == "wheel":
@@ -74,14 +82,11 @@ class input:
         self.canvas = tk.Canvas(canvas_frame, width=CANVAS_SIZE, height=CANVAS_SIZE)
         self.canvas.pack()
 
-        # Charger l'image et l'adapter automatiquement au Canvas
         img = Image.open(self.EMOTION_MODEL["wheel_path"])
-
         img_resized = img.resize((CANVAS_SIZE, CANVAS_SIZE), Image.Resampling.LANCZOS)
         self.bg_image = ImageTk.PhotoImage(img_resized)
-
-        # Centrer l'image sur le Canvas
-        self.canvas.create_image(CANVAS_SIZE//2, CANVAS_SIZE//2, image=self.bg_image)
+        
+        self.canvas.create_image(CANVAS_SIZE//2, CANVAS_SIZE//2, image=self.bg_image) # Center the image
         self.canvas.bind("<Button-1>", self.on_click_wheel)
     
     def initialise_bars(self):
@@ -127,7 +132,6 @@ class input:
             self.sliders.append(var)
 
 
-
     def loop(self):
         self.root = tk.Tk()
         
@@ -136,7 +140,6 @@ class input:
         self.root.resizable(False, False)
         self.root.protocol("WM_DELETE_WINDOW", self.close_all)
 
-        # Frame du haut
         top_frame = tk.Frame(self.root)
         top_frame.pack(fill="x", padx=10, pady=5)
         if self.EMOTION_MODEL["system"] == "wheel":
@@ -144,8 +147,6 @@ class input:
         elif self.EMOTION_MODEL["system"] == "bars":
             self.initialise_bars()
 
-
-        # Frame du bas
         bottom_frame = tk.Frame(self.root, width=CANVAS_SIZE)
         bottom_frame.pack(pady=20)
 
@@ -156,7 +157,6 @@ class input:
         self.next_button = tk.Button(bottom_frame, text="Next", width=30, height = 8, command=self.on_next, bg="#9BCEF8", font=self.button_font)
         self.next_button.pack(side="right")
 
-        # Protection to None emotion
         if self.EMOTION_MODEL["system"] == "wheel":
             self.next_button.config(state="disabled")
         else :
@@ -165,6 +165,4 @@ class input:
         self.root.mainloop()
 
         return self.selected_emotion
-
-    
 

@@ -1,6 +1,9 @@
 """
-A pour objectif de transformer les sons d'une base de données en encodage souhaité pour la synthèse sonore.
+Transform sound into the corresponding encoded note sequence.
 """
+
+#------------- IMPORTS -------------#
+
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
@@ -12,62 +15,65 @@ import torch
 import json
 import math
 
-from synthesis.notes_to_wave import notes_to_wav
+from synthesis.synthesize_whistle_with_harmonics import notes_to_wav
 from Note import Note
 
 
+#------- PATHS AND PARAMETERS -------#
 
 OUTPUT_PATH = "dataset/labeled/note_sequences/"
 LABELS_PATH = "dataset/labeled/labels/"
 SOUND_PATH = "dataset/labeled/sounds/"
 
+
+#------------ FUNCTIONS ------------#
+
 def extract_f0s(
-    fichier_wav: str,
-    duree_fenetre: float = 0.02,
+    wav_file: str,
+    window_duration: float = 0.02,
     fmin: float = 100.0,
     fmax: float = 1000.0,
     tolerance_hz: float = 2.0,
-    seuil_energie: float = 0.10
+    energy_threshold: float = 0.10
 ):
     """
-    WAV → fondamentales (début, durée, fréquence, intensité)
+    WAV → f0s
     """
 
-    fs, signal = wav.read(fichier_wav) #fs = fréquence échantillonage
+    fs, signal = wav.read(wav_file)  # fs = sample rate
 
-    if signal.ndim > 1: #Son stéréo --> mono
+    if signal.ndim > 1:  # Stereo --> mono
         signal = signal.mean(axis=1)
 
     signal = np.abs(signal.astype(np.float64))
-    signal /= np.max(signal) + 1e-12 #Normalisation
+    signal /= np.max(signal) + 1e-12  # Normalization
 
-    taille_fenetre = int(duree_fenetre * fs)
-    nb_fenetres = len(signal) // taille_fenetre
+    window_size = int(window_duration * fs)
+    n_windows = len(signal) // window_size
 
-    f0_par_fenetre = []
-    rms_par_fenetre = []
+    f0_per_window = []
+    rms_per_window = []
 
-    # Analyse par fenêtres
-    for i in range(nb_fenetres):
-        frame = signal[(i * taille_fenetre): ((i+1) * taille_fenetre)]
+    for i in range(n_windows):
+        frame = signal[(i * window_size): ((i+1) * window_size)]
 
-        # Intensité moyenne
+        # Average intensity
         rms = np.sqrt(np.mean(frame ** 2))
-        rms_par_fenetre.append(rms)
+        rms_per_window.append(rms)
 
-        # Supression des silences
-        if rms < seuil_energie:
-            f0_par_fenetre.append(None)
+        # Silence removal
+        if rms < energy_threshold:
+            f0_per_window.append(None)
             continue
 
-        frame *= np.hanning(len(frame)) # Réduit effets de bords
-        f0 = estimate_f0(frame, fs, fmin, fmax) # Auto-corrélation
-        f0_par_fenetre.append(f0)
+        frame *= np.hanning(len(frame))  # Reduce edge effects
+        f0 = estimate_f0(frame, fs, fmin, fmax)  # Auto-correlation
+        f0_per_window.append(f0)
 
-    # Regroupement 
-    evenements = group_f0s_intensities(f0_par_fenetre, rms_par_fenetre, duree_fenetre, tolerance_hz)
+    # Grouping
+    events = group_f0s_intensities(f0_per_window, rms_per_window, window_duration, tolerance_hz)
 
-    return evenements
+    return events
 
 def estimate_f0(frame, fs, fmin, fmax):
     corr = np.correlate(frame, frame, mode="full")
@@ -86,108 +92,108 @@ def estimate_f0(frame, fs, fmin, fmax):
 def group_f0s_intensities(
     f0s,
     rms,
-    duree_fenetre,
+    window_duration,
     tolerance_hz
 ):
-    evenements = []
+    events = []
 
-    freq_courante = None
-    debut = None
-    nb = 0
-    intensites = []
+    current_freq = None
+    start_time = None
+    count = 0
+    intensities = []
 
     for i, (f0, r) in enumerate(zip(f0s, rms)):
-        t = i * duree_fenetre
+        t = i * window_duration
 
         if f0 is None:
-            if freq_courante is not None:
-                evenements.append((debut, nb * duree_fenetre, freq_courante, float(np.mean(intensites))))
-                freq_courante = None
-                nb = 0
-                intensites = []
+            if current_freq is not None:
+                events.append((start_time, count * window_duration, current_freq, float(np.mean(intensities))))
+                current_freq = None
+                count = 0
+                intensities = []
             continue
 
-        if freq_courante is None:
-            freq_courante = f0
-            debut = t
-            nb = 1
-            intensites = [r]
+        if current_freq is None:
+            current_freq = f0
+            start_time = t
+            count = 1
+            intensities = [r]
 
-        elif abs(f0 - freq_courante) <= tolerance_hz:
-            nb += 1
-            intensites.append(r)
+        elif abs(f0 - current_freq) <= tolerance_hz:
+            count += 1
+            intensities.append(r)
         else:
-            evenements.append((
-                debut,
-                nb * duree_fenetre,
-                freq_courante,
-                float(np.mean(intensites))
+            events.append((
+                start_time,
+                count * window_duration,
+                current_freq,
+                float(np.mean(intensities))
             ))
-            freq_courante = f0
-            debut = t
-            nb = 1
-            intensites = [r]
+            current_freq = f0
+            start_time = t
+            count = 1
+            intensities = [r]
 
-    if freq_courante is not None:
-        evenements.append((debut, nb * duree_fenetre, freq_courante, float(np.mean(intensites))))
+    if current_freq is not None:
+        events.append((start_time, count * window_duration, current_freq, float(np.mean(intensities))))
 
-    return evenements
+    return events
 
-def display_f0s(evenements, afficher_intensite: bool = True, cmap: str = "viridis"):
+def display_f0s(events, show_intensity: bool = True, cmap: str = "viridis"):
     """
-    Affiche les événements de fondamentales avec intensité.
+    Display fundamental frequency events with intensity.
     """
 
     fig, ax = plt.subplots(figsize=(10, 4))
 
-    intensites = [e[3] for e in evenements] if afficher_intensite else None
-    vmin = min(intensites) if afficher_intensite else None
-    vmax = max(intensites) if afficher_intensite else None
+    intensities = [e[3] for e in events] if show_intensity else None
+    vmin = min(intensities) if show_intensity else None
+    vmax = max(intensities) if show_intensity else None
 
-    for debut, duree, freq, intensite in evenements:
-        if afficher_intensite:
-            couleur = plt.cm.get_cmap(cmap)(
-                (intensite - vmin) / (vmax - vmin + 1e-12)
+    for start, duration, freq, intensity in events:
+        if show_intensity:
+            color = plt.cm.get_cmap(cmap)(
+                (intensity - vmin) / (vmax - vmin + 1e-12)
             )
-            epaisseur = 2 + 6 * (intensite - vmin) / (vmax - vmin + 1e-12)
+            linewidth = 2 + 6 * (intensity - vmin) / (vmax - vmin + 1e-12)
         else:
-            couleur = "blue"
-            epaisseur = 2
+            color = "blue"
+            linewidth = 2
 
         ax.hlines(
             y=freq,
-            xmin=debut,
-            xmax=debut + duree,
-            linewidth=epaisseur,
-            color=couleur
+            xmin=start,
+            xmax=start + duration,
+            linewidth=linewidth,
+            color=color
         )
 
-    ax.set_xlabel("Temps (s)")
-    ax.set_ylabel("Fréquence fondamentale (Hz)")
-    ax.set_title("Évolution temporelle des fondamentales")
+    ax.set_xlabel("Time (s)")
+    ax.set_ylabel("Fundamental frequency (Hz)")
+    ax.set_title("Temporal evolution of fundamentals")
     ax.grid(True, alpha=0.3)
 
-    # --- Colorbar correctement attachée ---
-    if afficher_intensite:
+    # --- Properly attached colorbar ---
+    if show_intensity:
         sm = plt.cm.ScalarMappable(
             cmap=cmap,
             norm=plt.Normalize(vmin=vmin, vmax=vmax)
         )
         sm.set_array([])
-        fig.colorbar(sm, ax=ax, label="Intensité (RMS)")
+        fig.colorbar(sm, ax=ax, label="Intensity (RMS)")
 
     plt.tight_layout()
     plt.show()
 
-def display_formated(notes):
+def display_formatted(notes):
     current_x = 0
     i = 0
-    while i < len(notes) :
-        if notes[i].slide : #Sliding == "True"
+    while i < len(notes):
+        if notes[i].slide:  # Sliding == True
             plt.plot([current_x, current_x + notes[i].duration], [notes[i].pitch, notes[i+1].pitch], marker='o', linestyle='-')
             current_x += notes[i].duration + notes[i+1].duration
             i += 2
-        else :
+        else:
             plt.plot([current_x], [notes[i].pitch], marker='o', linestyle='None')
             current_x += notes[i].duration
             i += 1
@@ -195,41 +201,41 @@ def display_formated(notes):
     plt.show()
 
 def synthesize_f0_events(
-    evenements,
+    events,
     fs: int = 44100,
     gain: float = 0.9,
-    attaque: float = 0.01,
-    relache: float = 0.02,
-    fichier_sortie: str = "tests/synthese.wav"
+    attack: float = 0.01,
+    release: float = 0.02,
+    output_file: str = "tests/synthesized.wav"
 ):
     """
-    Synthétise un WAV à partir d'événements (t, d, f0, intensité).
+    Synthesize a WAV from events (start_time, duration, f0, intensity).
 
-    evenements : liste de tuples (debut, duree, freq, intensite)
-    fs         : fréquence d'échantillonnage
-    gain       : gain global
-    attaque    : temps d'attaque (s)
-    relache    : temps de relâche (s)
+    events      : list of tuples (start_time, duration, freq, intensity)
+    fs          : sampling rate
+    gain        : global gain
+    attack      : attack time (s)
+    release     : release time (s)
     """
 
-    # --- Durée totale ---
-    duree_totale = max(t + d for t, d, _, _ in evenements)
-    n_samples = int(duree_totale * fs) + 1
+    # --- Total duration ---
+    total_duration = max(t + d for t, d, _, _ in events)
+    n_samples = int(total_duration * fs) + 1
     signal = np.zeros(n_samples)
 
-    for debut, duree, freq, intensite in evenements:
-        if freq <= 0 or duree <= 0:
+    for start, duration, freq, intensity in events:
+        if freq <= 0 or duration <= 0:
             continue
 
-        n = int(duree * fs)
+        n = int(duration * fs)
         t = np.arange(n) / fs
 
-        # --- Oscillateur ---
+        # --- Oscillator ---
         osc = np.sin(2 * np.pi * freq * t)
 
-        # --- Enveloppe ADSR simplifiée ---
-        n_att = int(attaque * fs)
-        n_rel = int(relache * fs)
+        # --- Simplified ADSR envelope ---
+        n_att = int(attack * fs)
+        n_rel = int(release * fs)
 
         env = np.ones(n)
         if n_att > 0:
@@ -237,119 +243,114 @@ def synthesize_f0_events(
         if n_rel > 0:
             env[-n_rel:] = np.linspace(1, 0, n_rel)
 
-        # --- Signal événement ---
-        evt = osc * env * intensite
+        # --- Event signal ---
+        evt = osc * env * intensity
 
-        # --- Insertion temporelle ---
-        i0 = int(debut * fs)
+        # --- Insert into signal ---
+        i0 = int(start * fs)
         signal[i0:i0+n] += evt
 
-    # --- Normalisation ---
+    # --- Normalization ---
     max_val = np.max(np.abs(signal)) + 1e-12
     signal = gain * signal / max_val
 
-    # --- Conversion int16 ---
+    # --- Convert to int16 ---
     signal_int16 = np.int16(signal * 32767)
 
-    wav.write(fichier_sortie, fs, signal_int16)
+    wav.write(output_file, fs, signal_int16)
 
-    print(f"WAV généré : {fichier_sortie}")
+    print(f"WAV generated: {output_file}")
 
-def detecte_sliding(evenements, tolerance_derivative = 2):
-    times = [evenement[0] for evenement in evenements]
-    fondamentales = [evenement[2] for evenement in evenements]
-    intensities = [evenement[3] for evenement in evenements]
-    current_sliding = []
+def detect_sliding(events, derivative_tolerance=2):
+    times = [event[0] for event in events]
+    fundamentals = [event[2] for event in events]
+    intensities = [event[3] for event in events]
+    current_slide = []
     final_values = []
-    for i in range(len(fondamentales)):
-        if len(current_sliding) <= 1 :
-            current_sliding.append([times[i],fondamentales[i], intensities[i]])
-        else :
-            previous_dy = (fondamentales[i-1] - fondamentales[i-2])/(times[i-1]-times[i-2])
-            current_dy = (fondamentales[i] - fondamentales[i-1])/(times[i]-times[i-1]) 
-            if 1/tolerance_derivative < (current_dy / previous_dy) < tolerance_derivative :
-                current_sliding.append([times[i],fondamentales[i], intensities[i]])
-            #Cas où la tolérance est dépassée --> Fin du slide
-            else :
-                if len(current_sliding) > 2 :
-                    borne_inf = current_sliding[0]
-                    borne_sup = current_sliding[-1]
-                    final_values.append(borne_inf + [True])
-                    final_values.append(borne_sup + [False])
-                else :
-                    for note in current_sliding :
+    for i in range(len(fundamentals)):
+        if len(current_slide) <= 1:
+            current_slide.append([times[i], fundamentals[i], intensities[i]])
+        else:
+            prev_dy = (fundamentals[i-1] - fundamentals[i-2]) / (times[i-1] - times[i-2])
+            curr_dy = (fundamentals[i] - fundamentals[i-1]) / (times[i] - times[i-1])
+            if 1/derivative_tolerance < (curr_dy / prev_dy) < derivative_tolerance:
+                current_slide.append([times[i], fundamentals[i], intensities[i]])
+            else:
+                if len(current_slide) > 2:
+                    lower_bound = current_slide[0]
+                    upper_bound = current_slide[-1]
+                    final_values.append(lower_bound + [True])
+                    final_values.append(upper_bound + [False])
+                else:
+                    for note in current_slide:
                         final_values.append(note + [False])
-                current_sliding = []
-                current_sliding.append([times[i],fondamentales[i], intensities[i]])
+                current_slide = []
+                current_slide.append([times[i], fundamentals[i], intensities[i]])
     return final_values
 
-def nearest_duration(duration, bpm, duration_scale) :
-    timespace = 60 / bpm #en seconde
-    quotient = duration // timespace
-    reste = duration % timespace
+def nearest_duration(duration, bpm, duration_scale):
+    beat_time = 60 / bpm  # in seconds
+    quotient = duration // beat_time
+    remainder = duration % beat_time
     value = 0
-    if (duration - reste) > reste : # Plus proche de reste que de duration
+    if (duration - remainder) > remainder:
         value = quotient
-    else :
-        value =  quotient + 1
-    
+    else:
+        value = quotient + 1
+
     return min(value, duration_scale)
 
-def nearest_note(f):
-    n = 1 + 12 * math.log2(f / 27.5)
-    n = round(n)           # touche entière la plus proche
-    n = max(1, min(88, n)) # limiter entre 1 et 88
+def nearest_note(frequency):
+    n = 1 + 12 * math.log2(frequency / 27.5)
+    n = round(n)
+    n = max(1, min(88, n))  # limit between 1 and 88
     return n
 
-def tempo_ajusted(notes_with_slidings, bpm, duration_scale):
-    times = [note[0] for note in notes_with_slidings]
-    fondamentales = [note[1] for note in notes_with_slidings]
-    intensities = [note[2] for note in notes_with_slidings]
-    sliding = [note[3] for note in notes_with_slidings]
-    formated = []
-    for i in range(len(notes_with_slidings)-1) :
-        #différences entre la note et la prochaine note
+def tempo_adjusted(notes_with_slides, bpm, duration_scale):
+    times = [note[0] for note in notes_with_slides]
+    fundamentals = [note[1] for note in notes_with_slides]
+    intensities = [note[2] for note in notes_with_slides]
+    slides = [note[3] for note in notes_with_slides]
+    formatted = []
+    for i in range(len(notes_with_slides)-1):
         duration = times[i+1] - times[i]
-        formated_duration = nearest_duration(duration, bpm, duration_scale)
-        formated_note = nearest_note(fondamentales[i])
-        formated.append(Note(formated_note, intensities[i], formated_duration, sliding[i]))
-    return formated
+        formatted_duration = nearest_duration(duration, bpm, duration_scale)
+        formatted_note = nearest_note(fundamentals[i])
+        formatted.append(Note(formatted_note, intensities[i], formatted_duration, slides[i]))
+    return formatted
 
-# RECUPERATION DATA
+# LOAD CONFIGURATION
 with Path("sound_config.json").open("r", encoding="utf-8") as f:
     content = json.load(f)
     bpm = content["BPM"]
     duration_scale = content["DURATION_SCALE"]
 
-#APPEL DES FONCTION
+# FUNCTION CALL
 
-def transform_to_encoded(source_name, output_path = OUTPUT_PATH):
-    # Récupération des evenements
+def transform_to_encoded(source_name, output_path=OUTPUT_PATH):
     audio_file = SOUND_PATH + source_name + ".wav"
-    evenements = extract_f0s(
-        audio_file, 
-        duree_fenetre = 60/bpm/2,
-        fmin = 100.0,
-        fmax = 800.0,
-        seuil_energie = 0.10
+    events = extract_f0s(
+        audio_file,
+        window_duration=60/bpm/2,
+        fmin=100.0,
+        fmax=800.0,
+        energy_threshold=0.10
     )
 
-    #display_f0s(evenements, afficher_intensite=True)
-    #synthesize_f0_events(evenements, fs=44100, fichier_sortie="tests/reconstruction.wav")
+    # display_f0s(events, show_intensity=True)
+    # synthesize_f0_events(events, fs=44100, output_file="tests/reconstruction.wav")
 
-    slidings_detected = detecte_sliding(evenements, tolerance_derivative=2)
-    encoded = tempo_ajusted(slidings_detected, bpm=bpm, duration_scale=duration_scale)
+    slides_detected = detect_sliding(events, derivative_tolerance=2)
+    encoded = tempo_adjusted(slides_detected, bpm=bpm, duration_scale=duration_scale)
 
-    # Récupération de l'évaluation
     with open(LABELS_PATH+source_name+".txt", "r", encoding="utf-8") as f:
-        emotions = f.read()  # lit tout le fichier
-        emotions = [float(emotion) for emotion in emotions.split(",")]
+        emotions = f.read()
+        emotions = [float(e) for e in emotions.split(",")]
 
     # Saving
 
-    # Transformation
     sequence_notes = [list(en) + [0] for en in encoded]
-    sequence_notes[-1][-1] = 1 #Mettre le dernier done à "True"
+    sequence_notes[-1][-1] = 1  # mark the last done as True
 
     data = {
         "emotion": torch.tensor(emotions, dtype=torch.float32),
@@ -361,16 +362,11 @@ def transform_to_encoded(source_name, output_path = OUTPUT_PATH):
     assert data["actions"].shape[1] == 5
     assert data["actions"].dtype == torch.long
     torch.save(data, OUTPUT_PATH + f"seq_{source_name}.pt")
-    
 
 
-#test_sound = "dataset/labeled/sounds/VO_02_018.dspadpcm.wav"
-#test_encoded = transform_to_encoded(test_sound)
-#notes_to_wav(test_encoded, "tests/results.wav", bpm=bpm)
-#display_formated(test_encoded)
-#transform_to_encoded("00000 - WAV_0_GUESS_BANK_ENEMY_GIRL")
+#------------ EXECUTION ------------#
 
 label_files = sorted(Path(LABELS_PATH).glob("*.txt"))
 for label_file in label_files:
-    source_name = label_file.stem  # nom sans extension
+    source_name = label_file.stem  # name without extension
     transform_to_encoded(source_name)

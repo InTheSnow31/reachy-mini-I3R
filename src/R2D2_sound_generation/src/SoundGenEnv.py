@@ -1,4 +1,6 @@
 
+#------------- IMPORTS -------------#
+
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
@@ -6,14 +8,17 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 import gym
 from gym import spaces
 import numpy as np
-from synthesis.notes_to_wave import notes_to_wav
+from synthesis.synthesize_whistle_with_harmonics import notes_to_wav
 from Note import Note
 from RLHF_interface import input
-from emotion import polar_to_emotion, random_emotion
+from Emotion import random_emotion
 import json
 
+#------ CLASSES AND FUNCTIONS ------#
+
 class SoundGenEnv(gym.Env):
-    def __init__(self, emotion_model, max_notes=16):
+    def __init__(self, emotion_model, max_notes=16, evaluation_mode = True):
+        self.evaluation_mode = evaluation_mode
         self.EMOTION_MODEL = emotion_model
         with Path("sound_config.json").open("r", encoding="utf-8") as f:
             super().__init__()
@@ -21,11 +26,11 @@ class SoundGenEnv(gym.Env):
             self.max_notes = json_content["MAX_NOTES"]
             self.current_step = 0
             self.notes = []
-            self.note_range = json_content["TONES_RANGE"]  # MIDI notes from G2 to G4
+            self.note_range = json_content["TONES_RANGE"]
             self.num_intensity_bins = 10  # Intensity levels 
-            self.duration_range = json_content["DURATION_SCALE"]  # Note Duration from 1 to 4 beats
+            self.duration_range = json_content["DURATION_SCALE"]  # Note Duration
 
-        self.action_space = spaces.MultiDiscrete([self.note_range, self.duration_range, self.num_intensity_bins, 2, 2]) # Notes 44-67, Duration 1-4, Intensity 0-(num_intensity_bins-1), Slide ?, Final Note ?
+        self.action_space = spaces.MultiDiscrete([self.note_range, self.duration_range, self.num_intensity_bins, 2, 2]) # Notes, Duratio, Intensity, Slide ?, Final Note ?
 
         obs_dim = self.max_notes*4 + self.EMOTION_MODEL["number_of_emotions"]
         self.observation_space = spaces.Box(low=0, high=1, shape=(obs_dim,), dtype=np.float32)
@@ -39,7 +44,6 @@ class SoundGenEnv(gym.Env):
 
 
     def _get_obs(self):
-
         # Notes already generated
         obs_notes = np.zeros((self.max_notes,4), dtype=np.float32)
         for i, note in enumerate(self.notes):
@@ -47,9 +51,8 @@ class SoundGenEnv(gym.Env):
             obs_notes[i,1] = note.intensity
             obs_notes[i,2] = (note.duration-1)/3
             obs_notes[i,3] = 1 if note.slide else 0
-        obs_notes = obs_notes.flatten()  # taille = max_notes*3
-
-        return np.concatenate([obs_notes, self.target_emotion])  # Box 1D
+        obs_notes = obs_notes.flatten()  # size = max_notes*3
+        return np.concatenate([obs_notes, self.target_emotion]) 
 
 
     def estimate_emotion(self, notes):
@@ -59,12 +62,15 @@ class SoundGenEnv(gym.Env):
 
 
     def evaluate_sequence(self, notes):
-        emotion_generated = self.estimate_emotion(notes)
+        if self.evaluation_mode :
+            emotion_generated = self.estimate_emotion(notes)
+        else :
+            emotion_generated = [0, 0, 0]
         reward = -np.linalg.norm(np.array(emotion_generated) - np.array(self.target_emotion))
 
         print("#################################")
-        print("Émotion cible :", self.target_emotion)
-        print("Émotion générée :", emotion_generated)
+        print("Targeted emotion :", self.target_emotion)
+        print("Evaluated emotion :", emotion_generated)
         print("Reward ", reward)
         
         return reward
@@ -85,8 +91,7 @@ class SoundGenEnv(gym.Env):
 
         reward = 0
         if done:
-            print(self.notes)
-            reward = self.evaluate_sequence(self.notes)  # reward basé sur distance émotionnelle
+            reward = self.evaluate_sequence(self.notes)
 
         obs = self._get_obs()
         info = {"note": note, "sequence": self.notes.copy(), "target_emotion": self.target_emotion}

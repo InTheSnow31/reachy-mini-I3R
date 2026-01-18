@@ -1,0 +1,66 @@
+#------------- IMPORTS -------------#
+
+from stable_baselines3 import PPO
+from stable_baselines3.common.vec_env import DummyVecEnv
+from stable_baselines3.common.torch_layers import BaseFeaturesExtractor
+import torch
+import torch.nn as nn
+import json
+from pathlib import Path
+from SoundGenEnv import SoundGenEnv
+from pretraining import PretrainPolicy  # ton LSTM pré-entraîné
+
+#------- PATHS AND PARAMETERS -------#
+
+with Path("sound_config.json").open("r", encoding="utf-8") as f:
+    content = json.load(f)
+    MAX_NOTES = content["MAX_NOTES"]
+
+with Path("models/THREE_BAR_MODEL.json").open("r", encoding="utf-8") as f:
+    THREE_BAR_MODEL = json.load(f)
+
+
+#-------- CLASS AND FUNCTIONS --------#
+
+def test(emotion_vector, model_name="ppo_note_model", max_notes=MAX_NOTES, deterministic=False):
+    """
+    Test a trained PPO model on a single emotion input and generate a sequence of notes.
+
+    Args:
+        emotion_vector (list or np.array): List of floats representing the emotion.
+        model_name (str): Path to the PPO model to load.
+        max_notes (int): Maximum number of notes in the sequence.
+        deterministic (bool): If True, use deterministic policy.
+    
+    Returns:
+        actions_list (list): List of generated notes/actions.
+    """
+    # Reload the environment
+    env = DummyVecEnv([lambda: SoundGenEnv(emotion_model=THREE_BAR_MODEL, max_notes=max_notes, evaluation_mode = False)])
+    model = PPO.load(model_name, env=env)
+    obs = env.reset()
+    
+    # Inject emotion into obs (depends on your env implementation)
+    obs[0, :len(emotion_vector)] = torch.tensor(emotion_vector, dtype=torch.float32)
+    
+    done = False
+    actions_list = []
+    
+    while not done:
+        action, _states = model.predict(obs, deterministic=deterministic)
+        obs, reward, done, info = env.step(action)
+        actions_list.append(action[0])  # action shape (1, action_dim)
+    
+    return actions_list
+
+
+#------------ EXECUTION ------------#
+
+if __name__ == "__main__":
+    # Exemple d’émotion
+    emotion = [1, 0, 0]  # par exemple Valence, Arousal, Energy
+
+    # Générer la séquence de notes
+    sequence = test(emotion, model_name="ppo_note_model")
+
+    print("Generated sequence:", sequence)

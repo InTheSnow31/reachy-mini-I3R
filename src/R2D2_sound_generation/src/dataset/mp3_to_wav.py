@@ -1,16 +1,16 @@
+#------------- IMPORTS -------------#
+
 from pydub import AudioSegment
 from pathlib import Path
 
-# Chemins
-MP3_PATH = Path("dataset/labeled/sounds/")
-WAV_PATH = Path("dataset/labeled/sounds/")
-WAV_PATH.mkdir(parents=True, exist_ok=True)
+#------- PATHS AND PARAMETERS -------#
 
-# Parcours de tous les mp3
-for mp3_file in MP3_PATH.glob("*.mp3"):
-    wav_file = WAV_PATH / f"{mp3_file.stem}.wav"
-    
-    # Conversion
+FOLDER_PATH = Path("dataset/labeled/sounds/")
+
+#------------ EXECUTION ------------#
+
+for mp3_file in FOLDER_PATH.glob("*.mp3"):
+    wav_file = FOLDER_PATH / f"{mp3_file.stem}.wav"
     audio = AudioSegment.from_file(mp3_file, format="mp3")
     audio.export(wav_file, format="wav")
 

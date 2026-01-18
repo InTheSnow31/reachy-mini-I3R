@@ -1,3 +1,5 @@
+#------------- IMPORTS -------------#
+
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
@@ -7,6 +9,8 @@ import soundfile as sf
 import math
 from Note import Note
 import json
+
+#------- PATHS AND PARAMETERS -------#
 
 SAMPLE_RATE = 44100
 A4_PITCH = 49
@@ -71,7 +75,6 @@ def generate_whistle_wave(freq, duration, intensity):
     N = int(SAMPLE_RATE * duration)
     t = np.arange(N) / SAMPLE_RATE
 
-    # FM rapide
     fm_rate = 180
     fm_depth = 0.03
     fm = fm_depth * np.sin(2 * np.pi * fm_rate * t)
@@ -79,7 +82,6 @@ def generate_whistle_wave(freq, duration, intensity):
 
     phase = np.cumsum(2 * np.pi * freq_t / SAMPLE_RATE)
 
-    # partiels agressifs
     partials = [
         (1.00, 1.00),
         (2.01, 0.05),
@@ -171,6 +173,9 @@ def notes_to_wav(notes, output_path, bpm=DEFAULT_BPM):
     sf.write(output_path, audio, SAMPLE_RATE)
     print(f"WAV généré : {output_path}")
 
+
+#------------ EXECUTION ------------#
+
 if __name__ == "__main__":
     notes = [
         Note(55, 0.7, 1,False),  # noire
@@ -178,4 +183,4 @@ if __name__ == "__main__":
         Note(47, 0.7, 1,True),  # noire
         Note(52, 1.0, 4, False),  # ronde
     ]
-    notes_to_wav(notes, "tests/melodie2.wav")
+    notes_to_wav(notes, "tests/test_synthesis_with_harmonics.wav")
