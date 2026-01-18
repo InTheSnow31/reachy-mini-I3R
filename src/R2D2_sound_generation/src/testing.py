@@ -53,7 +53,7 @@ def test(emotion_vector, model_name="ppo_note_model", output_path = "tests/gener
         obs, reward, done, info = env.step(action)
         actions_list.append(action[0])  # action shape (1, action_dim)
     
-    sequence = [Note(n[0], n[1], (n[2]+1)/10, n[3]) for n in sequence]
+    sequence = [Note(n[0], n[1], (n[2]+1)/10, n[3]) for n in actions_list]
     notes_to_wav(sequence, output_path)
     print("Generated sound at : " + output_path)
 
@@ -62,6 +62,9 @@ def test(emotion_vector, model_name="ppo_note_model", output_path = "tests/gener
 
 if __name__ == "__main__":
     hapiness = input("Chose a value for hapiness (0 = Sad, 1 = Happy)")
+    explosiveness = input("Chose a value for explosiveness (0 = Calm, 1 = Explosive)")
+    interrogation = input("Chose a value for Interrogation (0 = Certain, 1 = Interrogative)")
+    emotion = [float(hapiness), float(explosiveness), float(interrogation)]
     test(emotion, model_name="ppo_note_model")
         
 
