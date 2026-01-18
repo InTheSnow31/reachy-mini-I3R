@@ -10,7 +10,7 @@ The project is limited to encoding the desired emotion (natural language if desi
 
 Three approaches were proposed to implement these expressions. The first, led by Amandine, involves adapting an existing movement according to the emotion the robot should feel. The second, led by Anaelle, involves generating the expression purely from a natural language command. Finally, the last approach, programmed by Clément, involves generating sound based on input from an emotional space, then synthesizing it, inspired by R2D2.
 
-## Approach 1: Movement Adaptation 🎛️
+## Approach 1: Movement Adaptation
 
 ### Overview
 
@@ -19,22 +19,21 @@ The goal is not only to execute the motion but also to make it **emotion-depende
 
 ---
 
-### Execution Paradigm: `goto_target` vs `set_target` 🏃‍♂️⚡
+### Execution Paradigm: `goto_target` vs `set_target` 
 
 Two fundamental functions can be used to command the robot:
 
 - **`goto_target(position, duration)`**  
   Moves the robot from its current posture to the target position **over a specified duration**.  
-  ✅ Advantage: simple, ensures smooth arrival.  
-  ⚠️ Limitation: the temporal profile is fixed, making it hard to manipulate amplitude, frequency, or introduce complex oscillations.
+   Advantage: simple, ensures smooth arrival.  
+  Limitation: the temporal profile is fixed, making it hard to manipulate amplitude, frequency, or introduce complex oscillations.
 
 - **`set_target(position)`**  
   Sets the robot’s position **instantaneously at the next control step**.  
-  ✅ Advantage: gives **full control over the motion evolution**, allowing the implementation of:
+   Advantage: gives **full control over the motion evolution**, allowing the implementation of:
   - Oscillations at specific **frequencies**  
   - Gradually changing **amplitudes**  
   - Complex **temporal shaping** (crescendo, decrescendo, expressive timing)  
-  ⚠️ Limitation: requires careful control of the **timestep** to ensure smooth, physically plausible motion.
 
 > In this approach, `set_target` was chosen to gain **flexibility** and **fine-grained control** over the expressive motion.  
 > This decision is **deliberate but debatable**, as it increases the complexity of motion generation and requires careful parameter tuning to avoid unnatural behavior.
@@ -43,7 +42,7 @@ Two fundamental functions can be used to command the robot:
 
 ### Methodology
 
-#### PAD Mapping and Emotion Values 🎭
+#### PAD Mapping and Emotion Values 
 
 The movements in this approach are driven by the **PAD emotional model** (Pleasure, Arousal, Dominance), as theorized by Russell & Mehrabian:
 
@@ -72,7 +71,7 @@ We use the canonical values for six basic emotions
 > - "Boredom" → (-0.20, 0.25, -0.10)  
 > While this is **not scientifically validated**, it allows generalizing the approach to a wider set of emotions described by natural language.
 
-#### PAD to Motion Correspondence 🌀
+#### PAD to Motion Correspondence 
 
 Each PAD dimension influences **different aspects of the robot’s motion**, inspired by **Laban Movement Analysis**:
 
@@ -87,6 +86,28 @@ Each PAD dimension influences **different aspects of the robot’s motion**, ins
 ---
 
 ### Reflection on the Approach
+
+So far, this approach only adapts **very simple movements**. Each movement affects **one axis at a time**, which makes the current hand-tuned parameter logic work reasonably well.  
+
+However, there are clear limitations:  
+
+- **Scalability issues:** For more complex gestures—like maintaining eye contact or combining multiple axes—the current code would be very hard to adjust manually. Each axis could, in theory, be driven by a **sum of sine and cosine waves**, creating richer, more natural movements. Right now, we are **very far from that level of complexity**.  
+- **Functional vs. emotional overlay:** Combining a **functional gesture** (e.g., “yes” or “no”) with an **expressed emotion** is tricky. While a gesture may convey meaning on its own, the emotion must be **contextualized**: a “yes” could be said sadly or happily, and the emotional overlay must make sense with the intended functional meaning.  
+
+Overall, while the current implementation **demonstrates the principle of adapting functional movements with PAD-based modulation**, it remains limited in expressive richness.  
+
+---
+
+### Evaluation
+
+At this stage, the logic of the code **matches the intended approach** derived from the literature, but there are still key points to refine:  
+
+- **Parameter tuning:** Many values are currently chosen **arbitrarily or experimentally**. They serve as a proof of concept rather than scientifically validated mappings.  
+- **Emotion recognizability:** In practice, if someone is asked to identify the expressed emotion from Reachy, it is **almost impossible** without additional context (e.g., sound, scenario).  
+- **Demonstration recommendations:** To better showcase the approach, a **video demonstration** is recommended, potentially with **music or contextual cues**, so observers can project the emotion and understand the functional movement in context.  
+
+The evaluation highlights that the **approach works conceptually**, but its **expressive power is limited** at this stage and would benefit from **more sophisticated motion generation and multimodal integration**.
+
 
 
 
