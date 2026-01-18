@@ -161,7 +161,7 @@ The metric for evaluating the model's effectiveness is the loss function used in
 
 
 We obtain for the pre-training these results : 
-![](https://codimd.math.cnrs.fr/uploads/upload_0a576522e791c7bc1ceeba8111938182.png)
+![](Loss_curve.png)
 
 The optimal number of epochs with these parameters is around 300. After 300 the validation loss derivative is positive meaning overtraining. 
 
