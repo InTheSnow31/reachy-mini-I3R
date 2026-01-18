@@ -42,7 +42,7 @@ This repository contains the demo of an experiment which aims to create expressi
     pip install "reachy-mini[mujoco]"    
     ```
    
-7. Run the simulation (necessary for method n°2).
+7. Run the simulation (necessary for method n°2, optionnal but useful for method n°1).
     ```
     reachy-mini-daemon --sim
     ```
