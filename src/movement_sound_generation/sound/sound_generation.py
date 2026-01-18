@@ -58,7 +58,7 @@ def note_curve(
     curve = np.zeros(n)
     idx: int = 0
 
-    # Glide duration in samples (2 ms → ~50 ms)
+    # Glide duration in samples (2 ms to 50 ms)
     glide_time: float = (1 - D) * 0.05 + 0.002
     glide_n: int = int(glide_time * SAMPLE_RATE)
 
