@@ -5,5 +5,13 @@ class Note:
         self.duration = duration
         self.slide = slide
     
+    def __iter__(self):
+        yield self.pitch
+        yield self.intensity
+        yield self.duration
+        yield self.slide
+
     def __str__(self):
         return "Pitch : " + str(self.pitch) + " | Intensity : " + str(self.intensity) + " | duration : " + str(self.duration) + " | Sliding ? " + str(self.slide)
+
+    

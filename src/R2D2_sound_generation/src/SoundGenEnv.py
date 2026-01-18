@@ -17,12 +17,13 @@ class SoundGenEnv(gym.Env):
         self.EMOTION_MODEL = emotion_model
         with Path("sound_config.json").open("r", encoding="utf-8") as f:
             super().__init__()
-            self.max_notes = max_notes
+            json_content = json.load(f)
+            self.max_notes = json_content["MAX_NOTES"]
             self.current_step = 0
             self.notes = []
-            self.note_range = 24  # MIDI notes from G2 to G4
+            self.note_range = json_content["TONES_RANGE"]  # MIDI notes from G2 to G4
             self.num_intensity_bins = 10  # Intensity levels 
-            self.duration_range = json.load(f)["DURATION_SCALE"]  # Note Duration from 1 to 4 beats
+            self.duration_range = json_content["DURATION_SCALE"]  # Note Duration from 1 to 4 beats
 
         self.action_space = spaces.MultiDiscrete([self.note_range, self.duration_range, self.num_intensity_bins, 2, 2]) # Notes 44-67, Duration 1-4, Intensity 0-(num_intensity_bins-1), Slide ?, Final Note ?
 

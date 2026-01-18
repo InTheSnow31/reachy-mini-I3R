@@ -18,6 +18,8 @@ from Note import Note
 
 
 OUTPUT_PATH = "dataset/labeled/note_sequences/"
+LABELS_PATH = "dataset/labeled/labels/"
+SOUND_PATH = "dataset/labeled/sounds/"
 
 def extract_f0s(
     fichier_wav: str,
@@ -308,7 +310,6 @@ def tempo_ajusted(notes_with_slidings, bpm, duration_scale):
     for i in range(len(notes_with_slidings)-1) :
         #différences entre la note et la prochaine note
         duration = times[i+1] - times[i]
-        print(duration)
         formated_duration = nearest_duration(duration, bpm, duration_scale)
         formated_note = nearest_note(fondamentales[i])
         formated.append(Note(formated_note, intensities[i], formated_duration, sliding[i]))
@@ -322,45 +323,44 @@ with Path("sound_config.json").open("r", encoding="utf-8") as f:
 
 #APPEL DES FONCTION
 
-def transform_to_encoded(source_path, output_path = OUTPUT_PATH):
+def transform_to_encoded(source_name, output_path = OUTPUT_PATH):
     # Récupération des evenements
-    evenements = extract_f0s(source_path, 
-    duree_fenetre = 60/bpm/2,
-    fmin = 100.0,
-    fmax = 800.0,
-    seuil_energie = 0.10
+    audio_file = SOUND_PATH + source_name + ".wav"
+    evenements = extract_f0s(
+        audio_file, 
+        duree_fenetre = 60/bpm/2,
+        fmin = 100.0,
+        fmax = 800.0,
+        seuil_energie = 0.10
     )
 
     #display_f0s(evenements, afficher_intensite=True)
-    synthesize_f0_events(evenements, fs=44100, fichier_sortie="tests/reconstruction.wav")
+    #synthesize_f0_events(evenements, fs=44100, fichier_sortie="tests/reconstruction.wav")
 
     slidings_detected = detecte_sliding(evenements, tolerance_derivative=2)
     encoded = tempo_ajusted(slidings_detected, bpm=bpm, duration_scale=duration_scale)
 
+    # Récupération de l'évaluation
+    with open(LABELS_PATH+source_name+".txt", "r", encoding="utf-8") as f:
+        emotions = f.read()  # lit tout le fichier
+        emotions = [float(emotion) for emotion in emotions.split(",")]
+
     # Saving
 
-    all_obs = []
-    all_actions = []
+    # Transformation
+    sequence_notes = [list(en) + [0] for en in encoded]
+    sequence_notes[-1][-1] = 1 #Mettre le dernier done à "True"
 
-    # Initialisation du contexte
-    context = torch.zeros(max_notes, 4)  # pitch, duration, intensity, flags
-    emotion_tensor = torch.tensor(emotions[idx], dtype=torch.float32)
-
-    for t, note in enumerate(seq):
-        obs = torch.cat([context.flatten(), emotion_tensor])
-        all_obs.append(obs)
-        all_actions.append(torch.tensor(note, dtype=torch.long))
-
-        # Mettre à jour le contexte
-        context = torch.roll(context, -1, dims=0)
-        context[-1] = torch.tensor(note[:4], dtype=torch.float32)
-
-    # Sauvegarde du .pt
-    seq_dict = {
-        "observations": torch.stack(all_obs),  # (seq_len, obs_dim)
-        "actions": torch.stack(all_actions)    # (seq_len, 5)
+    data = {
+        "emotion": torch.tensor(emotions, dtype=torch.float32),
+        "actions": torch.tensor(sequence_notes, dtype=torch.long)
     }
-    torch.save(seq_dict, dataset_dir / f"seq_{idx:04d}.pt")
+
+    assert data["emotion"].shape == (3,)
+    assert data["actions"].ndim == 2
+    assert data["actions"].shape[1] == 5
+    assert data["actions"].dtype == torch.long
+    torch.save(data, OUTPUT_PATH + f"seq_{source_name}.pt")
     
 
 
@@ -368,3 +368,9 @@ def transform_to_encoded(source_path, output_path = OUTPUT_PATH):
 #test_encoded = transform_to_encoded(test_sound)
 #notes_to_wav(test_encoded, "tests/results.wav", bpm=bpm)
 #display_formated(test_encoded)
+#transform_to_encoded("00000 - WAV_0_GUESS_BANK_ENEMY_GIRL")
+
+label_files = sorted(Path(LABELS_PATH).glob("*.txt"))
+for label_file in label_files:
+    source_name = label_file.stem  # nom sans extension
+    transform_to_encoded(source_name)
