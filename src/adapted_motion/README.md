@@ -1,13 +1,26 @@
-# Code Organization 🗂️
+# Code Organization of the Adapted Motion Approach 🗂️
+
+_**Author:** Amandine GARCIA_
+
+In the following sections, Approach #1 for generating an expressive behavior on Reachy Mini will be presented.  
+This approach focuses on **adapting a functional movement** (such as YES/NO) based on emotional parameters.  
+It follows the methodology described in the [report](../../docs/report/README.md) and adjusts the robot’s motion according to the PAD coordinates corresponding to a selected emotion.
 
 The approach is organized into clearly separated modules.
+You can jump directly to each part:
 
-Each folder corresponds to a specific responsibility.  
-This structure avoids coupling and improves maintainability.
-
-## Main Files ⚡
-
+- [Main Files ⚡](#main-files-)
+  - [`adapt.py` 🏁](#adaptpy-)
+  - [`timestep.py` ⏳](#timesteppy-)
+- [Folders 📂](#folders-)
+  - [`prompts/` 💬](#prompts-)
+  - [`normalisation_PAD/` 📏](#normalisation_pad-)
+  - [`antennas_params/` 🐜](#antennas_params-)
+  - [`head_params/` 🧍‍♂️](#head_params-)
+  - [`brouillons/` 📝](#brouillons-)
+  - [`__pycache__/` ⚡](#__pycache__)
 ---
+## Main Files ⚡
 
 ### `adapt.py` 🏁
 
@@ -19,7 +32,12 @@ It:
 - Applies adapted motion parameters 🎛️
 - Executes movements on the robot 🤖
 
-No parameter calculation is implemented here.
+**Execution flow:**
+1. Reachy first moves to the **head/antenna center position** in 1 second using the `goto_target` function ⏩.  
+2. Then, the oscillatory movement is played by repeatedly calling `set_target` at each **timestep** for the specified duration ⏳.  
+3. At the end, Reachy **remains in the emotional posture** reflecting PAD values, unless he is manually interrupted, but **no longer performs the functional motion**.
+
+> **Note:** No parameter calculation is implemented in this file; it only orchestrates the sequence of motions.
 
 ---
 
@@ -39,6 +57,8 @@ This design ensures that motion speed is **emotion-dependent**, producing moveme
 ---
 
 ### Folders 📂
+Each folder corresponds to a specific responsibility.  
+This structure avoids coupling and improves maintainability.
 
 ---
 
