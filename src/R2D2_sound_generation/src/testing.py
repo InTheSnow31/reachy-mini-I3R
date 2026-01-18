@@ -24,7 +24,7 @@ with Path("models/THREE_BAR_MODEL.json").open("r", encoding="utf-8") as f:
 
 #-------- CLASS AND FUNCTIONS --------#
 
-def test(emotion_vector, model_name="ppo_note_model", max_notes=MAX_NOTES, deterministic=False):
+def test(emotion_vector, model_name="ppo_note_model", output_path = "tests/generation.wav", max_notes=MAX_NOTES, deterministic=False):
     """
     Test a trained PPO model on a single emotion input and generate a sequence of notes.
 
@@ -53,16 +53,15 @@ def test(emotion_vector, model_name="ppo_note_model", max_notes=MAX_NOTES, deter
         obs, reward, done, info = env.step(action)
         actions_list.append(action[0])  # action shape (1, action_dim)
     
-    return actions_list
+    sequence = [Note(n[0], n[1], (n[2]+1)/10, n[3]) for n in sequence]
+    notes_to_wav(sequence, output_path)
+    print("Generated sound at : " + output_path)
 
 
 #------------ EXECUTION ------------#
 
 if __name__ == "__main__":
-    for i in range(10):
-        emotion = [1, 0, 0]  
-        sequence = test(emotion, model_name="ppo_note_model")
-        print(sequence)
-        sequence = [Note(n[0], n[1], (n[2]+1)/10, n[3]) for n in sequence]
-        notes_to_wav(sequence, "tests/bash/interrogation_"+str(i)+".wav")
+    hapiness = input("Chose a value for hapiness (0 = Sad, 1 = Happy)")
+    test(emotion, model_name="ppo_note_model")
+        
 
