@@ -30,22 +30,24 @@ This repository contains the demo of an experiment which aims to create expressi
     ```
     **Note:** if you need to upgrade pip, do it. You might need to retype the command line after.
 
-4. Install Reachy Mini's SDK.
+4. Install [Git Large Files Storage (LFS)](https://git-lfs.com/) on your computer if you do not already have it.
+
+5. Install Reachy Mini's SDK.
     ```
     pip install "reachy-mini"    
     ```
    
-5. Install MuJoCo (necessary for method n°2).
+6. Install MuJoCo (necessary for method n°2).
     ```
     pip install "reachy-mini[mujoco]"    
     ```
    
-6. Run the simulation (necessary for method n°2).
+7. Run the simulation (necessary for method n°2).
     ```
     reachy-mini-daemon --sim
     ```
 
-7. Open **another terminal**, and run the main script.
+8. Open **another terminal**, and run the main script.
     ```
     cd src
     python main.py
