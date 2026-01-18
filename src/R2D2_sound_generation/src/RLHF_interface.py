@@ -20,7 +20,7 @@ class input:
 
     def on_play(self):
         try:
-            data, samplerate = sf.read("temp.wav", dtype='float32')
+            data, samplerate = sf.read(WAV_FILE, dtype='float32')
             sd.play(data, samplerate)
         except Exception as e:
             print(f"Erreur lors de la lecture du fichier : {e}")

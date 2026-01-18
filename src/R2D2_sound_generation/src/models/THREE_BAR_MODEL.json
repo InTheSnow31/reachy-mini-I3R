@@ -1,5 +1,5 @@
 {
     "system" : "bars",
-    "number_of_emotions" : 2,
-    "emotion_names" : [["Negative", "Positive"], ["Calme","Surpris"]]
+    "number_of_emotions" : 3,
+    "emotion_names" : [["Negative", "Positive"], ["Calme","Explosif"], ["Interrogatif","Certain"]]
 }

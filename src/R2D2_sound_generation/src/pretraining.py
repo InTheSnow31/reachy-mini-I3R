@@ -163,29 +163,29 @@ def plot_losses(train_losses, val_losses):
 
 
 # Lancer
+if __name__ == "__main__":
+    with Path("sound_config.json").open("r", encoding="utf-8") as f:
+        json_content = json.load(f)
+        max_notes = json_content["MAX_NOTES"]
 
-with Path("sound_config.json").open("r", encoding="utf-8") as f:
-    json_content = json.load(f)
-    max_notes = json_content["MAX_NOTES"]
+    num_emotions = 3
+    obs_dim = max_notes*4 + num_emotions
 
-num_emotions = 3
-obs_dim = max_notes*4 + num_emotions
+    policy = PretrainPolicy(obs_dim=obs_dim)
 
-policy = PretrainPolicy(obs_dim=obs_dim)
+    train_losses, val_losses = pretrain_with_val(
+        dataset_folder="dataset/labeled/note_sequences/",
+        policy=policy,
+        epochs= 350,
+        batch_size=15,
+        lr=1e-3,
+        max_notes=max_notes,
+        num_emotions=num_emotions,
+        val_ratio=0.2,
+        device='cpu'
+    )
 
-train_losses, val_losses = pretrain_with_val(
-    dataset_folder="dataset/labeled/note_sequences/",
-    policy=policy,
-    epochs= 800,
-    batch_size=15,
-    lr=1e-3,
-    max_notes=max_notes,
-    num_emotions=num_emotions,
-    val_ratio=0.2,
-    device='cpu'
-)
+    plot_losses(train_losses, val_losses)
 
-plot_losses(train_losses, val_losses)
-
-# Save
-torch.save(policy.state_dict(), "pretrained_policy.pt")
+    # Save
+    torch.save(policy.state_dict(), "pretrained_policy.pt")

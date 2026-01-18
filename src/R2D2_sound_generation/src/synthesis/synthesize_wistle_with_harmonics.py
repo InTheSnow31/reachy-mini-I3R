@@ -107,13 +107,9 @@ def generate_whistle_wave(freq, duration, intensity):
 
 
 def pitch_to_frequency(pitch):
-    if not 0 <= pitch <= 87:
-        raise ValueError("Pitch doit être entre 0 et 87, ici :", pitch)
     return A4_FREQ * (2 ** (((pitch+1) - A4_PITCH) / 12))
 
 def duration_to_seconds(duration, bpm=DEFAULT_BPM):
-    if not 1 <= duration <= 4:
-        raise ValueError("Duration doit être entre 1 et 4")
 
     quarter_note = 60.0 / bpm
     return duration * quarter_note
@@ -175,12 +171,11 @@ def notes_to_wav(notes, output_path, bpm=DEFAULT_BPM):
     sf.write(output_path, audio, SAMPLE_RATE)
     print(f"WAV généré : {output_path}")
 
-notes = [
-    Note(55, 0.7, 1,False),  # noire
-    Note(44, 0.7, 2, True),  # noire
-    Note(47, 0.7, 1,True),  # noire
-    Note(52, 1.0, 4, False),  # ronde
-]
-
-
-notes_to_wav(notes, "tests/melodie2.wav")
+if __name__ == "__main__":
+    notes = [
+        Note(55, 0.7, 1,False),  # noire
+        Note(44, 0.7, 2, True),  # noire
+        Note(47, 0.7, 1,True),  # noire
+        Note(52, 1.0, 4, False),  # ronde
+    ]
+    notes_to_wav(notes, "tests/melodie2.wav")
