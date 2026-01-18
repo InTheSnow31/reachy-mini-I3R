@@ -4,11 +4,13 @@ _**Author:** Anaelle JAFFRÉ_
 
 If you see this, you certainely are a curious developper 🖥️. Welcome to this section!
 
-In the next lines, the approach n°2 to create an expressive behaviour on Reachy Mini will be explained. Here is the plan followed by this document:
+In the next lines, the approach n°2 to create an expressive behaviour on Reachy Mini will be explained. The goal is to follow the methodology described in the [report](../../docs/report/README.md). This approach generates a random movement and sound, influenced by the PAD coordinates corresponding to the chosen emotion.
+
+Here is the plan followed by this document:
 
 - [Movement and sound generation](#movement-and-sound-generation)
-  - [Methodology description](#methodology-description)
   - [Architecture](#architecture)
+  - [Main program](#main-program)
   - [Core description](#core-description)
     - [Pose generation](#pose-generation)
       - [Overview](#overview)
@@ -23,29 +25,9 @@ In the next lines, the approach n°2 to create an expressive behaviour on Reachy
       - [Dominance $D$ influence](#dominance-d-influence-1)
       - [Randomness](#randomness-1)
     - [What are these rough values?](#what-are-these-rough-values)
-    - [Rules extraction](#rules-extraction)
+    - [Reachability rules](#reachability-rules)
   - [If you have questions](#if-you-have-questions)
 
-
-## Methodology description
-
-The main idea behind this approach is the following one:
-
-![Global scheme of the approach](images/full_generation_scheme.png)
-
-1. As input, the program asks the user to enter a desired **emotion** and a **minimal duration**.
-
-2. The emotion is browsed in the [pad.json](emotional_space/pad.json) file. Each emotion correspond to a set of 3 parameters according to the PAD (Pleasure-Arousal-Dominance) model, between 0 and 1.
-
-    **Note:** To be scientifically rigorous, they should be between -1 and 1. However, the program actually uses values between 0 and 1. In the next days, a convertion file will be created, to have emotions described in the real PAD model.
-
-3. The P, A and D coordinates are used to generate a pose in the robot space. This is made by the `generate_pose(P, A, D)` function of the [pose_generation.py](robot_config_space/pose_generation.py) file.
-
-4. The P, A and D coordinates are also used to generate a sound. This is made by the `generate_sound(P, A, D)` function of the [sound_generation.py](sound/sound_generation.py) file.
-
-5. The generated pose and sound are pushed on the robot by the [main script](generate.py), through the `reachy.goto_target()` function for the pose and the `reachy.media.push_audio_sample()` function for the sound.
-
-6. Until the minimal duration is not reached, other sets of pose and sound are generated.
 
 ## Architecture
 The architecture is set as follows:
@@ -70,8 +52,38 @@ The architecture is set as follows:
       - [robot_space_limit_testing.py](robot_config_space/experimental/robot_space_limit_testing.py) | Allows to launch a series of random poses, where the user has to evaluate their reachability. Generates a dataset.
       - [correlation_analysis.py](robot_config_space/experimental/correlation_analysis.py) | Analyze a dataset of evaluated poses to determine correlations between variables.
       - [rules_extraction.py](robot_config_space/experimental/rules_extraction.py) | Extract useful information, based on the correlation analysis results, to extract values to build rules for reachable positions.
+      - **pose_dataset** | Folder which contains the datasets generated and used to create reachability rules. 
 
 - **images** | Folder which contains images used for documentation.
+
+## Main program
+
+The main program follows this workflow:
+
+1. **Initialization |**
+   - Connects to Reachy Mini robot context,
+   - Displays welcome message and instructions.
+
+2. **User input |**
+   - Prompts user to select an emotion name (or 'q' to quit),
+   - Asks for minimum duration in seconds for the emotional sequence.
+
+3. **Emotion mapping |**
+   - Loads PAD emotional space from `emotional_space/pad.json`,
+   - Retrieves P (Pleasure), A (Arousal), and D (Dominance) values for the selected emotion,
+   - Validates that the emotion exists in the database.
+
+4. **Audio preparation |**
+   - Starts the robot's media player thanks to the `reachy.media.start_playing()` function,
+   - Prepares audio buffer for synchronized playback.
+
+5. **Generation loop |** Runs until minimum duration is reached
+   - **Pose generation** | Calls `generate_pose(P, A, D)` to create robot motion parameters,
+   - **Sound generation** | Calls `generate_sound(P, A, D, duration)` to create matching audio,
+   - **Audio buffering** | Pushes generated sound to robot's audio buffer,
+   - **Motion execution** | Builds head pose using `create_head_pose()` and executes motion with `reachy.goto_target()`,
+   - **Duration tracking** | Accumulates pose durations until minimum is met.
+
 
 ## Core description
 
@@ -325,16 +337,39 @@ ant0 = base_angle + 0.2 * random.uniform(-A * math.pi, A * math.pi)
 
 It defines the base value for one of the antennas. What does `0.2` stands for? Why this, why not `0.3`?
 
-All of these values are set by hand, as tests have been made and for now, they have been determined to be **satisfying values** to create a realistic expressive movement. They sometimes allow to restrict or amplify the movement, the randomness degree or the influence of an emotional parameter. 
+As precised earlier, all of the generation process, made randomly and influenced by the PAD values, **do not come from tangible concepts** that are scientifically proven. They come from observation and testing, with the subjective evaluation of the developper.
+
+Hence, all of these values are set by hand, as tests have been made and for now, they have been determined to be **satisfying values** to create a realistic expressive movement. They sometimes allow to restrict or amplify the movement, the randomness degree or the influence of an emotional parameter. 
 
 For now, as this is only experimental, they are just set as rough values. However, they could be set into the ``PARAMETERS`` section under signifiant names, for proper code.
 
-### Rules extraction
+The goal for future experiment would be to use a neural network or another script to automatically adjust the values of these parameters, or the transcription computations themselves, thanks to user testing. It would allow to make it more **objective**.
 
-Rules extraction is necessary to allow the reachabilty of a pose.
+### Reachability rules
 
+Creating rules is necessary to allow the reachabilty of a pose. In order to define them, a set of experiments have been made in advance. They can be found into the [experimental](robot_config_space/experimental) folder.
 
+In the program, rules can be seen under this form:
 
+```[python]
+pitch_r = RULES["pitch_from_z"]
+roll_r = RULES["roll_from_y"]
+yaw_r = RULES["yaw_from_x"]
+
+pitch: float = pitch_r["a"] * z + pitch_r["b"] + noise(pitch_r["sigma"], 0.01)
+roll: float = roll_r["a"] * y + roll_r["b"] + noise(roll_r["sigma"], 0.01)
+yaw: float = yaw_r["a"] * x + yaw_r["b"] + noise(yaw_r["sigma"], 0.01)
+```
+
+The analysis made during the experiments showed that on Reachy Mini, $pitch$ is highly correlated with $z$, $roll$ with $y$ and $x$ with $yaw$ and $body$ $yaw$. Hence, the current program actually contains 3 rules, linking 2 variables between each other.
+
+Let $r$ be a rotationnal parameter such as $roll$, $pitch$ or $yaw$, and $p$ a prismatic one, such as $x$, $y$ or $z$. A rule is defined by the following form:
+
+$r = ap + b \pm sigma$
+
+Where $a$ is the gain, $b$ the offset and $sigma$ the standard deviation.
+
+The whole analysis report is available [in the experimental folder](robot_config_space/experimental/README.md). It explains how the rules parameters $a$, $b$ and $sigma$ have been determined, how correlations between variables were found and what could be done to improve the rules.
 
 
 ## If you have questions
