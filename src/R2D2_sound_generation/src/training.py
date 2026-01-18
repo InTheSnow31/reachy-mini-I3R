@@ -76,7 +76,6 @@ def train(model_name="ppo_note_model"):
 
     # Training loop
     while True:
-        print("patate")
         model.learn(total_timesteps=MAX_NOTES * INPUTS_FOR_EACH_SESSION, reset_num_timesteps=False)
         model.save(model_name)
         print("Saved PPO model")

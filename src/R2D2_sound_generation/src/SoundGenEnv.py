@@ -11,7 +11,7 @@ import numpy as np
 from synthesis.synthesize_whistle_with_harmonics import notes_to_wav
 from Note import Note
 from RLHF_interface import input
-from Emotion import random_emotion
+from emotion import random_emotion
 import json
 
 #------ CLASSES AND FUNCTIONS ------#

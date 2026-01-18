@@ -239,7 +239,7 @@ if __name__ == "__main__":
     train_losses, val_losses = pretrain_with_val(
         dataset_folder="dataset/labeled/note_sequences/",
         policy=policy,
-        epochs=800,
+        epochs=350,
         batch_size=15,
         lr=1e-3,
         max_notes=max_notes,
@@ -251,4 +251,4 @@ if __name__ == "__main__":
     plot_losses(train_losses, val_losses)
 
     # Save
-    #torch.save(policy.state_dict(), "pretrained_policy.pt")
+    torch.save(policy.state_dict(), "pretrained_policy.pt")
