@@ -6,7 +6,7 @@ A methodology has been put in place to bring expressive movements to the robot R
 
 The whole scripts are available on the following Github repo : [InTheSnow31/reachy-mini-I3R](https://github.com/InTheSnow31/reachy-mini-I3R). The experiments made throughout this report are available in the "expressive-pose" folder of the branch I created, named "anaelle".
 
-## Traduction of Emotions in Movements
+## Translation of Emotions in Movements
 
 Into the [`pose_generation.py`](robot_config_space/pose_generation.py) script, there are two main functions which allow to convert emotions into movements. More precisely, they take as input 3 values: P, A and D. These are the PAD coordinates of the emotion in the PAD space, from the [`pad.json`](emotional_space/pad.json) file. P stands for Pleasure, A for Arousal and D for Dominance.
 

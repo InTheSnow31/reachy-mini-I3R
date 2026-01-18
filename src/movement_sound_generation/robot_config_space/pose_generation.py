@@ -32,7 +32,6 @@ MAX_DURATION = 3.0   # Slow movement
 
 RULES_FILE = Path(__file__).parent / "rules" / "rules_2.json"
 
-
 with RULES_FILE.open("r", encoding="utf-8") as f:
     RULES = json.load(f)
 
