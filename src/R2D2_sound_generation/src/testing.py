@@ -8,7 +8,9 @@ import torch.nn as nn
 import json
 from pathlib import Path
 from SoundGenEnv import SoundGenEnv
+from synthesis.synthesize_whistle_with_harmonics import notes_to_wav
 from pretraining import PretrainPolicy  # ton LSTM pré-entraîné
+from Note import Note
 
 #------- PATHS AND PARAMETERS -------#
 
@@ -57,10 +59,10 @@ def test(emotion_vector, model_name="ppo_note_model", max_notes=MAX_NOTES, deter
 #------------ EXECUTION ------------#
 
 if __name__ == "__main__":
-    # Exemple d’émotion
-    emotion = [1, 0, 0]  # par exemple Valence, Arousal, Energy
+    for i in range(10):
+        emotion = [1, 0, 0]  
+        sequence = test(emotion, model_name="ppo_note_model")
+        print(sequence)
+        sequence = [Note(n[0], n[1], (n[2]+1)/10, n[3]) for n in sequence]
+        notes_to_wav(sequence, "tests/bash/interrogation_"+str(i)+".wav")
 
-    # Générer la séquence de notes
-    sequence = test(emotion, model_name="ppo_note_model")
-
-    print("Generated sequence:", sequence)

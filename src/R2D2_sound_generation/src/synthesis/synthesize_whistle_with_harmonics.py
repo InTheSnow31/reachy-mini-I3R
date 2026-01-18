@@ -99,17 +99,20 @@ def generate_whistle_wave(freq, duration, intensity):
     wave = np.tanh(2.5 * wave)
 
     # enveloppe simple
-    attack = int(0.01 * SAMPLE_RATE)
-    release = int(0.05 * SAMPLE_RATE)
+    attack = min(int(0.01*SAMPLE_RATE), N)
+    release = min(int(0.05*SAMPLE_RATE), N)
     env = np.ones(N)
-    env[:attack] = np.linspace(0, 1, attack)
-    env[-release:] *= np.linspace(1, 0, release)
+    if attack > 0:
+        env[:attack] = np.linspace(0, 1, attack)
+    if release > 0:
+        env[-release:] *= np.linspace(1, 0, release)
 
     return wave * env * intensity
 
 
 def pitch_to_frequency(pitch):
     return A4_FREQ * (2 ** (((pitch+1) - A4_PITCH) / 12))
+
 
 def duration_to_seconds(duration, bpm=DEFAULT_BPM):
 
@@ -130,27 +133,28 @@ def generate_note_wave(note: Note, bpm=DEFAULT_BPM):
 
     return np.concatenate([sound, silence])
 
+
 def generate_slide_wave(pitch_start, pitch_end, duration, intensity):
     N = int(SAMPLE_RATE * duration)
+    if N <= 0:
+        return np.array([], dtype=np.float32)  # note trop courte
 
     # interpolation linéaire en pitch
     pitch_t = np.linspace(pitch_start, pitch_end, N)
     freq_t = A4_FREQ * (2 ** (((pitch_t + 1) - A4_PITCH) / 12))
-
-    # intégration de phase
     phase = np.cumsum(2 * np.pi * freq_t / SAMPLE_RATE)
 
     wave = np.zeros(N)
-
     for mult, amp in harmonics:
         wave += amp * np.sin(mult * phase)
 
     # enveloppe simple
-    attack = int(0.02 * SAMPLE_RATE)
+    attack = min(int(0.02 * SAMPLE_RATE), N)  # ⚡ clamp
     envelope = np.ones(N)
-    envelope[:attack] = np.linspace(0, 1, attack)
-    envelope *= intensity
+    if attack > 0:
+        envelope[:attack] = np.linspace(0, 1, attack)
 
+    envelope *= intensity
     return wave * envelope
 
 
