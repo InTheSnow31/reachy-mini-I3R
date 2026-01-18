@@ -8,12 +8,16 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 import numpy as np
 import scipy.io.wavfile as wav
 import matplotlib.pyplot as plt
+import torch
 import json
 import math
 
 from synthesis.notes_to_wave import notes_to_wav
 from Note import Note
 
+
+
+OUTPUT_PATH = "dataset/labeled/note_sequences/"
 
 def extract_f0s(
     fichier_wav: str,
@@ -318,19 +322,49 @@ with Path("sound_config.json").open("r", encoding="utf-8") as f:
 
 #APPEL DES FONCTION
 
-evenements = extract_f0s("dataset/labeled/sounds/VO_02_018.dspadpcm.wav", 
+def transform_to_encoded(source_path, output_path = OUTPUT_PATH):
+    # Récupération des evenements
+    evenements = extract_f0s(source_path, 
     duree_fenetre = 60/bpm/2,
     fmin = 100.0,
     fmax = 800.0,
     seuil_energie = 0.10
-)
-display_f0s(evenements, afficher_intensite=True)
-synthesize_f0_events(evenements, fs=44100, fichier_sortie="tests/reconstruction.wav")
+    )
 
-slidings_detected = detecte_sliding(evenements, tolerance_derivative=2)
-encoded = tempo_ajusted(slidings_detected, bpm=bpm, duration_scale=duration_scale)
-for note in encoded : 
-    print(note)
-notes_to_wav(encoded, "tests/results.wav", bpm=bpm)
-display_formated(encoded)
+    #display_f0s(evenements, afficher_intensite=True)
+    synthesize_f0_events(evenements, fs=44100, fichier_sortie="tests/reconstruction.wav")
 
+    slidings_detected = detecte_sliding(evenements, tolerance_derivative=2)
+    encoded = tempo_ajusted(slidings_detected, bpm=bpm, duration_scale=duration_scale)
+
+    # Saving
+
+    all_obs = []
+    all_actions = []
+
+    # Initialisation du contexte
+    context = torch.zeros(max_notes, 4)  # pitch, duration, intensity, flags
+    emotion_tensor = torch.tensor(emotions[idx], dtype=torch.float32)
+
+    for t, note in enumerate(seq):
+        obs = torch.cat([context.flatten(), emotion_tensor])
+        all_obs.append(obs)
+        all_actions.append(torch.tensor(note, dtype=torch.long))
+
+        # Mettre à jour le contexte
+        context = torch.roll(context, -1, dims=0)
+        context[-1] = torch.tensor(note[:4], dtype=torch.float32)
+
+    # Sauvegarde du .pt
+    seq_dict = {
+        "observations": torch.stack(all_obs),  # (seq_len, obs_dim)
+        "actions": torch.stack(all_actions)    # (seq_len, 5)
+    }
+    torch.save(seq_dict, dataset_dir / f"seq_{idx:04d}.pt")
+    
+
+
+#test_sound = "dataset/labeled/sounds/VO_02_018.dspadpcm.wav"
+#test_encoded = transform_to_encoded(test_sound)
+#notes_to_wav(test_encoded, "tests/results.wav", bpm=bpm)
+#display_formated(test_encoded)
