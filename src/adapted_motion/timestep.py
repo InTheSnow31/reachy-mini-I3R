@@ -1,5 +1,5 @@
 import numpy as np
-from normalisation_PAD.norm import positive_norm
+from adapted_motion.normalisation_PAD.norm import positive_norm
 
 def timestep(arousal: float) -> float:
     """

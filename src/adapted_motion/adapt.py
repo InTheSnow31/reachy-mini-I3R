@@ -12,53 +12,53 @@ from reachy_mini import ReachyMini
 from reachy_mini.utils import create_head_pose
 
 # Prompts / cognitive parameters (PAD, duration)
-from prompts.prompt_motion_type import choose_motion
-from prompts.prompt_emotion_PAD import get_emotion_PAD
-from prompts.prompt_duration import get_duration
+from adapted_motion.prompts.prompt_motion_type import choose_motion
+from adapted_motion.prompts.prompt_emotion_PAD import get_emotion_PAD
+from adapted_motion.prompts.prompt_duration import get_duration
 
 # Discrete time management
-from timestep import timestep
+from adapted_motion.timestep import timestep
 
 # Antennas
-from antennas_params.ant_main import main as antennas_main
-from antennas_params.ant_angles import ant_angles
-from antennas_params.ant_center import ant_center
+from adapted_motion.antennas_params.ant_main import main as antennas_main
+from adapted_motion.antennas_params.ant_angles import ant_angles
+from adapted_motion.antennas_params.ant_center import ant_center
 
 # Head
-from head_params.head_s_center import head_s_center
-from head_params.head_amplitude import head_amplitude
-from head_params.head_frequency import head_frequency
-from head_params.head_amp_max import amp_max
-
-# --- MOTION CHOICE ---
-yes_motion = choose_motion()  # Returns True if YES, False if NO
-
-# --- SELECTION OF EMOTIONAL PARAMETERS AND DURATION ---
-pleasure, arousal, dominance = get_emotion_PAD()
-duration = get_duration()
-
-# --- TEST ISOLATED ANTENNAS ---
-# antennas_main(
-#     pleasure=pleasure, 
-#     arousal=arousal, 
-#     dominance=dominance, 
-#     duration=duration
-# )
-
-# --- MOTION CENTERS ---
-x_center, z_center, pitch_center, yaw_center, z_norm = head_s_center(pleasure, arousal, dominance)
-base_antennas = ant_center(pleasure)
-
-amp_max_head = amp_max(
-    arousal=arousal,
-    z_norm=z_norm,
-    dominance=dominance
-)
-# print(f"Max amplitude YES according to arousal and z_norm: {amp_max:.3f} rad ({np.degrees(amp_max):.1f}°)")
-
-dt = timestep(arousal)
+from adapted_motion.head_params.head_s_center import head_s_center
+from adapted_motion.head_params.head_amplitude import head_amplitude
+from adapted_motion.head_params.head_frequency import head_frequency
+from adapted_motion.head_params.head_amp_max import amp_max
 
 def main():
+
+    # --- MOTION CHOICE ---
+    yes_motion = choose_motion()  # Returns True if YES, False if NO
+
+    # --- SELECTION OF EMOTIONAL PARAMETERS AND DURATION ---
+    pleasure, arousal, dominance = get_emotion_PAD()
+    duration = get_duration()
+
+    # --- TEST ISOLATED ANTENNAS ---
+    # antennas_main(
+    #     pleasure=pleasure, 
+    #     arousal=arousal, 
+    #     dominance=dominance, 
+    #     duration=duration
+    # )
+
+    # --- MOTION CENTERS ---
+    x_center, z_center, pitch_center, yaw_center, z_norm = head_s_center(pleasure, arousal, dominance)
+    base_antennas = ant_center(pleasure)
+
+    amp_max_head = amp_max(
+        arousal=arousal,
+        z_norm=z_norm,
+        dominance=dominance
+    )
+    # print(f"Max amplitude YES according to arousal and z_norm: {amp_max:.3f} rad ({np.degrees(amp_max):.1f}°)")
+
+    dt = timestep(arousal)
 
     with ReachyMini(media_backend="no_media") as mini:
         # Create central head pose

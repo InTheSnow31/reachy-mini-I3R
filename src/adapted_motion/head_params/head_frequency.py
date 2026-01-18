@@ -1,5 +1,5 @@
 import numpy as np
-from normalisation_PAD.norm import positive_norm, signed_norm
+from adapted_motion.normalisation_PAD.norm import positive_norm, signed_norm
 
 def head_frequency(A_t: float, dominance: float, A_max: float = 0.3) -> float:
     """
