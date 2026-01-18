@@ -64,14 +64,17 @@ class SoundGenEnv(gym.Env):
     def evaluate_sequence(self, notes):
         if self.evaluation_mode :
             emotion_generated = self.estimate_emotion(notes)
+        
+            reward = -np.linalg.norm(np.array(emotion_generated) - np.array(self.target_emotion))
+
+            print("#################################")
+            print("Targeted emotion :", self.target_emotion)
+            print("Evaluated emotion :", emotion_generated)
+            print("Reward ", reward)
+        
         else :
             emotion_generated = [0, 0, 0]
-        reward = -np.linalg.norm(np.array(emotion_generated) - np.array(self.target_emotion))
-
-        print("#################################")
-        print("Targeted emotion :", self.target_emotion)
-        print("Evaluated emotion :", emotion_generated)
-        print("Reward ", reward)
+            reward = 0
         
         return reward
 
@@ -79,7 +82,7 @@ class SoundGenEnv(gym.Env):
     def step(self, action):
         pitch = action[0] + 44
         duration = action[1] + 1
-        intensity = action[2] / (self.num_intensity_bins - 1)
+        intensity = (action[2]+1) / (self.num_intensity_bins)
         slide = action[3]
         end = action[4]
         note = Note(pitch, intensity, duration, slide == 1)

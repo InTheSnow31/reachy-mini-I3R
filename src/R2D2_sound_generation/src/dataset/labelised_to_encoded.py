@@ -316,7 +316,7 @@ def tempo_adjusted(notes_with_slides, bpm, duration_scale):
         duration = times[i+1] - times[i]
         formatted_duration = nearest_duration(duration, bpm, duration_scale)
         formatted_note = nearest_note(fundamentals[i])
-        formatted.append(Note(formatted_note, intensities[i], formatted_duration, slides[i]))
+        formatted.append(Note(formatted_note, int(intensities[i]*10), formatted_duration, slides[i]))
     return formatted
 
 # LOAD CONFIGURATION
