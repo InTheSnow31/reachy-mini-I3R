@@ -1,87 +1,113 @@
+from typing import Dict, Any, List, Optional
+
 import json
 import random
 import math
 import time
 from pathlib import Path
 
-# === PARAMETERS ===
 
-# Prismatic values (mm)
-MIN_X = -20
-MAX_X = 32
-MAX_Y = 60
-MAX_Z = 60
+# === CONSTANT PARAMETERS ===
 
-# Rotoid values (degree)
-MAX_ROLL = 50
-MIN_PITCH = -42
-MAX_PITCH = 35
-MAX_YAW = 90
-MAX_BODY_YAW = 10
+# Prismatic limits (millimeters)
+MIN_X: int = -20
+MAX_X: int = 32
+MAX_Y: int = 60
+MAX_Z: int = 60
 
-# Antennas
-ANT_TOP = 0.0
-ANT_BOTTOM = math.pi
-ANT_CENTER = math.pi / 2
-_ant_noise = [0.0, 0.0]
+# Rotational limits (degrees)
+MAX_ROLL: int = 50
+MIN_PITCH: int = -42
+MAX_PITCH: int = 35
+MAX_YAW: int = 90
+MAX_BODY_YAW: int = 10
 
-# Other
-MIN_DURATION = 0.4   # Rapid movement
-MAX_DURATION = 3.0   # Slow movement
-# ==================
+# Antenna reference angles (radians)
+ANT_TOP: float = 0.0
+ANT_BOTTOM: float = math.pi
+ANT_CENTER: float = math.pi / 2
 
-RULES_FILE = Path(__file__).parent / "rules" / "rules_2.json"
+# Internal antenna noise state (slow drift)
+_ant_noise: List[float] = [0.0, 0.0]
+
+# Timing
+MIN_DURATION: float = 0.4   # Fast movement
+MAX_DURATION: float = 3.0   # Slow movement
+
+# ===========================
+
+RULES_FILE: Path = Path(__file__).parent / "rules" / "rules_2.json"
 
 with RULES_FILE.open("r", encoding="utf-8") as f:
-    RULES = json.load(f)
+    RULES: Dict[str, Any] = json.load(f)
 
 
-def noise(sigma, k=0.1):
+def noise(sigma: float, k: float = 0.1) -> float:
+    """
+    Generate bounded uniform noise proportional to a sigma value.
+    """
     return random.uniform(-k * sigma, k * sigma)
 
 
-def rint(a, b):
+def rint(a: int, b: int) -> int:
+    """
+    Return a random integer between a and b (inclusive).
+    """
     return random.randint(a, b)
 
 
-def wrap_angle(theta):
-    """Keep angle in [0, 2pi]."""
+def wrap_angle(theta: float) -> float:
+    """
+    Wrap an angle into the [0, 2pi] range.
+    """
     return theta % (2 * math.pi)
 
 
-def moving_antennas(P, A, D, t=None):
+def moving_antennas(
+    P: float,
+    A: float,
+    D: float,
+    t: Optional[float] = None,
+) -> List[float]:
     """
-    P, A, D ∈ [0,1]
-    Returns: [ant0, ant1] in radians, 0=up, pi=down
+    Compute antenna angles based on PAD values.
+
+    Returns two angles in radians:
+    - 0 rad = up
+    - pi rad = down
     """
-        
+
     global _ant_noise
 
     if t is None:
         t = time.time()
 
     # --- Base direction ---
-    # Higher pleasure => antennas go up
-    base_angle = ANT_BOTTOM - 1.1 * P * (ANT_BOTTOM - ANT_TOP)
-    print("\nbase = ", base_angle)
+    # Higher pleasure lifts the antennas upward
+    base_angle: float = ANT_BOTTOM - 1.1 * P * (ANT_BOTTOM - ANT_TOP)
 
-    # --- Non-symmetry condition ---
-    # Weak dominance and a bit of arousal means confusion => non-symmetry
-    non_symmetric = D < 0.6 and A > 0.3
+    # --- Symmetry breaking ---
+    # Low dominance + some arousal = confused / asymmetric antennas
+    non_symmetric: bool = D < 0.6 and A > 0.3
 
-    # --- Base movement ---
-    ant0 = base_angle + 0.2 * random.uniform(-A * math.pi, A * math.pi) 
-    print("base + osc = ", ant0)
-    print(" ")
-    ant1 = ant0 if non_symmetric else - (ant0 - ANT_TOP)
+    # --- Base oscillation ---
+    ant0: float = base_angle + 0.2 * random.uniform(
+        -A * math.pi,
+        A * math.pi,
+    )
 
-    # --- Slow random drift (arousal and dominance-dependent) ---
-    drift_step = 0.1 * A * (1/D)
-    drift_limit = 2 * drift_step
+    ant1: float = ant0 if non_symmetric else -(ant0 - ANT_TOP)
+
+    # --- Slow random drift (memory effect) ---
+    drift_step: float = 0.1 * A * (1 / D)
+    drift_limit: float = 2 * drift_step
 
     for i in (0, 1):
         _ant_noise[i] += random.uniform(-drift_step, drift_step)
-        _ant_noise[i] = max(-drift_limit, min(drift_limit, _ant_noise[i]))
+        _ant_noise[i] = max(
+            -drift_limit,
+            min(drift_limit, _ant_noise[i]),
+        )
 
     ant0 += _ant_noise[0]
     ant1 += _ant_noise[1]
@@ -92,18 +118,22 @@ def moving_antennas(P, A, D, t=None):
     ]
 
 
-def sample_pose():
-    x = rint(-40, 40)
-    y = rint(-60, 60)
-    z = rint(-60, 60)
+def sample_pose() -> Dict[str, Any]:
+    """
+    Sample a random valid robot pose using linear rules.
+    """
+
+    x: int = rint(-40, 40)
+    y: int = rint(-60, 60)
+    z: int = rint(-60, 60)
 
     pitch_r = RULES["pitch_from_z"]
-    roll_r  = RULES["roll_from_y"]
-    yaw_r   = RULES["yaw_from_x"]
+    roll_r = RULES["roll_from_y"]
+    yaw_r = RULES["yaw_from_x"]
 
-    pitch = pitch_r["a"] * z + pitch_r["b"] + noise(pitch_r["sigma"], 0.01)
-    roll  = roll_r["a"]  * y + roll_r["b"]  + noise(roll_r["sigma"], 0.01)
-    yaw   = yaw_r["a"]   * x + yaw_r["b"]   + noise(yaw_r["sigma"], 0.01)
+    pitch: float = pitch_r["a"] * z + pitch_r["b"] + noise(pitch_r["sigma"], 0.01)
+    roll: float = roll_r["a"] * y + roll_r["b"] + noise(roll_r["sigma"], 0.01)
+    yaw: float = yaw_r["a"] * x + yaw_r["b"] + noise(yaw_r["sigma"], 0.01)
 
     return {
         "x": x,
@@ -117,48 +147,67 @@ def sample_pose():
     }
 
 
-def generate_pose(P, A, D):
-    """Convert PAD coordinates (from 0 to 1) into a robot pose."""
+def generate_pose(P: float, A: float, D: float) -> Dict[str, Any]:
+    """
+    Convert PAD coordinates (values in [0, 1]) into a robot pose.
 
-    # --- PAD center (neutral) ---
-    x_c = 0
-    y_c = 0
-    z_c = 0 
+    The mapping mixes rule-based kinematics with stochastic modulation.
+    """
 
-    # --- Position (x, y, z) according to Arousal and Dominance ---
-    x = rint(int(x_c - abs(MIN_X)*(A)), int(x_c + MAX_X*A)) # The more arousal, the wider movements
-    y = rint(int(y_c - MAX_Y*A), int(y_c + MAX_Y*A))
-    z = D * rint(int(z_c - MAX_Z*(1 - D)), int(z_c + MAX_Z*D)) # The more dominance, the higher the head
+    # --- Neutral center ---
+    x_c: int = 0
+    y_c: int = 0
+    z_c: int = 0
 
-    # --- Apply existing rules for head orientation ---
-    roll_r  = RULES["roll_from_y"]
+    # --- Position ---
+    # Arousal controls spatial amplitude
+    x: int = rint(
+        int(x_c - abs(MIN_X) * A),
+        int(x_c + MAX_X * A),
+    )
+    y: int = rint(
+        int(y_c - MAX_Y * A),
+        int(y_c + MAX_Y * A),
+    )
+
+    # Dominance controls vertical posture
+    z: float = D * rint(
+        int(z_c - MAX_Z * (1 - D)),
+        int(z_c + MAX_Z * D),
+    )
+
+    # --- Orientation from learned rules ---
+    roll_r = RULES["roll_from_y"]
     pitch_r = RULES["pitch_from_z"]
-    yaw_r   = RULES["yaw_from_x"]
+    yaw_r = RULES["yaw_from_x"]
 
-    roll  = roll_r["a"]  * y + roll_r["b"]  + noise(roll_r["sigma"], 0.5)
-    pitch = pitch_r["a"] * z + pitch_r["b"] + noise(pitch_r["sigma"], 0.5)
-    yaw   = yaw_r["a"]   * x + yaw_r["b"]   + noise(yaw_r["sigma"], 0.5)
+    roll: float = roll_r["a"] * y + roll_r["b"] + noise(roll_r["sigma"], 0.5)
+    pitch: float = pitch_r["a"] * z + pitch_r["b"] + noise(pitch_r["sigma"], 0.5)
+    yaw: float = yaw_r["a"] * x + yaw_r["b"] + noise(yaw_r["sigma"], 0.5)
 
-    # --- Orientation amplified with Aroussal ---
+    # --- Arousal amplification ---
     roll *= A
-    yaw  *= A
+    yaw *= A
 
-    # If pleasure is weak, the pitch goes high; if pleasure is high, pitch goes lower
+    # Pleasure biases pitch direction
     pitch -= 1.5 * (2 * P - 1) * abs(rint(MIN_PITCH, -MIN_PITCH))
-    pitch *= A # Someone crazy makes wide movements, while a weak arousal makes narrow ones
+    pitch *= A
 
-    # --- Body yaw (softer movement, influenced by Arousal) ---
-    body_center = 0
-    body_amp = 0.2 * A * yaw # Here = factor changed
-    body_yaw = rint(int(body_center - abs(body_amp)), int(body_center + abs(body_amp)))
+    # --- Body yaw ---
+    body_center: int = 0
+    body_amp: float = 0.2 * A * yaw
+    body_yaw: float = rint(
+        int(body_center - abs(body_amp)),
+        int(body_center + abs(body_amp)),
+    )
 
-    # --- Dominance influence ---
-    body_yaw *= 1/D # confident robot looks more forward
-    yaw *= 1/D
-    
-    # --- Duration (longer for low Arousal, shorter for high Arousal) ---
-    duration = MIN_DURATION + (1 - A) * (MAX_DURATION - MIN_DURATION)
-    jitter = 1 + random.uniform(-0.5, 0.5) * A
+    # --- Dominance stabilization ---
+    body_yaw *= 1 / D
+    yaw *= 1 / D
+
+    # --- Duration ---
+    duration: float = MIN_DURATION + (1 - A) * (MAX_DURATION - MIN_DURATION)
+    jitter: float = 1 + random.uniform(-0.5, 0.5) * A
     duration *= jitter
 
     # --- Safety clamps ---
@@ -168,10 +217,6 @@ def generate_pose(P, A, D):
     body_yaw = max(-MAX_BODY_YAW, min(MAX_BODY_YAW, body_yaw))
     duration = max(MIN_DURATION, min(MAX_DURATION, duration))
 
-    # --- Method ---
-    method = "minjerk"
-
-    # --- Answer ---
     return {
         "x": x,
         "y": y,
@@ -181,6 +226,6 @@ def generate_pose(P, A, D):
         "yaw": yaw,
         "antennas": moving_antennas(P, A, D),
         "duration": round(duration, 2),
-        "method": method,
+        "method": "minjerk",
         "body_yaw": round(body_yaw, 2),
     }

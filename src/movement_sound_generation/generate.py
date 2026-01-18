@@ -1,59 +1,87 @@
-from movement_sound_generation.robot_config_space.pose_generation import generate_pose
-from movement_sound_generation.sound.sound_generation import generate_sound
+from typing import Dict, Any
 
 import json
 import os
+
 from reachy_mini import ReachyMini
 from reachy_mini.utils import create_head_pose
 
-def main():
+from movement_sound_generation.robot_config_space.pose_generation import generate_pose
+from movement_sound_generation.sound.sound_generation import generate_sound
 
+
+def main() -> None:
+    """
+    Interactive loop to test emotional behaviors on Reachy Mini.
+
+    The user selects an emotion, which is mapped to PAD (Pleasure, Arousal,
+    Dominance) values. Based on this emotional state, the system repeatedly:
+    - Generates a robot pose
+    - Synthesizes a sound matching the emotion
+    - Executes both synchronously on the robot
+
+    The loop continues until the minimum requested duration is reached
+    or the user quits.
+    """
+
+    # Initialize Reachy Mini context
     with ReachyMini() as reachy:
 
-        print("\nHello! Try different emotions here.\nType 'q' and enter if you want to quit.")
+        print("\nHello! Try different emotions here.")
+        print("Type 'q' and press enter if you want to quit.\n")
 
         while True:
 
-            # 1. Emotionnal state choice
-            emotion = input("\nWhich emotion would you like to try? ").strip().lower()
+            # --- 1. Emotional state selection ---
+            emotion: str = input(
+                "\nWhich emotion would you like to try? "
+            ).strip().lower()
+
             if emotion == "q":
                 print("\nQuitting.\n")
                 break
 
-            duration_min = float(input("Indicate a minimum duration (seconds): "))
+            duration_min: float = float(
+                input("Indicate a minimum duration (seconds): ")
+            )
 
-            # 2. PAD loading
-            current_dir = os.path.dirname(os.path.abspath(__file__))
-            json_path = os.path.join(current_dir, "emotional_space", "pad.json")
+            # --- 2. Load PAD emotional space ---
+            current_dir: str = os.path.dirname(os.path.abspath(__file__))
+            json_path: str = os.path.join(
+                current_dir, "emotional_space", "pad.json"
+            )
 
-            with open(json_path) as f:
-                pad_data = json.load(f)
+            with open(json_path, "r", encoding="utf-8") as f:
+                pad_data: Dict[str, Any] = json.load(f)
 
             if emotion not in pad_data["emotions"]:
                 print(f"\nEmotion '{emotion}' unknown.")
                 return
 
-            P = pad_data["emotions"][emotion]["P"]
-            A = pad_data["emotions"][emotion]["A"]
-            D = pad_data["emotions"][emotion]["D"]
+            P: float = pad_data["emotions"][emotion]["P"]
+            A: float = pad_data["emotions"][emotion]["A"]
+            D: float = pad_data["emotions"][emotion]["D"]
 
-            # 3. Pose and sound preparation
-            duration = 0
+            # --- 3. Prepare execution ---
+            duration: float = 0.0
             reachy.media.start_playing()
 
-            while (duration <= duration_min):
+            # --- 4. Generate and execute until minimum duration is reached ---
+            while duration <= duration_min:
 
-                # 4. Pose and sound generation
-                pose = generate_pose(P, A, D)
-                print(f"\nGenerated pose for {emotion}: {pose}")
+                # Generate pose parameters from emotional state
+                pose: Dict[str, Any] = generate_pose(P, A, D)
+                print(f"\nGenerated pose for '{emotion}': {pose}")
+
+                # Generate corresponding emotional sound
                 sound = generate_sound(P, A, D, pose["duration"])
 
+                # Push audio to Reachy Mini buffer
                 reachy.media.push_audio_sample(sound)
 
-                duration+=pose["duration"]
+                duration += pose["duration"]
 
-                # 5. Execution
-                
+                # --- 5. Build and execute robot motion ---
                 head = create_head_pose(
                     x=pose["x"],
                     y=pose["y"],
@@ -64,15 +92,16 @@ def main():
                     mm=True,
                     degrees=True,
                 )
+
                 reachy.goto_target(
                     head=head,
                     antennas=pose["antennas"],
                     duration=pose["duration"],
                     method=pose["method"],
-                    body_yaw=pose["body_yaw"]
+                    body_yaw=pose["body_yaw"],
                 )
 
-                print("The body yaw is of:" + str(pose["body_yaw"]))
+                print("Body yaw:", pose["body_yaw"])
 
 
 if __name__ == "__main__":
