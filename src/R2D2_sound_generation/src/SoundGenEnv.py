@@ -8,7 +8,7 @@ from gym import spaces
 import numpy as np
 from synthesis.notes_to_wave import notes_to_wav
 from Note import Note
-from interface_input import input
+from RLHF_interface import input
 from emotion import polar_to_emotion, random_emotion
 import json
 

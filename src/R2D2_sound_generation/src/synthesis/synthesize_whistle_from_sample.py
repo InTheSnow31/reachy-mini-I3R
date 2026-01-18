@@ -6,7 +6,7 @@ SAMPLE_RATE = 44100
 # ------------------------------------------------------------
 # Chargement du sifflement de référence
 # ------------------------------------------------------------
-WHISTLE_SAMPLE, SR = sf.read("w1.wav")
+WHISTLE_SAMPLE, SR = sf.read("whistle_sample.wav")
 if SR != SAMPLE_RATE:
     raise ValueError("Le sample doit être en 44.1 kHz")
 
