@@ -33,8 +33,8 @@ It:
 - Executes movements on the robot 🤖
 
 **Execution flow:**
-1. Reachy first moves to the **head/antenna center position** in 1 second using the `goto_target` function ⏩.  
-2. Then, the oscillatory movement is played by repeatedly calling `set_target` at each **timestep** for the specified duration ⏳.  
+1. Reachy first moves to the **head/antenna center position** in 1 second using the `goto_target` function.  
+2. Then, the oscillatory movement is played by repeatedly calling `set_target` at each **timestep** for the specified duration.  
 3. At the end, Reachy **remains in the emotional posture** reflecting PAD values, unless he is manually interrupted, but **no longer performs the functional motion**.
 
 > **Note:** No parameter calculation is implemented in this file; it only orchestrates the sequence of motions.
@@ -67,9 +67,9 @@ This structure avoids coupling and improves maintainability.
 This folder contains **high-level prompts**.
 
 It is used to:
-- Retrieve motion type (YES/NO) ✅/❌
-- Retrieve emotional information (PAD) 🧠
-- Retrieve motion duration ⏱️
+- `prompt_motion_type` Retrieve motion type (YES/NO)
+- `prompt_emotion_PAD` Retrieve emotional information (PAD)
+- `prompt_duration` Retrieve motion duration
 
 Prompts act as an interface between intention and execution.
 
@@ -173,10 +173,10 @@ Once the center is defined, **oscillatory motion** is applied around it. The osc
 
 | PAD Dimension | Oscillation Aspect         | Rationale |
 |---------------|---------------------------|-----------|
-| **Pleasure**  | Instantaneous amplitude over time ↕️ | Absolute pleasure → larger head swings at each moment (more expressive). Neutral → subtle movements. |
-| **Dominance** | Temporal shaping (crescendo/decrescendo) ⬆️⬇️ | Positive dominance → crescendo (amplitude grows over time). Negative dominance → decrescendo (amplitude fades). |
-| **Dominance** | Frequency & micro-modulation ⚡ | Controls “liveliness” of the oscillation. Low dominance → faster, small jittery movements. High dominance → slower, controlled swings. |
-| **Arousal**   | Maximum amplitude (+ Timestep) 🏋️ | Sets the physical limit of the oscillation. Higher arousal → higher potential amplitude. |
+| **Pleasure**  | Instantaneous amplitude over time  | Absolute pleasure → larger head swings at each moment (more expressive). Neutral → subtle movements. |
+| **Dominance** | Temporal shaping (crescendo/decrescendo)  | Positive dominance → crescendo (amplitude grows over time). Negative dominance → decrescendo (amplitude fades). |
+| **Dominance** | Frequency & micro-modulation | Controls “liveliness” of the oscillation. Low dominance → faster, small jittery movements. High dominance → slower, controlled swings. |
+| **Arousal**   | Maximum amplitude (+ Timestep) | Sets the physical limit of the oscillation. Higher arousal → higher potential amplitude. |
 
 > **Note:** Amplitude is always clamped to the robot’s physical limits (`A_phys_max`), and small smoothing functions (sin/cos) are used to make movements natural and organic.
 
