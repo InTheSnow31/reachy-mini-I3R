@@ -31,7 +31,7 @@ def main():
         generate.main()
 
     elif mode == 3:
-        print("Training mode not implemented for now.")
+        print("Go to R2D2_sound_generation/src/ and lunch the 'testing.py' script.")
         # train.train()
 
     else:
