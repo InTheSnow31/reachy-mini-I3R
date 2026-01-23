@@ -1,18 +1,7 @@
-# Reachy Mini core SDK
-reachy-mini
-
 # Mathematics
-random
-math
 numpy
-sklearn
+scikit-learn
 scipy
 
 # Display
 matplotlib
-
-# Utils
-json
-time
-pathlib
-os
