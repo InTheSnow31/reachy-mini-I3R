@@ -8,6 +8,22 @@ from reachy_mini.utils import create_head_pose
 
 from movement_sound_generation.robot_config_space.pose_generation import generate_pose
 from movement_sound_generation.sound.sound_generation import generate_sound
+from movement_sound_generation.emotional_space import convert
+
+
+def normalize_pad_json(data: dict) -> dict:
+    """
+    Converts PAD values from [-1; 1] to [0; 1].
+    Returns a dictionnary of PAD values for each emotion.
+    """
+    def norm(x: float) -> float:
+        return max(0.0, min(1.0, (x + 1.0) * 0.5))
+
+    for emo in data.get("emotions", {}).values():
+        for k in ("P", "A", "D"):
+            if k in emo:
+                emo[k] = norm(emo[k])
+    return data
 
 
 def main() -> None:
@@ -52,11 +68,9 @@ def main() -> None:
             )
 
             with open(json_path, "r", encoding="utf-8") as f:
-                pad_data: Dict[str, Any] = json.load(f)
+                pad_data = json.load(f)
 
-            if emotion not in pad_data["emotions"]:
-                print(f"\nEmotion '{emotion}' unknown.")
-                return
+            pad_data = normalize_pad_json(pad_data)
 
             P: float = pad_data["emotions"][emotion]["P"]
             A: float = pad_data["emotions"][emotion]["A"]
