@@ -162,7 +162,8 @@ def generate_sound(
     C_note = note_curve(P, A, D, t, duration)
 
     # Dominance controls morphing between pitch behaviors
-    C = C_cont
+    key_offset = rd.uniform(-0.5, 0.5) * (1 - D)
+    C = C_cont # + C_note + key_offset # Can be used, but still sounds weird
 
     # Instantaneous frequency
     f = f0 * (2.0**C)
