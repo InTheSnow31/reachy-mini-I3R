@@ -17,23 +17,41 @@ import json
 #------ CLASSES AND FUNCTIONS ------#
 
 class SoundGenEnv(gym.Env):
-    def __init__(self, emotion_model, max_notes=16, evaluation_mode = True):
+    def __init__(self, emotion_model, max_notes=16, evaluation_mode=True):
+        super().__init__()  # toujours en premier
         self.evaluation_mode = evaluation_mode
         self.EMOTION_MODEL = emotion_model
-        with Path("sound_config.json").open("r", encoding="utf-8") as f:
-            super().__init__()
-            json_content = json.load(f)
-            self.max_notes = json_content["MAX_NOTES"]
-            self.current_step = 0
-            self.notes = []
-            self.note_range = json_content["TONES_RANGE"]
-            self.num_intensity_bins = 10  # Intensity levels 
-            self.duration_range = json_content["DURATION_SCALE"]  # Note Duration
+        self.max_notes = max_notes
+        self.current_step = 0
+        self.notes = []
 
-        self.action_space = spaces.MultiDiscrete([self.note_range, self.duration_range, self.num_intensity_bins, 2, 2]) # Notes, Duratio, Intensity, Slide ?, Final Note ?
+        # Charger config
+        with open("sound_config.json", "r", encoding="utf-8") as f:
+            cfg = json.load(f)
+            self.note_range = cfg["TONES_RANGE"]
+            self.duration_range = cfg["DURATION_SCALE"]
 
+        # Action : MultiDiscrete pour les discrets, Box pour intensity
+        self.action_space_discrete = gym.spaces.MultiDiscrete([
+            self.note_range,  # tone
+            self.duration_range,  # duration
+            2,  # sliding
+            2   # final
+        ])
+        self.action_space_continuous = gym.spaces.Box(
+            low=0.0, high=1.0, shape=(1,), dtype=np.float32
+        )
+
+        # Pour SB3, tu peux concaténer en un seul Box si tu veux
+        self.action_space = gym.spaces.Box(
+            low=np.array([0,0,0,0,0], dtype=np.float32),
+            high=np.array([self.note_range-1, self.duration_range-1, 1, 1, 1], dtype=np.float32),
+            dtype=np.float32
+        )
+
+        # Observation
         obs_dim = self.max_notes*4 + self.EMOTION_MODEL["number_of_emotions"]
-        self.observation_space = spaces.Box(low=0, high=1, shape=(obs_dim,), dtype=np.float32)
+        self.observation_space = gym.spaces.Box(low=0.0, high=1.0, shape=(obs_dim,), dtype=np.float32)
 
 
     def reset(self):
@@ -70,6 +88,9 @@ class SoundGenEnv(gym.Env):
             print("#################################")
             print("Targeted emotion :", self.target_emotion)
             print("Evaluated emotion :", emotion_generated)
+            print("Notes :")
+            for n in notes :
+                print("**", n)
             print("Reward ", reward)
         
         else :
@@ -80,23 +101,24 @@ class SoundGenEnv(gym.Env):
 
 
     def step(self, action):
-        pitch = action[0] + 44
-        duration = action[1] + 1
-        intensity = (action[2]+1) / (self.num_intensity_bins)
-        slide = action[3]
-        end = action[4]
-        note = Note(pitch, intensity, duration, slide == 1)
+        # action[0:4] = tone, duration, sliding, final
+        # action[4] = intensity
+        tone = int(action[0])
+        duration = int(action[1])
+        slide = int(action[2]) == 1
+        end = int(action[3]) == 1
+        intensity = float(action[4])  # continu
+
+        pitch = tone + 44
+        duration = duration + 1
+        note = Note(pitch, intensity, duration, slide)
         self.notes.append(note)
         self.current_step += 1
 
-        #Ending generation condition
-        done = self.current_step >= self.max_notes or end == 1
-
-        reward = 0
-        if done:
-            reward = self.evaluate_sequence(self.notes)
+        done = self.current_step >= self.max_notes or end
+        reward = self.evaluate_sequence(self.notes) if done else 0
 
         obs = self._get_obs()
-        info = {"note": note, "sequence": self.notes.copy(), "target_emotion": self.target_emotion}
+        info = {"note": note, "sequence": self.notes.copy()}
         return obs, reward, done, info
 
