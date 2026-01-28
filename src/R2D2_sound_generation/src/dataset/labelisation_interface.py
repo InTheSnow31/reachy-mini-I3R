@@ -12,7 +12,7 @@ from PIL import Image, ImageTk
 import math
 import sounddevice as sd
 import soundfile as sf
-from Emotion import polar_to_emotion
+from emotion import polar_to_emotion
 import json
 
 #------- PATHS AND PARAMETERS -------#

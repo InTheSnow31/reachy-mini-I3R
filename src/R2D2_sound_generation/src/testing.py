@@ -61,10 +61,8 @@ def test(emotion_vector, model_name="ppo_note_model", output_path = "tests/gener
 #------------ EXECUTION ------------#
 
 if __name__ == "__main__":
-    hapiness = input("Chose a value for hapiness (0 = Sad, 1 = Happy)")
-    explosiveness = input("Chose a value for explosiveness (0 = Calm, 1 = Explosive)")
-    interrogation = input("Chose a value for Interrogation (0 = Certain, 1 = Interrogative)")
+    hapiness = 0 #input("Chose a value for hapiness (0 = Sad, 1 = Happy)")
+    explosiveness = 0.5 #input("Chose a value for explosiveness (0 = Calm, 1 = Explosive)")
+    interrogation = 0.5 #input("Chose a value for Interrogation (0 = Interrogative, 1 = Certain)")
     emotion = [float(hapiness), float(explosiveness), float(interrogation)]
     test(emotion, model_name="ppo_note_model")
-        
-
