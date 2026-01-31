@@ -152,7 +152,7 @@ def display_f0s(events, show_intensity: bool = True, cmap: str = "viridis"):
 
     for start, duration, freq, intensity in events:
         if show_intensity:
-            color = plt.cm.get_cmap(cmap)(
+            color = plt.get_cmap(cmap)(
                 (intensity - vmin) / (vmax - vmin + 1e-12)
             )
             linewidth = 2 + 6 * (intensity - vmin) / (vmax - vmin + 1e-12)
@@ -189,14 +189,12 @@ def display_formatted(notes):
     current_x = 0
     i = 0
     while i < len(notes):
-        if notes[i].slide:  # Sliding == True
+        if notes[i].slide and (i < (len(notes)-1)):  # Sliding == True
             plt.plot([current_x, current_x + notes[i].duration], [notes[i].pitch, notes[i+1].pitch], marker='o', linestyle='-')
-            current_x += notes[i].duration + notes[i+1].duration
-            i += 2
         else:
             plt.plot([current_x], [notes[i].pitch], marker='o', linestyle='None')
-            current_x += notes[i].duration
-            i += 1
+        current_x += notes[i].duration
+        i += 1
     plt.grid(True)
     plt.show()
 
@@ -261,7 +259,22 @@ def synthesize_f0_events(
 
     print(f"WAV generated: {output_file}")
 
-def detect_sliding(events, derivative_tolerance=2):
+def alignment_score_2d(x, y):
+    """
+    Indicateur d'alignement de points 2D.
+    x, y : array-like de même longueur
+    Retourne un score entre 0 et 1
+    1 = parfaitement alignés
+    0 = pas alignés
+    """
+    x = np.array(x)
+    y = np.array(y)
+    if len(x) < 2:
+        return 1.0  # trivialement alignés
+    r = np.corrcoef(x, y)[0, 1]  # Pearson correlation
+    return abs(r)  # on prend la valeur absolue pour ignorer le signe
+
+def detect_sliding(events, derivative_tolerance):
     times = [event[0] for event in events]
     fundamentals = [event[2] for event in events]
     intensities = [event[3] for event in events]
@@ -271,21 +284,28 @@ def detect_sliding(events, derivative_tolerance=2):
         if len(current_slide) <= 1:
             current_slide.append([times[i], fundamentals[i], intensities[i]])
         else:
-            prev_dy = (fundamentals[i-1] - fundamentals[i-2]) / (times[i-1] - times[i-2])
-            curr_dy = (fundamentals[i] - fundamentals[i-1]) / (times[i] - times[i-1])
-            if 1/derivative_tolerance < (curr_dy / prev_dy) < derivative_tolerance:
+            alignement = alignment_score_2d([val[0] for val in current_slide]+[times[i]], [val[1] for val in current_slide]+[fundamentals[i]])
+            print(f"alignement = {alignement}")
+
+            if  alignement > 0.85 and i < (len(fundamentals)-1) :
                 current_slide.append([times[i], fundamentals[i], intensities[i]])
             else:
                 if len(current_slide) > 2:
+                    print("Nouveau slide")
                     lower_bound = current_slide[0]
-                    upper_bound = current_slide[-1]
                     final_values.append(lower_bound + [True])
-                    final_values.append(upper_bound + [False])
+                    print([[v[-1]] for v in final_values])
                 else:
-                    for note in current_slide:
+                    for note in current_slide[:-1]:
+                        print("Nouveau point")
                         final_values.append(note + [False])
-                current_slide = []
+                if i == (len(fundamentals)-1):
+                    final_values.append(current_slide[-1] + [False])
+
+                
+                current_slide = [current_slide[-1]]
                 current_slide.append([times[i], fundamentals[i], intensities[i]])
+    print("Final values : ",[[v[0],v[1],v[-1]] for v in final_values])
     return final_values
 
 def nearest_duration(duration, bpm, duration_scale):
@@ -306,6 +326,20 @@ def nearest_note(frequency):
     n = max(1, min(88, n))  # limit between 1 and 88
     return n
 
+def to_Notes(notes_with_slides, bpm, duration_scale):
+    times = [note[0] for note in notes_with_slides]
+    fundamentals = [note[1] for note in notes_with_slides]
+    intensities = [note[2] for note in notes_with_slides]
+    slides = [note[3] for note in notes_with_slides]
+    formatted = []
+    for i in range(len(notes_with_slides)-1):
+        duration = times[i+1] - times[i]
+        formatted_duration = duration
+        formatted_note = nearest_note(fundamentals[i])
+        formatted.append(Note(formatted_note, intensities[i], formatted_duration, slides[i]))
+    formatted.append(Note(nearest_note(fundamentals[-1]), intensities[-1], 60/bpm, slides[-1]))
+    return formatted
+
 def tempo_adjusted(notes_with_slides, bpm, duration_scale):
     times = [note[0] for note in notes_with_slides]
     fundamentals = [note[1] for note in notes_with_slides]
@@ -317,6 +351,7 @@ def tempo_adjusted(notes_with_slides, bpm, duration_scale):
         formatted_duration = nearest_duration(duration, bpm, duration_scale)
         formatted_note = nearest_note(fundamentals[i])
         formatted.append(Note(formatted_note, intensities[i], formatted_duration, slides[i]))
+    formatted.append(Note(nearest_note(fundamentals[-1]), intensities[-1], 60/bpm, slides[-1]))
     return formatted
 
 # LOAD CONFIGURATION
@@ -337,17 +372,22 @@ def transform_to_encoded(source_name, output_path=OUTPUT_PATH):
         energy_threshold=0.10
     )
 
-    # display_f0s(events, show_intensity=True)
-    # synthesize_f0_events(events, fs=44100, output_file="tests/reconstruction.wav")
+    display_f0s(events, show_intensity=True)
 
-    slides_detected = detect_sliding(events, derivative_tolerance=2)
+    slides_detected = detect_sliding(events, 3)
+    print(slides_detected)
+    #display_formatted(to_Notes(slides_detected, bpm=bpm, duration_scale=duration_scale))
     encoded = tempo_adjusted(slides_detected, bpm=bpm, duration_scale=duration_scale)
+    display_formatted(encoded)
+
+    #synthesize_f0_events(events, fs=44100, output_file="dataset/labeled/note_sequences_audio/"+source_name+".wav")
 
     with open(LABELS_PATH+source_name+".txt", "r", encoding="utf-8") as f:
         emotions = f.read()
         emotions = [float(e) for e in emotions.split(",")]
 
     # Saving
+
 
     sequence_notes = [list(en) + [0] for en in encoded]
     sequence_notes[-1][-1] = 1  # mark the last done as True
@@ -368,5 +408,6 @@ def transform_to_encoded(source_name, output_path=OUTPUT_PATH):
 
 label_files = sorted(Path(LABELS_PATH).glob("*.txt"))
 for label_file in label_files:
+    print("\nTransformation de "+label_file.stem)
     source_name = label_file.stem  # name without extension
     transform_to_encoded(source_name)
